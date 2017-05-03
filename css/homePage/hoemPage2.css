@@ -1,0 +1,119 @@
+
+html,body{
+    height: 100%;
+    background: #fff;
+}
+.homePage{
+    width:100%;
+    height: 100%;
+    overflow:hidden;
+    position:relative;
+    min-height:650px;
+    min-width: 1050px;
+}
+/*top部分*/
+.top{
+    width: 100%;
+    height:10%;
+    line-height: 80px;
+    position: absolute;
+    background: #FFFFFF;
+    border-bottom:1px solid #030000;
+}
+.top .logo{
+    width: 300px;
+    line-height: 80px;
+    margin-left:210px;
+    display: inline-block;
+}
+.top .about{
+    display: inline-block;
+    width: 300px;
+    height: 100%;
+    float: right;
+    margin-right:120px;
+    margin-top:10px;
+}
+.about span{
+    font-size:16px;
+    color:#243D79;
+}
+/*主体内容*/
+.content{
+    width:100%;
+    height:80%;
+    position: relative;
+    top:10%;
+    bottom:10%;
+    background: -webkit-gradient(linear, 0 0, 0 bottom, from(#00538C), to(rgba(16, 138, 209, 0.8)));
+}
+.content .img1{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.content .img3{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+.content .content_wrapper{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left:-30%;
+    margin-top:-12%;
+    z-index: 10;
+    width: 60%;
+    height: 60%;
+    border:1px solid transparent;
+    box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+}
+.content_wrapper .item{
+    float: left;
+    width: 25%;
+    height: 48%;
+    cursor: pointer;
+}
+.item.moving {
+    /*border: 1px dashed gray;*/
+}
+.item.draging {
+    width: 25%;
+    height: 48%;
+    position: absolute;
+    box-shadow: 0 0 2px 2px #ccc;
+    border-radius: 5px;
+    z-index: 500;
+}
+.item img{
+    width: 100%;
+    height: 100%;
+}
+/*foot 部分*/
+.foot{
+    width: 100%;
+    height:10%;
+    line-height:30px;
+    text-align: center;
+    position: absolute;
+    bottom:0px;
+    left:0;
+    z-index:100;
+    background-color: #fff;
+}
+.foot p{
+    vertical-align: baseline;
+    margin-top:15px;
+    padding:0;
+    font: inherit inherit inherit inherit inherit inherit inherit inherit;
+    color: #999;
+}
+.foot p:last-child{
+    margin: 0;
+}
+.foot a{
+    color:#999;
+}
