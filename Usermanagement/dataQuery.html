@@ -1,0 +1,1508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Olive Enterprise">
+    <title>
+        ANOSi用户信息管理系统
+    </title>
+    <!-- Css 不要更换位置排列-->
+    <link href="../lib/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../lib/css/bootstrap-reset.css" rel="stylesheet">    <!--iconfent-->
+    <link href="../lib/assets/advanced-datatable/media/css/demo_table.css" rel="stylesheet"><!-- DATATABLE 样式CSS -->
+    <link href="../lib/css/style.css" rel="stylesheet"><!-- 页面基本 CSS -->
+    <link href="../lib/assets/font-awesome/css/font-awesome.css" rel="stylesheet"><!--字体图标-->
+    <!-- 孔凡奇 引入 css -->
+    <link rel="stylesheet" href="css/K-metadata.css">
+
+    <!--下面这个JS是用来判断是否为ie9以下浏览器，如果是的话执行下列两个js，否就不执行，请勿清空下方备注 ieIE9（这是备注判断语句）-->
+    <!--[if lt IE 9]>
+    <script src="../js/html5shiv.js">
+    </script>
+    <script src="../js/respond.min.js">
+    </script>
+    <![endif]-->
+    <!-- Css 结束-->
+
+</head>
+<body>
+<!-- 页面外围总父盒子 -->
+<section id="container" class="box">
+    <!-- 页面top栏 -->
+    <header class="header white-bg">
+        <!-- 侧边栏切换按钮 -->
+        <div class="sidebar-toggle-box">
+            <div data-placement="right" class="fa fa-bars tooltips">
+            </div>
+        </div>
+        <!-- 侧边栏a链接跳转-->
+        <a href="../index.html" class="logo">
+            ANOSi
+            <span>
+            CMS产品
+          </span>
+        </a>
+
+        <!-- 右上角用户设置 -->
+
+        <div class="top-nav ">
+            <ul class="nav pull-right top-menu">
+                <li class="dropdown">
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                        <img alt="" src="../lib/img/avatar1_small.jpg">
+                        <span class="username">
+                  Li Wei
+                </span>
+                        <b class="caret">
+                        </b>
+                    </a>
+                    <ul class="dropdown-menu extended logout">
+                        <li class="log-arrow-up"></li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-cog"></i>
+                                设置
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-bell-o"></i>
+                                通知
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../login.html">
+                                <i class="fa fa-key"></i>
+                                退出登录
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <!-- 右上角用户设置结束  -->
+        <!-- 小铃铛的nav父元素 更改nav即可更改小铃铛的位置 -->
+
+        <nav class="nav notify-row" id="top_menu" style="float: right;margin-top: 9px">
+            <ul class="nav top-menu">
+                <!-- 提醒事项 小铃铛 -->
+                <li id="header_notification_bar" class="dropdown">
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                        <i class="fa fa-bell-o"></i>
+                        <span class="badge bg-warning">5</span>
+                    </a>
+                    <ul class="dropdown-menu extended notification">
+                        <li class="notify-arrow notify-arrow-blue"></li>
+                        <li>
+                            <p class="blue">
+                                您有5个新通知
+                            </p>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="label label-danger">
+                                    <i class="fa fa-bolt"></i>
+                                </span>
+                                没有吃饭。
+                                <span class="small italic">34 mins</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="label label-warning">
+                                    <i class="fa fa-bell"></i>
+                                </span>
+                                没有睡觉。
+                                <span class="small italic">1 Hours</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="label label-danger">
+                                    <i class="fa fa-bolt"></i>
+                                </span>
+                                没有逛街。
+                                <span class="small italic">4 hrs</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="label label-success">
+                                    <i class="fa fa-plus"></i>
+                                </span>
+                                没有打扑克。
+                                <span class="small italic">Just now</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                    <span class="label label-primary">
+                      <i class="fa fa-bullhorn">
+                      </i>
+                    </span>
+                                没有刮胡子。
+                                <span class="small italic">
+                      10 mins
+                    </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                查看所有通知
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <!-- 提醒事项 小铃铛结束 -->
+            </ul>
+        </nav>
+        <!-- 小铃铛的nav父元素 更改nav即可更改小铃铛的位置 结束 -->
+    </header>
+    <!-- 页面top栏 结束 -->
+
+    <!-- left勾选栏 -->
+    <aside>
+        <div id="sidebar" class="nav-collapse">
+            <ul class="sidebar-menu" id="nav-accordion">
+                <!-- 回到首页 -->
+                <li>
+                    <a href="index.html">
+                        <i class="fa fa-dashboard">
+                        </i>
+                        <span>
+                  返回到主界面
+                </span>
+                    </a>
+                </li>
+                <!-- 用户信息管理 -->
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-laptop"></i>
+                        <span>用户信息管理</span>
+                        <span class="label label-success span-sidebar">3</span>
+                    </a>
+                    <ul class="sub">
+                        <li>
+                            <a href="index.html">
+                                用户查询
+                            </a>
+                        </li>
+                        <li>
+                            <a href="userDetails.html">
+                                用户详情
+                            </a>
+                        </li>
+                        <li>
+                            <a href="addUser.html">
+                                用户新增、修改
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <!-- 组织架构管理 -->
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-book"></i>
+                        <span>组织架构管理</span>
+                        <span class="label label-info span-sidebar">4</span>
+                    </a>
+                    <ul class="sub">
+                        <li>
+                            <a href="organQuery.html">
+                                组织架构查询
+                            </a>
+                        </li>
+                        <li>
+                            <a href="organSee.html">
+                                组织架构查看
+                            </a>
+                        </li>
+                        <li>
+                            <a href="newOrgan.html">
+                                组织架构新增
+                            </a>
+                        </li>
+                        <li>
+                            <a href="organModification.html">
+                                组织架构修改
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <!-- 角色管理 -->
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-cogs"></i>
+                        <span>角色管理</span>
+                        <span class="label label-primary span-sidebar">3</span>
+                    </a>
+                    <ul class="sub">
+                        <li>
+                            <a href="rolemanagement.html">
+                                角色管理
+                            </a>
+                        </li>
+                        <li>
+                            <a href="newRole.html">
+                                角色新增
+                            </a>
+                        </li>
+                        <li>
+                            <a href="rolemodification.html">
+                                角色修改
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <!-- 权限管理 -->
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-sitemap"></i>
+                        <span>权限管理</span>
+                        <span class="label label-danger span-sidebar">3</span>
+                    </a>
+                    <ul class="sub">
+                        <li>
+                            <a href="permissionQuery.html">
+                                权限查询
+                            </a>
+                        </li>
+                        <li>
+                            <a href="newPermissions.html">
+                                权限新增
+                            </a>
+                        </li>
+                        <li>
+                            <a href="jurisdictionModify.html">
+                                权限修改
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <!-- 配置管理 -->
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa  fa-gear "></i>
+                        <span>配置管理</span>
+                        <span class="label label-danger span-sidebar">3</span>
+                    </a>
+                    <ul class="sub">
+                        <li>
+                            <a href="orgUserConfiguration.html">组织,用户管理</a>
+                        </li>
+                        <li>
+                            <a href="rolePermission.html">角色,用户管理</a>
+                        </li>
+                        <li>
+                            <a href="userRoles.html">角色,权限管理</a>
+                        </li>
+                    </ul>
+                </li>
+                <!-- 元数据管理 -->
+                <li class="sub-menu">
+                    <a href="javascript:;" class="active">
+                        <i class="fa fa-file-text"></i>
+                        <span>元数据管理</span>
+                        <span class="label label-danger span-sidebar">4</span>
+                    </a>
+                    <ul class="sub">
+                        <li class="active">
+                            <a href="dataQuery.html">元数据查询</a>
+                        </li>
+                        <li>
+                            <a href="dataDetails.html">元数据详情</a>
+                        </li>
+                        <li>
+                            <a href="newData.html">元数据新增</a>
+                        </li>
+                        <li>
+                            <a href="dataModification.html">元数据修改</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </aside>
+    <!-- left勾选栏 结束 -->
+
+    <!-- 中间主要内容 -->
+    <section id="main-content">
+        <!-- BEGIN WRAPPER  右侧中间区域-->
+        <section class="wrapper site-min-height">
+
+            <!-- BEGIN 查询层 -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading" style="font-size:8px;">
+                            查询条件
+                            <span class="tools pull-right">
+                          <a href="javascript:;" class="fa fa-chevron-down">
+                          </a>
+                        </span>
+                        </div>
+                        <div class="panel-body">
+                            <form class="form-inline" role="form">
+                                <!-- 分类编码 -->
+                                <div class="form-group meta-data">
+                                    <label class="control-label">分类编码 </label>
+                                    <input type="text" class="form-control" id="classCode">
+                                </div>
+                                <!-- 元数据名 -->
+                                <div class="form-group meta-data">
+                                    <label class="control-label">元数据名 </label>
+                                    <input type="text" class="form-control" id="MetadataName">
+                                </div>
+                                <!-- 元数据值 -->
+                                <div class="form-group meta-data">
+                                    <label class="control-label">元数据值 </label>
+                                    <input type="text" class="form-control" id="MetadataValue">
+                                </div>
+                                &nbsp;
+                                <button type="button" class="btn btn-success">
+                                    <i class="fa fa-search">&nbsp;查询
+                                    </i>
+                                </button>
+                                &nbsp;
+                                <button type="button" class="btn btn-primary">
+                                    <a href="addUser.html">
+                                        <i class="fa fa-pencil-square-o">&nbsp;新增
+                                        </i>
+                                    </a>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END 查询层 -->
+
+            <!-- BEGIN 表格展现层 -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading" style="font-size:8px;">
+                            查询结果
+                            <span class="tools pull-right">
+                          <a href="javascript:;" class="fa fa-chevron-down">
+                          </a>
+                        </span>
+                        </div>
+                        <div class="panel-body">
+                            <div class="adv-table">
+                                <table class="display table table-bordered table-striped" id="example">
+                                    <thead>
+                                    <tr>
+                                        <th>分类一</th>
+                                        <th class="hidden-phone">分类二</th>
+                                        <th>分类四</th>
+                                        <th class="hidden-phone">操作</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr class="gradeX">
+                                        <td>Trident</td>
+                                        <td class="hidden-phone">Internet
+                                            Explorer 4.0
+                                        </td>
+                                        <td>Win 95+</td>
+                                        <td align="center">
+                                            <button class="btn btn-info btn-xs"><a href="Userdetails.html"><i
+                                                    class="fa fa-eye">&nbsp;查看</i></a>
+                                            </button>
+                                            <button class="btn btn-warning btn-xs"><a href="Adduser.html"><a
+                                                    href="Adduser.html"><i class="fa fa-pencil">&nbsp;修改</i></a></a>
+                                            </button>
+                                            &nbsp;
+                                            <button class="btn btn-danger btn-xs"><a href="Adduser.html"><i
+                                                    class="fa fa-trash-o">&nbsp;删除</i></a>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr class="gradeC">
+                                        <td>Trident</td>
+                                        <td class="hidden-phone">Internet
+                                            Explorer 5.0
+                                        </td>
+                                        <td>Win 95+</td>
+                                        <td align="center">
+                                            <button class="btn btn-info btn-xs"><a href="Userdetails.html"><i
+                                                    class="fa fa-eye">&nbsp;查看</i></a>
+                                            </button>
+                                            <button class="btn btn-warning btn-xs"><a href="Adduser.html"><a
+                                                    href="Adduser.html"><a href="Adduser.html"><i class="fa fa-pencil">
+                                                &nbsp;修改</i></a></a></a>
+                                            </button>
+                                            &nbsp;
+                                            <button class="btn btn-danger btn-xs"><a href="Adduser.html"><a
+                                                    href="Adduser.html"><i class="fa fa-trash-o">&nbsp;删除</i></a></a>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr class="gradeA">
+                                        <td>Trident</td>
+                                        <td class="hidden-phone">Internet
+                                            Explorer 5.5
+                                        </td>
+                                        <td>Win 95+</td>
+                                        <td align="center">
+                                            <button class="btn btn-info btn-xs"><a href="Userdetails.html"><i
+                                                    class="fa fa-eye">&nbsp;查看</i></a>
+                                            </button>
+                                            <button class="btn btn-warning btn-xs"><a href="Adduser.html"><a
+                                                    href="Adduser.html"><i class="fa fa-pencil">&nbsp;修改</i></a></a>
+                                            </button>
+                                            &nbsp;
+                                            <button class="btn btn-danger btn-xs"><a href="Adduser.html"><i
+                                                    class="fa fa-trash-o">&nbsp;删除</i></a>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr class="gradeA">
+                                        <td>Trident</td>
+                                        <td class="hidden-phone">Internet
+                                            Explorer 6
+                                        </td>
+                                        <td>Win 98+</td>
+                                        <td align="center">
+                                            <button class="btn btn-info btn-xs"><a href="Userdetails.html"><i
+                                                    class="fa fa-eye">&nbsp;查看</i></a>
+                                            </button>
+                                            <button class="btn btn-warning btn-xs"><a href="Adduser.html"><a
+                                                    href="Adduser.html"><i class="fa fa-pencil">&nbsp;修改</i></a></a>
+                                            </button>
+                                            &nbsp;
+                                            <button class="btn btn-danger btn-xs"><a href="Adduser.html"><i
+                                                    class="fa fa-trash-o">&nbsp;删除</i></a>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr class="gradeA">
+                                        <td>Trident</td>
+                                        <td class="hidden-phone">Internet Explorer 7</td>
+                                        <td>Win XP SP2+</td>
+                                        <td align="center">
+                                            <button class="btn btn-info btn-xs"><a href="Userdetails.html"><i
+                                                    class="fa fa-eye">&nbsp;查看</i></a>
+                                            </button>
+                                            <button class="btn btn-warning btn-xs"><a href="Adduser.html"><a
+                                                    href="Adduser.html"><i class="fa fa-pencil">&nbsp;修改</i></a></a>
+                                            </button>
+                                            &nbsp;
+                                            <button class="btn btn-danger btn-xs"><a href="Adduser.html"><i
+                                                    class="fa fa-trash-o">&nbsp;删除</i></a>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr class="gradeA">
+                                        <td>Trident</td>
+                                        <td class="hidden-phone">AOL browser (AOL desktop)</td>
+                                        <td>Win XP</td>
+                                        <td align="center">
+                                            <button class="btn btn-info btn-xs"><a href="Userdetails.html"><i
+                                                    class="fa fa-eye">&nbsp;查看</i></a>
+                                            </button>
+                                            <button class="btn btn-warning btn-xs"><a href="Adduser.html"><a
+                                                    href="Adduser.html"><i class="fa fa-pencil">&nbsp;修改</i></a></a>
+                                            </button>
+                                            &nbsp;
+                                            <button class="btn btn-danger btn-xs"><a href="Adduser.html"><i
+                                                    class="fa fa-trash-o">&nbsp;删除</i></a>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr class="gradeA">
+                                        <td>Gecko</td>
+                                        <td class="hidden-phone">Firefox 1.0</td>
+                                        <td>Win 98+ / OSX.2+</td>
+                                        <td align="center">
+                                            <button class="btn btn-info btn-xs"><a href="Userdetails.html"><i
+                                                    class="fa fa-eye">&nbsp;查看</i></a>
+                                            </button>
+                                            <button class="btn btn-warning btn-xs"><a href="Adduser.html"><a
+                                                    href="Adduser.html"><i class="fa fa-pencil">&nbsp;修改</i></a></a>
+                                            </button>
+                                            &nbsp;
+                                            <button class="btn btn-danger btn-xs"><a href="Adduser.html"><i
+                                                    class="fa fa-trash-o">&nbsp;删除</i></a>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr class="gradeA">
+                                        <td>Gecko</td>
+                                        <td class="hidden-phone">Firefox 1.5</td>
+                                        <td>Win 98+ / OSX.2+</td>
+                                        <td align="center">
+                                            <button class="btn btn-info btn-xs"><a href="Userdetails.html"><i
+                                                    class="fa fa-eye">&nbsp;查看</i></a>
+                                            </button>
+                                            &nbsp;
+                                            <button class="btn btn-warning btn-xs"><a href="Adduser.html"><a
+                                                    href="Adduser.html"><i class="fa fa-pencil">&nbsp;修改</i></a></a>
+                                            </button>
+                                            &nbsp;
+                                            <button class="btn btn-danger btn-xs"><a href="Adduser.html"><i
+                                                    class="fa fa-trash-o">&nbsp;删除</i></a>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr class="gradeA">
+                                        <td>Gecko</td>
+                                        <td class="hidden-phone">Firefox 2.0</td>
+                                        <td>Win 98+ / OSX.2+</td>
+                                        <td align="center">
+                                            <button class="btn btn-info btn-xs"><a href="Userdetails.html"><i
+                                                    class="fa fa-eye">&nbsp;查看</i></a>
+                                            </button>
+                                            &nbsp;
+                                            <button class="btn btn-warning btn-xs"><a href="Adduser.html"><a
+                                                    href="Adduser.html"><i class="fa fa-pencil">&nbsp;修改</i></a></a>
+                                            </button>
+                                            &nbsp;
+                                            <button class="btn btn-danger btn-xs"><a href="Adduser.html"><i
+                                                    class="fa fa-trash-o">&nbsp;删除</i></a>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr class="gradeA">
+                                        <td>Gecko</td>
+                                        <td class="hidden-phone">Firefox 3.0</td>
+                                        <td>Win 2k+ / OSX.3+</td>
+                                        <td align="center">
+                                            <button class="btn btn-info btn-xs"><a href="Userdetails.html"><i
+                                                    class="fa fa-eye">&nbsp;查看</i></a>
+                                            </button>
+                                            &nbsp;
+                                            <button class="btn btn-warning btn-xs"><a href="Adduser.html"><a
+                                                    href="Adduser.html"><i class="fa fa-pencil">&nbsp;修改</i></a></a>
+                                            </button>
+                                            &nbsp;
+                                            <button class="btn btn-danger btn-xs"><a href="Adduser.html"><i
+                                                    class="fa fa-trash-o">&nbsp;删除</i></a>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr class="gradeA">
+                                        <td>Gecko</td>
+                                        <td class="hidden-phone">Camino 1.0</td>
+                                        <td>OSX.2+</td>
+                                        <td align="center">
+                                            <button class="btn btn-info btn-xs"><a href="Userdetails.html"><i
+                                                    class="fa fa-eye">&nbsp;查看</i></a>
+                                            </button>
+                                            &nbsp;
+                                            <button class="btn btn-warning btn-xs"><a href="Adduser.html"><a
+                                                    href="Adduser.html"><i class="fa fa-pencil">&nbsp;修改</i></a></a>
+                                            </button>
+                                            &nbsp;
+                                            <button class="btn btn-danger btn-xs"><a href="Adduser.html"><i
+                                                    class="fa fa-trash-o">&nbsp;删除</i></a>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr class="gradeA">
+                                        <td>Gecko</td>
+                                        <td class="hidden-phone">Camino 1.5</td>
+                                        <td>OSX.3+</td>
+                                        <td align="center">
+                                            <button class="btn btn-info btn-xs"><a href="Userdetails.html"><i
+                                                    class="fa fa-eye">&nbsp;查看</i></a>
+                                            </button>
+                                            &nbsp;
+                                            <button class="btn btn-warning btn-xs"><a href="Adduser.html"><a
+                                                    href="Adduser.html"><i class="fa fa-pencil">&nbsp;修改</i></a></a>
+                                            </button>
+                                            &nbsp;
+                                            <button class="btn btn-danger btn-xs"><a href="Adduser.html"><i
+                                                    class="fa fa-trash-o">&nbsp;删除</i></a>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr class="gradeA">
+                                        <td>Gecko</td>
+                                        <td class="hidden-phone">Netscape 7.2</td>
+                                        <td>Win 95+ / Mac OS 8.6-9.2</td>
+                                        <td align="center">
+                                            <button class="btn btn-info btn-xs"><a href="Userdetails.html"><i
+                                                    class="fa fa-eye">&nbsp;查看</i></a>
+                                            </button>
+                                            &nbsp;
+                                            <button class="btn btn-warning btn-xs"><a href="Adduser.html"><a
+                                                    href="Adduser.html"><i class="fa fa-pencil">&nbsp;修改</i></a></a>
+                                            </button>
+                                            &nbsp;
+                                            <button class="btn btn-danger btn-xs"><a href="Adduser.html"><i
+                                                    class="fa fa-trash-o">&nbsp;删除</i></a>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr class="gradeA">
+                                        <td>Gecko</td>
+                                        <td class="hidden-phone">Netscape Browser 8</td>
+                                        <td>Win 98SE+</td>
+                                        <td align="center">
+                                            <button class="btn btn-info btn-xs"><a href="Userdetails.html"><i
+                                                    class="fa fa-eye">&nbsp;查看</i></a>
+                                            </button>
+                                            &nbsp;
+                                            <button class="btn btn-warning btn-xs"><a href="Adduser.html"><a
+                                                    href="Adduser.html"><i class="fa fa-pencil">&nbsp;修改</i></a></a>
+                                            </button>
+                                            &nbsp;
+                                            <button class="btn btn-danger btn-xs"><a href="Adduser.html"><i
+                                                    class="fa fa-trash-o">&nbsp;删除</i></a>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr class="gradeA">
+                                        <td>Gecko</td>
+                                        <td class="hidden-phone">Netscape Navigator 9</td>
+                                        <td>Win 98+ / OSX.2+</td>
+                                        <td align="center">
+                                            <button class="btn btn-info btn-xs"><a href="Userdetails.html"><i
+                                                    class="fa fa-eye">&nbsp;查看</i></a>
+                                            </button>
+                                            &nbsp;
+                                            <button class="btn btn-warning btn-xs"><a href="Adduser.html"><a
+                                                    href="Adduser.html"><i class="fa fa-pencil">&nbsp;修改</i></a></a>
+                                            </button>
+                                            &nbsp;
+                                            <button class="btn btn-danger btn-xs"><a href="Adduser.html"><i
+                                                    class="fa fa-trash-o">&nbsp;删除</i></a>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr class="gradeA">
+                                        <td>Gecko</td>
+                                        <td class="hidden-phone">Mozilla 1.0</td>
+                                        <td>Win 95+ / OSX.1+</td>
+                                        <td align="center">
+                                            <button class="btn btn-info btn-xs"><a href="Userdetails.html"><i
+                                                    class="fa fa-eye">&nbsp;查看</i></a>
+                                            </button>
+                                            &nbsp;
+                                            <button class="btn btn-warning btn-xs"><a href="Adduser.html"><a
+                                                    href="Adduser.html"><i class="fa fa-pencil">&nbsp;修改</i></a></a>
+                                            </button>
+                                            &nbsp;
+                                            <button class="btn btn-danger btn-xs"><a href="Adduser.html"><i
+                                                    class="fa fa-trash-o">&nbsp;删除</i></a>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr class="gradeA">
+                                        <td>Gecko</td>
+                                        <td class="hidden-phone">Mozilla 1.1</td>
+                                        <td>Win 95+ / OSX.1+</td>
+                                        <td align="center">
+                                            <button class="btn btn-info btn-xs"><a href="Userdetails.html"><i
+                                                    class="fa fa-eye">&nbsp;查看</i></a>
+                                            </button>
+                                            &nbsp;
+                                            <button class="btn btn-warning btn-xs"><a href="Adduser.html"><a
+                                                    href="Adduser.html"><i class="fa fa-pencil">&nbsp;修改</i></a></a>
+                                            </button>
+                                            &nbsp;
+                                            <button class="btn btn-danger btn-xs"><a href="Adduser.html"><i
+                                                    class="fa fa-trash-o">&nbsp;删除</i></a>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr class="gradeA">
+                                        <td>Gecko</td>
+                                        <td class="hidden-phone">Mozilla 1.2</td>
+                                        <td>Win 95+ / OSX.1+</td>
+                                        <td align="center">
+                                            <button class="btn btn-info btn-xs"><a href="Userdetails.html"><i
+                                                    class="fa fa-eye">&nbsp;查看</i></a>
+                                            </button>
+                                            &nbsp;
+                                            <button class="btn btn-warning btn-xs"><a href="Adduser.html"><a
+                                                    href="Adduser.html"><i class="fa fa-pencil">&nbsp;修改</i></a></a>
+                                            </button>
+                                            &nbsp;
+                                            <button class="btn btn-danger btn-xs"><a href="Adduser.html"><i
+                                                    class="fa fa-trash-o">&nbsp;删除</i></a>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr class="gradeA">
+                                        <td>Gecko</td>
+                                        <td class="hidden-phone">Mozilla 1.3</td>
+                                        <td>Win 95+ / OSX.1+</td>
+                                        <td align="center">
+                                            <button class="btn btn-info btn-xs"><a href="Userdetails.html"><i
+                                                    class="fa fa-eye">&nbsp;查看</i></a>
+                                            </button>
+                                            &nbsp;
+                                            <button class="btn btn-warning btn-xs"><a href="Adduser.html"><a
+                                                    href="Adduser.html"><i class="fa fa-pencil">&nbsp;修改</i></a></a>
+                                            </button>
+                                            &nbsp;
+                                            <button class="btn btn-danger btn-xs"><a href="Adduser.html"><i
+                                                    class="fa fa-trash-o">&nbsp;删除</i></a>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr class="gradeA">
+                                        <td>Gecko</td>
+                                        <td class="hidden-phone">Mozilla 1.4</td>
+                                        <td>Win 95+ / OSX.1+</td>
+                                        <td align="center">
+                                            <button class="btn btn-info btn-xs"><a href="Userdetails.html"><i
+                                                    class="fa fa-eye">&nbsp;查看</i></a>
+                                            </button>
+                                            &nbsp;
+                                            <button class="btn btn-warning btn-xs"><a href="Adduser.html"><a
+                                                    href="Adduser.html"><i class="fa fa-pencil">&nbsp;修改</i></a></a>
+                                            </button>
+                                            &nbsp;
+                                            <button class="btn btn-danger btn-xs"><a href="Adduser.html"><i
+                                                    class="fa fa-trash-o">&nbsp;删除</i></a>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr class="gradeA">
+                                        <td>Gecko</td>
+                                        <td class="hidden-phone">Mozilla 1.5</td>
+                                        <td>Win 95+ / OSX.1+</td>
+                                        <td align="center">
+                                            <button class="btn btn-info btn-xs"><a href="Userdetails.html"><i
+                                                    class="fa fa-eye">&nbsp;查看</i></a>
+                                            </button>
+                                            &nbsp;
+                                            <button class="btn btn-warning btn-xs"><a href="Adduser.html"><a
+                                                    href="Adduser.html"><i class="fa fa-pencil">&nbsp;修改</i></a></a>
+                                            </button>
+                                            &nbsp;
+                                            <button class="btn btn-danger btn-xs"><a href="Adduser.html"><i
+                                                    class="fa fa-trash-o">&nbsp;删除</i></a>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr class="gradeA">
+                                        <td>Gecko</td>
+                                        <td class="hidden-phone">Mozilla 1.6</td>
+                                        <td>Win 95+ / OSX.1+</td>
+                                        <td align="center">
+                                            <button class="btn btn-info btn-xs"><a href="Userdetails.html"><i
+                                                    class="fa fa-eye">&nbsp;查看</i></a>
+                                            </button>
+                                            &nbsp;
+                                            <button class="btn btn-warning btn-xs"><a href="Adduser.html"><a
+                                                    href="Adduser.html"><i class="fa fa-pencil">&nbsp;修改</i></a></a>
+                                            </button>
+                                            &nbsp;
+                                            <button class="btn btn-danger btn-xs"><a href="Adduser.html"><i
+                                                    class="fa fa-trash-o">&nbsp;删除</i></a>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr class="gradeA">
+                                        <td>Gecko</td>
+                                        <td class="hidden-phone">Mozilla 1.7</td>
+                                        <td>Win 98+ / OSX.1+</td>
+                                        <td align="center">
+                                            <button class="btn btn-info btn-xs"><a href="Userdetails.html"><i
+                                                    class="fa fa-eye">&nbsp;查看</i></a>
+                                            </button>
+                                            &nbsp;
+                                            <button class="btn btn-warning btn-xs"><a href="Adduser.html"><a
+                                                    href="Adduser.html"><i class="fa fa-pencil">&nbsp;修改</i></a></a>
+                                            </button>
+                                            &nbsp;
+                                            <button class="btn btn-danger btn-xs"><a href="Adduser.html"><i
+                                                    class="fa fa-trash-o">&nbsp;删除</i></a>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr class="gradeA">
+                                        <td>Gecko</td>
+                                        <td class="hidden-phone">Mozilla 1.8</td>
+                                        <td>Win 98+ / OSX.1+</td>
+                                        <td align="center">
+                                            <button class="btn btn-info btn-xs"><a href="Userdetails.html"><i
+                                                    class="fa fa-eye">&nbsp;查看</i></a>
+                                            </button>
+                                            &nbsp;
+                                            <button class="btn btn-warning btn-xs"><a href="Adduser.html"><a
+                                                    href="Adduser.html"><i class="fa fa-pencil">&nbsp;修改</i></a></a>
+                                            </button>
+                                            &nbsp;
+                                            <button class="btn btn-danger btn-xs"><a href="Adduser.html"><i
+                                                    class="fa fa-trash-o">&nbsp;删除</i></a>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr class="gradeA">
+                                        <td>Gecko</td>
+                                        <td class="hidden-phone">Seamonkey 1.1</td>
+                                        <td>Win 98+ / OSX.2+</td>
+                                        <td align="center">
+                                            <button class="btn btn-info btn-xs"><a href="Userdetails.html"><i
+                                                    class="fa fa-eye">&nbsp;查看</i></a>
+                                            </button>
+                                            &nbsp;
+                                            <button class="btn btn-warning btn-xs"><a href="Adduser.html"><a
+                                                    href="Adduser.html"><i class="fa fa-pencil">&nbsp;修改</i></a></a>
+                                            </button>
+                                            &nbsp;
+                                            <button class="btn btn-danger btn-xs"><a href="Adduser.html"><i
+                                                    class="fa fa-trash-o">&nbsp;删除</i></a>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr class="gradeA">
+                                        <td>Gecko</td>
+                                        <td class="hidden-phone">Epiphany 2.20</td>
+                                        <td>Gnome</td>
+                                        <td align="center">
+                                            <button class="btn btn-info btn-xs"><a href="Userdetails.html"><i
+                                                    class="fa fa-eye">&nbsp;查看</i></a>
+                                            </button>
+                                            &nbsp;
+                                            <button class="btn btn-warning btn-xs"><a href="Adduser.html"><a
+                                                    href="Adduser.html"><i class="fa fa-pencil">&nbsp;修改</i></a></a>
+                                            </button>
+                                            &nbsp;
+                                            <button class="btn btn-danger btn-xs"><a href="Adduser.html"><i
+                                                    class="fa fa-trash-o">&nbsp;删除</i></a>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr class="gradeA">
+                                        <td>Webkit</td>
+                                        <td class="hidden-phone">Safari 1.2</td>
+                                        <td>OSX.3</td>
+                                        <td align="center">
+                                            <button class="btn btn-info btn-xs"><a href="Userdetails.html"><i
+                                                    class="fa fa-eye">&nbsp;查看</i></a>
+                                            </button>
+                                            &nbsp;
+                                            <button class="btn btn-warning btn-xs"><a href="Adduser.html"><a
+                                                    href="Adduser.html"><i class="fa fa-pencil">&nbsp;修改</i></a></a>
+                                            </button>
+                                            &nbsp;
+                                            <button class="btn btn-danger btn-xs"><a href="Adduser.html"><i
+                                                    class="fa fa-trash-o">&nbsp;删除</i></a>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr class="gradeA">
+                                        <td>Webkit</td>
+                                        <td class="hidden-phone">Safari 1.3</td>
+                                        <td>OSX.3</td>
+                                        <td align="center">
+                                            <button class="btn btn-info btn-xs"><a href="Userdetails.html"><i
+                                                    class="fa fa-eye">&nbsp;查看</i></a>
+                                            </button>
+                                            &nbsp;
+                                            <button class="btn btn-warning btn-xs"><a href="Adduser.html"><a
+                                                    href="Adduser.html"><i class="fa fa-pencil">&nbsp;修改</i></a></a>
+                                            </button>
+                                            &nbsp;
+                                            <button class="btn btn-danger btn-xs"><a href="Adduser.html"><i
+                                                    class="fa fa-trash-o">&nbsp;删除</i></a>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr class="gradeA">
+                                        <td>Webkit</td>
+                                        <td class="hidden-phone">Safari 2.0</td>
+                                        <td>OSX.4+</td>
+                                        <td align="center">
+                                            <button class="btn btn-info btn-xs"><a href="Userdetails.html"><i
+                                                    class="fa fa-eye">&nbsp;查看</i></a>
+                                            </button>
+                                            &nbsp;
+                                            <button class="btn btn-warning btn-xs"><a href="Adduser.html"><a
+                                                    href="Adduser.html"><i class="fa fa-pencil">&nbsp;修改</i></a></a>
+                                            </button>
+                                            &nbsp;
+                                            <button class="btn btn-danger btn-xs"><a href="Adduser.html"><i
+                                                    class="fa fa-trash-o">&nbsp;删除</i></a>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr class="gradeA">
+                                        <td>Webkit</td>
+                                        <td class="hidden-phone">Safari 3.0</td>
+                                        <td>OSX.4+</td>
+                                        <td align="center">
+                                            <button class="btn btn-info btn-xs"><a href="Userdetails.html"><i
+                                                    class="fa fa-eye">&nbsp;查看</i></a>
+                                            </button>
+                                            &nbsp;
+                                            <button class="btn btn-warning btn-xs"><a href="Adduser.html"><a
+                                                    href="Adduser.html"><i class="fa fa-pencil">&nbsp;修改</i></a></a>
+                                            </button>
+                                            &nbsp;
+                                            <button class="btn btn-danger btn-xs"><a href="Adduser.html"><i
+                                                    class="fa fa-trash-o">&nbsp;删除</i></a>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr class="gradeA">
+                                        <td>Webkit</td>
+                                        <td class="hidden-phone">OmniWeb 5.5</td>
+                                        <td>OSX.4+</td>
+                                        <td align="center">
+                                            <button class="btn btn-info btn-xs"><a href="Userdetails.html"><i
+                                                    class="fa fa-eye">&nbsp;查看</i></a>
+                                            </button>
+                                            &nbsp;
+                                            <button class="btn btn-warning btn-xs"><a href="Adduser.html"><a
+                                                    href="Adduser.html"><i class="fa fa-pencil">&nbsp;修改</i></a></a>
+                                            </button>
+                                            &nbsp;
+                                            <button class="btn btn-danger btn-xs"><a href="Adduser.html"><i
+                                                    class="fa fa-trash-o">&nbsp;删除</i></a>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr class="gradeA">
+                                        <td>Webkit</td>
+                                        <td class="hidden-phone">iPod Touch / iPhone</td>
+                                        <td>iPod</td>
+                                        <td align="center">
+                                            <button class="btn btn-info btn-xs"><a href="Userdetails.html"><i
+                                                    class="fa fa-eye">&nbsp;查看</i></a>
+                                            </button>
+                                            &nbsp;
+                                            <button class="btn btn-warning btn-xs"><a href="Adduser.html"><a
+                                                    href="Adduser.html"><i class="fa fa-pencil">&nbsp;修改</i></a></a>
+                                            </button>
+                                            &nbsp;
+                                            <button class="btn btn-danger btn-xs"><a href="Adduser.html"><i
+                                                    class="fa fa-trash-o">&nbsp;删除</i></a>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr class="gradeA">
+                                        <td>Webkit</td>
+                                        <td class="hidden-phone">S60</td>
+                                        <td>S60</td>
+                                        <td align="center">
+                                            <button class="btn btn-info btn-xs"><a href="Userdetails.html"><i
+                                                    class="fa fa-eye">&nbsp;查看</i></a>
+                                            </button>
+                                            &nbsp;
+                                            <button class="btn btn-warning btn-xs"><a href="Adduser.html"><a
+                                                    href="Adduser.html"><i class="fa fa-pencil">&nbsp;修改</i></a></a>
+                                            </button>
+                                            &nbsp;
+                                            <button class="btn btn-danger btn-xs"><a href="Adduser.html"><i
+                                                    class="fa fa-trash-o">&nbsp;删除</i></a>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr class="gradeA">
+                                        <td>Presto</td>
+                                        <td class="hidden-phone">Opera 7.0</td>
+                                        <td>Win 95+ / OSX.1+</td>
+                                        <td align="center">
+                                            <button class="btn btn-info btn-xs"><a href="Userdetails.html"><i
+                                                    class="fa fa-eye">&nbsp;查看</i></a>
+                                            </button>
+                                            &nbsp;
+                                            <button class="btn btn-warning btn-xs"><a href="Adduser.html"><a
+                                                    href="Adduser.html"><i class="fa fa-pencil">&nbsp;修改</i></a></a>
+                                            </button>
+                                            &nbsp;
+                                            <button class="btn btn-danger btn-xs"><a href="Adduser.html"><i
+                                                    class="fa fa-trash-o">&nbsp;删除</i></a>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr class="gradeA">
+                                        <td>Presto</td>
+                                        <td class="hidden-phone">Opera 7.5</td>
+                                        <td>Win 95+ / OSX.2+</td>
+                                        <td align="center">
+                                            <button class="btn btn-info btn-xs"><a href="Userdetails.html"><i
+                                                    class="fa fa-eye">&nbsp;查看</i></a>
+                                            </button>
+                                            &nbsp;
+                                            <button class="btn btn-warning btn-xs"><a href="Adduser.html"><a
+                                                    href="Adduser.html"><i class="fa fa-pencil">&nbsp;修改</i></a></a>
+                                            </button>
+                                            &nbsp;
+                                            <button class="btn btn-danger btn-xs"><a href="Adduser.html"><i
+                                                    class="fa fa-trash-o">&nbsp;删除</i></a>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr class="gradeA">
+                                        <td>Presto</td>
+                                        <td class="hidden-phone">Opera 8.0</td>
+                                        <td>Win 95+ / OSX.2+</td>
+                                        <td align="center">
+                                            <button class="btn btn-info btn-xs"><a href="Userdetails.html"><i
+                                                    class="fa fa-eye">&nbsp;查看</i></a>
+                                            </button>
+                                            &nbsp;
+                                            <button class="btn btn-warning btn-xs"><a href="Adduser.html"><a
+                                                    href="Adduser.html"><i class="fa fa-pencil">&nbsp;修改</i></a></a>
+                                            </button>
+                                            &nbsp;
+                                            <button class="btn btn-danger btn-xs"><a href="Adduser.html"><i
+                                                    class="fa fa-trash-o">&nbsp;删除</i></a>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr class="gradeA">
+                                        <td>Presto</td>
+                                        <td class="hidden-phone">Opera 8.5</td>
+                                        <td>Win 95+ / OSX.2+</td>
+                                        <td align="center">
+                                            <button class="btn btn-info btn-xs"><a href="Userdetails.html"><i
+                                                    class="fa fa-eye">&nbsp;查看</i></a>
+                                            </button>
+                                            &nbsp;
+                                            <button class="btn btn-warning btn-xs"><a href="Adduser.html"><a
+                                                    href="Adduser.html"><i class="fa fa-pencil">&nbsp;修改</i></a></a>
+                                            </button>
+                                            &nbsp;
+                                            <button class="btn btn-danger btn-xs"><a href="Adduser.html"><i
+                                                    class="fa fa-trash-o">&nbsp;删除</i></a>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr class="gradeA">
+                                        <td>Presto</td>
+                                        <td class="hidden-phone">Opera 9.0</td>
+                                        <td>Win 95+ / OSX.3+</td>
+                                        <td align="center">
+                                            <button class="btn btn-info btn-xs"><a href="Userdetails.html"><i
+                                                    class="fa fa-eye">&nbsp;查看</i></a>
+                                            </button>
+                                            &nbsp;
+                                            <button class="btn btn-warning btn-xs"><a href="Adduser.html"><a
+                                                    href="Adduser.html"><i class="fa fa-pencil">&nbsp;修改</i></a></a>
+                                            </button>
+                                            &nbsp;
+                                            <button class="btn btn-danger btn-xs"><a href="Adduser.html"><i
+                                                    class="fa fa-trash-o">&nbsp;删除</i></a>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr class="gradeA">
+                                        <td>Presto</td>
+                                        <td class="hidden-phone">Opera 9.2</td>
+                                        <td>Win 88+ / OSX.3+</td>
+                                        <td align="center">
+                                            <button class="btn btn-info btn-xs"><a href="Userdetails.html"><i
+                                                    class="fa fa-eye">&nbsp;查看</i></a>
+                                            </button>
+                                            &nbsp;
+                                            <button class="btn btn-warning btn-xs"><a href="Adduser.html"><a
+                                                    href="Adduser.html"><i class="fa fa-pencil">&nbsp;修改</i></a></a>
+                                            </button>
+                                            &nbsp;
+                                            <button class="btn btn-danger btn-xs"><a href="Adduser.html"><i
+                                                    class="fa fa-trash-o">&nbsp;删除</i></a>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr class="gradeA">
+                                        <td>Presto</td>
+                                        <td class="hidden-phone">Opera 9.5</td>
+                                        <td>Win 88+ / OSX.3+</td>
+                                        <td align="center">
+                                            <button class="btn btn-info btn-xs"><a href="Userdetails.html"><i
+                                                    class="fa fa-eye">&nbsp;查看</i></a>
+                                            </button>
+                                            &nbsp;
+                                            <button class="btn btn-warning btn-xs"><a href="Adduser.html"><a
+                                                    href="Adduser.html"><i class="fa fa-pencil">&nbsp;修改</i></a></a>
+                                            </button>
+                                            &nbsp;
+                                            <button class="btn btn-danger btn-xs"><a href="Adduser.html"><i
+                                                    class="fa fa-trash-o">&nbsp;删除</i></a>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr class="gradeA">
+                                        <td>Presto</td>
+                                        <td class="hidden-phone">Opera for Wii</td>
+                                        <td>Wii</td>
+                                        <td align="center">
+                                            <button class="btn btn-info btn-xs"><a href="Userdetails.html"><i
+                                                    class="fa fa-eye">&nbsp;查看</i></a>
+                                            </button>
+                                            &nbsp;
+                                            <button class="btn btn-warning btn-xs"><a href="Adduser.html"><a
+                                                    href="Adduser.html"><i class="fa fa-pencil">&nbsp;修改</i></a></a>
+                                            </button>
+                                            &nbsp;
+                                            <button class="btn btn-danger btn-xs"><a href="Adduser.html"><i
+                                                    class="fa fa-trash-o">&nbsp;删除</i></a>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr class="gradeA">
+                                        <td>Presto</td>
+                                        <td class="hidden-phone">Nokia N800</td>
+                                        <td>N800</td>
+                                        <td align="center">
+                                            <button class="btn btn-info btn-xs"><a href="Userdetails.html"><i
+                                                    class="fa fa-eye">&nbsp;查看</i></a>
+                                            </button>
+                                            &nbsp;
+                                            <button class="btn btn-warning btn-xs"><a href="Adduser.html"><a
+                                                    href="Adduser.html"><i class="fa fa-pencil">&nbsp;修改</i></a></a>
+                                            </button>
+                                            &nbsp;
+                                            <button class="btn btn-danger btn-xs"><a href="Adduser.html"><i
+                                                    class="fa fa-trash-o">&nbsp;删除</i></a>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr class="gradeA">
+                                        <td>Presto</td>
+                                        <td class="hidden-phone">Nintendo DS browser</td>
+                                        <td>Nintendo DS</td>
+                                        <td align="center">
+                                            <button class="btn btn-info btn-xs"><a href="Userdetails.html"><i
+                                                    class="fa fa-eye">&nbsp;查看</i></a>
+                                            </button>
+                                            &nbsp;
+                                            <button class="btn btn-warning btn-xs"><a href="Adduser.html"><a
+                                                    href="Adduser.html"><i class="fa fa-pencil">&nbsp;修改</i></a></a>
+                                            </button>
+                                            &nbsp;
+                                            <button class="btn btn-danger btn-xs"><a href="Adduser.html"><i
+                                                    class="fa fa-trash-o">&nbsp;删除</i></a>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr class="gradeC">
+                                        <td>KHTML</td>
+                                        <td class="hidden-phone">Konqureror 3.1</td>
+                                        <td>KDE 3.1</td>
+                                        <td align="center">
+                                            <button class="btn btn-info btn-xs"><a href="Userdetails.html"><i
+                                                    class="fa fa-eye">&nbsp;查看</i></a>
+                                            </button>
+                                            &nbsp;
+                                            <button class="btn btn-warning btn-xs"><a href="Adduser.html"><a
+                                                    href="Adduser.html"><i class="fa fa-pencil">&nbsp;修改</i></a></a>
+                                            </button>
+                                            &nbsp;
+                                            <button class="btn btn-danger btn-xs"><a href="Adduser.html"><i
+                                                    class="fa fa-trash-o">&nbsp;删除</i></a>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr class="gradeA">
+                                        <td>KHTML</td>
+                                        <td class="hidden-phone">Konqureror 3.3</td>
+                                        <td>KDE 3.3</td>
+                                        <td align="center">
+                                            <button class="btn btn-info btn-xs"><a href="Userdetails.html"><i
+                                                    class="fa fa-eye">&nbsp;查看</i></a>
+                                            </button>
+                                            &nbsp;
+                                            <button class="btn btn-warning btn-xs"><a href="Adduser.html"><a
+                                                    href="Adduser.html"><i class="fa fa-pencil">&nbsp;修改</i></a></a>
+                                            </button>
+                                            &nbsp;
+                                            <button class="btn btn-danger btn-xs"><a href="Adduser.html"><i
+                                                    class="fa fa-trash-o">&nbsp;删除</i></a>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr class="gradeA">
+                                        <td>KHTML</td>
+                                        <td class="hidden-phone">Konqureror 3.5</td>
+                                        <td>KDE 3.5</td>
+                                        <td align="center">
+                                            <button class="btn btn-info btn-xs"><a href="Userdetails.html"><i
+                                                    class="fa fa-eye">&nbsp;查看</i></a>
+                                            </button>
+                                            &nbsp;
+                                            <button class="btn btn-warning btn-xs"><a href="Adduser.html"><a
+                                                    href="Adduser.html"><i class="fa fa-pencil">&nbsp;修改</i></a></a>
+                                            </button>
+                                            &nbsp;
+                                            <button class="btn btn-danger btn-xs"><a href="Adduser.html"><i
+                                                    class="fa fa-trash-o">&nbsp;删除</i></a>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr class="gradeX">
+                                        <td>Tasman</td>
+                                        <td class="hidden-phone">Internet Explorer 4.5</td>
+                                        <td>Mac OS 8-9</td>
+                                        <td align="center">
+                                            <button class="btn btn-info btn-xs"><a href="Userdetails.html"><i
+                                                    class="fa fa-eye">&nbsp;查看</i></a>
+                                            </button>
+                                            &nbsp;
+                                            <button class="btn btn-warning btn-xs"><a href="Adduser.html"><a
+                                                    href="Adduser.html"><i class="fa fa-pencil">&nbsp;修改</i></a></a>
+                                            </button>
+                                            &nbsp;
+                                            <button class="btn btn-danger btn-xs"><a href="Adduser.html"><i
+                                                    class="fa fa-trash-o">&nbsp;删除</i></a>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr class="gradeC">
+                                        <td>Tasman</td>
+                                        <td class="hidden-phone">Internet Explorer 5.1</td>
+                                        <td>Mac OS 7.6-9</td>
+                                        <td align="center">
+                                            <button class="btn btn-info btn-xs"><a href="Userdetails.html"><i
+                                                    class="fa fa-eye">&nbsp;查看</i></a>
+                                            </button>
+                                            &nbsp;
+                                            <button class="btn btn-warning btn-xs"><a href="Adduser.html"><a
+                                                    href="Adduser.html"><i class="fa fa-pencil">&nbsp;修改</i></a></a>
+                                            </button>
+                                            &nbsp;
+                                            <button class="btn btn-danger btn-xs"><a href="Adduser.html"><i
+                                                    class="fa fa-trash-o">&nbsp;删除</i></a>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr class="gradeC">
+                                        <td>Tasman</td>
+                                        <td class="hidden-phone">Internet Explorer 5.2</td>
+                                        <td>Mac OS 8-X</td>
+                                        <td align="center">
+                                            <button class="btn btn-info btn-xs"><a href="Userdetails.html"><i
+                                                    class="fa fa-eye">&nbsp;查看</i></a>
+                                            </button>
+                                            &nbsp;
+                                            <button class="btn btn-warning btn-xs"><a href="Adduser.html"><a
+                                                    href="Adduser.html"><i class="fa fa-pencil">&nbsp;修改</i></a></a>
+                                            </button>
+                                            &nbsp;
+                                            <button class="btn btn-danger btn-xs"><a href="Adduser.html"><i
+                                                    class="fa fa-trash-o">&nbsp;删除</i></a>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr class="gradeA">
+                                        <td>Misc</td>
+                                        <td class="hidden-phone">NetFront 3.1</td>
+                                        <td>Embedded devices</td>
+                                        <td align="center">
+                                            <button class="btn btn-info btn-xs"><a href="Userdetails.html"><i
+                                                    class="fa fa-eye">&nbsp;查看</i></a>
+                                            </button>
+                                            &nbsp;
+                                            <button class="btn btn-warning btn-xs"><a href="Adduser.html"><a
+                                                    href="Adduser.html"><i class="fa fa-pencil">&nbsp;修改</i></a></a>
+                                            </button>
+                                            &nbsp;
+                                            <button class="btn btn-danger btn-xs"><a href="Adduser.html"><i
+                                                    class="fa fa-trash-o">&nbsp;删除</i></a>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr class="gradeA">
+                                        <td>Misc</td>
+                                        <td class="hidden-phone">NetFront 3.4</td>
+                                        <td>Embedded devices</td>
+                                        <td align="center">
+                                            <button class="btn btn-info btn-xs"><a href="Userdetails.html"><i
+                                                    class="fa fa-eye">&nbsp;查看</i></a>
+                                            </button>
+                                            &nbsp;
+                                            <button class="btn btn-warning btn-xs"><a href="Adduser.html"><a
+                                                    href="Adduser.html"><i class="fa fa-pencil">&nbsp;修改</i></a></a>
+                                            </button>
+                                            &nbsp;
+                                            <button class="btn btn-danger btn-xs"><a href="Adduser.html"><i
+                                                    class="fa fa-trash-o">&nbsp;删除</i></a>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr class="gradeX">
+                                        <td>Misc</td>
+                                        <td class="hidden-phone">Dillo 0.8</td>
+                                        <td>Embedded devices</td>
+                                        <td align="center">
+                                            <button class="btn btn-info btn-xs"><a href="Userdetails.html"><i
+                                                    class="fa fa-eye">&nbsp;查看</i></a>
+                                            </button>
+                                            &nbsp;
+                                            <button class="btn btn-warning btn-xs"><a href="Adduser.html"><a
+                                                    href="Adduser.html"><i class="fa fa-pencil">&nbsp;修改</i></a></a>
+                                            </button>
+                                            &nbsp;
+                                            <button class="btn btn-danger btn-xs"><a href="Adduser.html"><i
+                                                    class="fa fa-trash-o">&nbsp;删除</i></a>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr class="gradeX">
+                                        <td>Misc</td>
+                                        <td class="hidden-phone">Links</td>
+                                        <td>Text only</td>
+                                        <td align="center">
+                                            <button class="btn btn-info btn-xs"><a href="Userdetails.html"><i
+                                                    class="fa fa-eye">&nbsp;查看</i></a>
+                                            </button>
+                                            &nbsp;
+                                            <button class="btn btn-warning btn-xs"><a href="Adduser.html"><a
+                                                    href="Adduser.html"><i class="fa fa-pencil">&nbsp;修改</i></a></a>
+                                            </button>
+                                            &nbsp;
+                                            <button class="btn btn-danger btn-xs"><a href="Adduser.html"><i
+                                                    class="fa fa-trash-o">&nbsp;删除</i></a>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr class="gradeX">
+                                        <td>Misc</td>
+                                        <td class="hidden-phone">Lynx</td>
+                                        <td>Text only</td>
+                                        <td align="center">
+                                            <button class="btn btn-info btn-xs"><a href="Userdetails.html"><i
+                                                    class="fa fa-eye">&nbsp;查看</i></a>
+                                            </button>
+                                            &nbsp;
+                                            <button class="btn btn-warning btn-xs"><a href="Adduser.html"><a
+                                                    href="Adduser.html"><i class="fa fa-pencil">&nbsp;修改</i></a></a>
+                                            </button>
+                                            &nbsp;
+                                            <button class="btn btn-danger btn-xs"><a href="Adduser.html"><i
+                                                    class="fa fa-trash-o">&nbsp;删除</i></a>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr class="gradeC">
+                                        <td>Misc</td>
+                                        <td class="hidden-phone">IE Mobile</td>
+                                        <td>Windows Mobile 6</td>
+                                        <td align="center">
+                                            <button class="btn btn-info btn-xs"><a href="Userdetails.html"><i
+                                                    class="fa fa-eye">&nbsp;查看</i></a>
+                                            </button>
+                                            &nbsp;
+                                            <button class="btn btn-warning btn-xs"><a href="Adduser.html"><a
+                                                    href="Adduser.html"><i class="fa fa-pencil">&nbsp;修改</i></a></a>
+                                            </button>
+                                            &nbsp;
+                                            <button class="btn btn-danger btn-xs"><a href="Adduser.html"><i
+                                                    class="fa fa-trash-o">&nbsp;删除</i></a>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr class="gradeC">
+                                        <td>Misc</td>
+                                        <td class="hidden-phone">PSP browser</td>
+                                        <td>PSP</td>
+                                        <td align="center">
+                                            <button class="btn btn-info btn-xs"><a href="Userdetails.html"><i
+                                                    class="fa fa-eye">&nbsp;查看</i></a>
+                                            </button>
+                                            &nbsp;
+                                            <button class="btn btn-warning btn-xs"><a href="Adduser.html"><a
+                                                    href="Adduser.html"><i class="fa fa-pencil">&nbsp;修改</i></a></a>
+                                            </button>
+                                            &nbsp;
+                                            <button class="btn btn-danger btn-xs"><a href="Adduser.html"><i
+                                                    class="fa fa-trash-o">&nbsp;删除</i></a>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr class="gradeU">
+                                        <td>Other browsers</td>
+                                        <td class="hidden-phone">All others</td>
+                                        <td>-</td>
+                                        <td align="center">
+                                            <button class="btn btn-info btn-xs"><a href="Userdetails.html"><i
+                                                    class="fa fa-eye">&nbsp;查看</i></a></button>
+                                            &nbsp;
+                                            <button class="btn btn-warning btn-xs"><a href="Adduser.html"><a
+                                                    href="Adduser.html"><i class="fa fa-pencil">&nbsp;修改</i></a></a>
+                                            </button>
+                                            &nbsp;
+                                            <button class="btn btn-danger btn-xs"><a href="Adduser.html"><i
+                                                    class="fa fa-trash-o">&nbsp;删除</i></a>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                    <tfoot>
+                                    <tr>
+                                        <th>Rendering engine</th>
+                                        <th class="hidden-phone">Browser</th>
+                                        <th>Platform(s)</th>
+                                        <th>Engine version</th>
+                                    </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                        </div>
+                        <!-- END 表格展现层 -->
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- END WRAPPER  -->
+    </section>
+    <!-- 中间主要内容 结束  -->
+
+    <!--底部-->
+    <footer class="site-footer">
+        <div class="text-center">
+            Copyright 2017 北京安诺信科技股份有限公司 苏ICP备12039945号-1
+            <a href="index.html" class="go-top">
+                <i class="fa fa-angle-up">
+                </i>
+            </a>
+        </div>
+    </footer>
+    <!--底部结束-->
+</section>
+<!-- 页面外围总父盒子 结束 -->
+
+<!-- JS引入 不要换位置 -->
+<script language="javascript" src="../lib/assets/advanced-datatable/media/js/jquery.js"></script>
+<script src="../lib/js/bootstrap.min.js"></script>
+<script src="../lib/js/jquery.dcjqaccordion.2.7.js"></script><!--  left栏的js -->
+<script src="../lib/js/jquery.nicescroll.js"></script><!-- 美化页面内嵌的滚动条 -->
+<script src="../lib/js/respond.min.js"></script><!-- 解决ie9以下的部分兼容性js -->
+<script src="../lib/js/common-scripts.js"></script><!-- left栏的js -->
+<!--data TABLE-->
+<script language="javascript" src="../lib/assets/advanced-datatable/media/js/jquery.dataTables.js"></script>
+<script src="../lib/assets/data-tables/DT_bootstrap.js"></script>
+<!-- JS引入结束 -->
+
+<script>
+    <!-- DATATABLE JS  -->
+    $(document).ready(function () {
+        $('#example').dataTable({
+            "aaSorting": [[4, "desc"]],//从第0列开始，以第4列倒序排列
+            "aLengthMenu": [
+                [10, 20, 30, -1],
+                [10, 20, 30, "所有"]
+            ],//查询数据条数
+            "iDisplayLength": 10, //默认5
+            "oLanguage": {
+                "sLengthMenu": "每页显示 _MENU_ 条记录",
+                "sZeroRecords": "抱歉， 没有找到",
+                "sInfo": "从 _START_ 到 _END_ /共 _TOTAL_ 条数据",
+                "sInfoEmpty": "没有数据",
+                "sInfoFiltered": "(从 _MAX_ 条数据中检索)",
+                "oPaginate": {
+                    "sFirst": "首页",
+                    "sPrevious": "前一页",
+                    "sNext": "后一页",
+                    "sLast": "尾页"
+                },
+            }
+        });
+    });
+</script>
+</body>
+</html>
+
+

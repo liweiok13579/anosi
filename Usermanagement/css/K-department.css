@@ -1,0 +1,54 @@
+.panel-K {
+    padding:0 0 10px 0;
+}
+
+.department {
+    display: none;
+    width: 30%;
+    height:54px;
+    line-height:50px;
+    margin: 10px auto;
+}
+
+.departmentTxt {
+    display: inline-block;
+    font-size: 24px;
+    font-weight:700;
+    padding: 0 10px;
+}
+
+.department select {
+    width: 25%;
+    font-size: 20px;
+    font-weight: 700;
+    vertical-align: inherit;
+    border: 2px solid;
+    padding:3px 10px;
+}
+
+.department button {
+    vertical-align: top;
+    margin: 10px;
+}
+
+
+.departmentE {
+    display: none;
+    width: 30%;
+    height:54px;
+    line-height:50px;
+    margin: 10px auto;
+}
+
+.departmentTxtAdd {
+    display: inline-block;
+    font-size: 24px;
+    font-weight:700;
+    padding: 0 10px;
+}
+
+
+.departmentE button {
+    vertical-align: top;
+    margin: 10px;
+}

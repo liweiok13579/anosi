@@ -1,0 +1,19 @@
+（以下都以html为后缀名）
+返回信息管理               index.html
+用户查询 	              index.html
+用户详情 	              userDetails.html
+用户新增、修改             addUser.html
+组织架构查询               organQuery.html
+组织架构查看	              organSee.html
+组织架构新增               newOrgan.html
+组织架构修改               organModification.html
+角色管理	                  rolemanagement.html
+角色新增	                  newRole.html
+角色修改	                  rolemodification.html
+权限查询	                  permissionQuery.html
+权限新增	                  newPermissions.html
+权限修改	                  jurisdictionModify.html
+元数据查询                 dataQuery.html
+元数据详情                 dataDetails.html
+元数据新增                 newData.html
+元数据修改                 dataModification.html
