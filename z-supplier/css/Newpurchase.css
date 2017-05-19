@@ -1,0 +1,26 @@
+.Gender{
+    width: 52px;
+    text-align: left;
+}
+.female{
+    margin-left: 60px!important;
+    margin-right: 52px!important;
+}
+td{
+    text-align: center;
+}
+.portrait{
+    float: left;
+}
+.portraitimg{
+    float: left;
+    width:187px;
+    padding: 2px 3px;
+}
+#bottom{
+    position: fixed;
+    bottom: 0;
+    left:0;
+    width: 100%;
+    z-index: -1;
+}

@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Olive Enterprise">
+    <title>
+        ANOSi用户信息管理系统
+    </title>
+    <!-- Css 不要更换位置排列-->
+    <link href="../lib/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../lib/css/bootstrap-reset.css" rel="stylesheet">    <!--iconfent-->
+    <link href="../lib/assets/advanced-datatable/media/css/demo_table.css" rel="stylesheet"><!-- DATATABLE 样式CSS -->
+    <link rel="stylesheet" type="text/css" href="../lib/assets/fuelux/css/tree-style.css"><!-- TREE STYLE CSS -->
+    <link href="../lib/css/style.css" rel="stylesheet"><!-- 页面基本 CSS -->
+    <link href="../lib/assets/font-awesome/css/font-awesome.css" rel="stylesheet"><!--字体图标-->
+    <link rel="stylesheet" type="text/css" href="../lib/assets/jquery-multi-select/css/multi-select.css">
+    <!-- 孔凡奇 引入 css -->
+    <link rel="stylesheet" href="css/K-department.css">
+
+    <!--下面这个JS是用来判断是否为ie9以下浏览器，如果是的话执行下列两个js，否就不执行，请勿清空下方备注 ieIE9（这是备注判断语句）-->
+    <!--[if lt IE 9]>
+    <script src="../js/html5shiv.js">
+    </script>
+    <script src="../js/respond.min.js">
+    </script>
+    <![endif]-->
+</head>
+<body>
+<!-- 页面外围总父盒子 -->
+<section id="container" class="box">
+
+    <!-- 中间主要内容 -->
+    <section class="wrapper site-min-height">
+        <!-- BEGIN 查询层 -->
+        <div class="row">
+            <div class="col-md-12">
+                <section class="panel">
+                    <div class="panel-heading" style="font-size:8px;background: #428bca;color: #fff">
+                        用户、角色配置
+                        <span class="tools pull-right">
+                          <a href="javascript:;" class="fa fa-chevron-down">
+                          </a>
+                        </span>
+                    </div>
+                    <!--用户查询-->
+                    <div class="panel-body leftbody">
+                        <form class="form-inline" role="form">
+                            <div style="width: 235px;margin: 0 auto;">
+                                <div class="form-group leftgroup" style="display: inline;vertical-align: baseline">
+                                    <label class="control-label">用户查询</label>
+                                    <input type="text" name="" class="form-control" id="username" value="李伟">
+                                </div>
+                                <button type="button" class="btn btn-success mar">
+                                    <i class="fa fa-search">查询
+                                    </i>
+                                </button>
+                            </div>
+                        </form>
+                        <div class="panel-body">
+                            <form action="#" class="form-horizontal tasi-form leftform">
+                                <div class="form-group left fl" style="width: 100%;">
+                                    <div class="col-md-12">
+                                        <select name="country"
+                                                class="multi-select"
+                                                multiple=""
+                                                id="my_multi_select4">
+                                            <option value="ZW1">
+                                                库管员
+                                            </option>
+                                            <option value="ZW2">
+                                                财务专员
+                                            </option>
+                                            <option value="ZW3">
+                                                人事专员
+                                            </option>
+                                            <option value="ZW4">
+                                                总经理
+                                            </option>
+                                            <option value="ZW5">
+                                                事业部副总
+                                            </option>
+                                            <option value="ZW6">
+                                                管理员
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <!--角色查询-->
+                    <div class="panel-body rightbody">
+                        <form class="form-inline" role="form">
+                            <div style="width: 235px;margin: 0 auto;">
+                                <div class="form-group leftgroup" style="display: inline;vertical-align: baseline">
+                                    <label class="control-label">角色查询</label>
+                                    <input type="text" name="" class="form-control" id="username1" value="库管员">
+                                </div>
+                                <button type="button" class="btn btn-success">
+                                    <i class="fa fa-search">查询
+                                    </i>
+                                </button>
+                            </div>
+                        </form>
+                        <div class="panel-body">
+                            <form action="#" class="form-horizontal tasi-form leftform">
+                                <div class="form-group last fr">
+                                    <div class="col-md-12">
+                                        <select name="country"
+                                                class="multi-select"
+                                                multiple=""
+                                                id="my_multi_select5">
+                                            <option value="AF">
+                                                李伟
+                                            </option>
+                                            <option value="ZW1">
+                                                孔凡奇
+                                            </option>
+                                            <option value="ZW2">
+                                                卢志刚
+                                            </option>
+                                            <option value="ZW3">
+                                                戚雪堃
+                                            </option>
+                                            <option value="ZW4">
+                                                张大任
+                                            </option>
+                                            <option value="ZW5">
+                                                刘梦然
+                                            </option>
+                                            <option value="ZW6">
+                                                崔盟国
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <!--确认修改-->
+                    <div class="panel-body centenbody">
+                        <div class="boxyes">
+                            <button type="button" class="btn btn-round btn-success yesbon" onclick="Modify()">
+                                <i class="fa fa-undo" style="color: #fff;">&nbsp;确认修改
+                                </i>
+                            </button>
+                            <button type="button" class="btn btn-round btn-danger" onclick="chongzhi()">
+                                <i class="fa fa-times" style="color: #fff;">&nbsp;重置所有
+                                </i>
+                            </button>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+        <!-- END 查询层 -->
+        <!-- BEGIN 表格展现层 -->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-primary">
+                    <div class="panel-heading" style="font-size:8px;">
+                        角色用户列表
+                        <span class="tools pull-right">
+                          <a href="javascript:;" class="fa fa-chevron-down">
+                          </a>
+                        </span>
+                    </div>
+                    <div class="panel-body">
+                        <div class="adv-table">
+                            <table class="display table table-bordered table-striped" id="example">
+                                <thead>
+                                <tr>
+                                    <th>账户名称</th>
+                                    <th class="hidden-phone">用户姓名</th>
+                                    <th>角色名称</th>
+                                    <th class="hidden-phone">操作</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr class="gradeC">
+                                    <td>
+                                        admin
+                                    </td>
+                                    <td class="hidden-phone">
+                                        孔凡奇
+                                    </td>
+                                    <td>
+                                        <select name="" id="">
+                                            <option value="1">库房管理</option>
+                                            <option value="1">管理员</option>
+                                            <option value="1">人事专员</option>
+                                            <option value="1">财务主管</option>
+                                        </select>
+                                    </td>
+                                    <td align="center">
+                                        <button class="btn btn-warning btn-x">
+                                            <i class="fa fa-pencil">
+                                                <span class="sp">修改</span>
+                                            </i>
+                                        </button>
+                                        <button class="btn btn-danger btn-s">
+                                            <i class="fa fa-trash-o">&nbsp;删除</i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                </tbody>
+                                <tfoot>
+                                <tr>
+                                    <th>模块名称</th>
+                                    <th class="hidden-phone">子模块名称</th>
+                                    <th>角色名称</th>
+                                    <th class="hidden-phone">操作</th>
+                                </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- END 表格展现层 -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- 中间主要内容 结束  -->
+
+    <!--底部-->
+    <footer class="site-footer">
+        <div class="text-center">
+            Copyright 2017 北京安诺信科技股份有限公司 苏ICP备12039945号-1
+            <a href="#" class="go-top">
+                <i class="fa fa-angle-up">
+                </i>
+            </a>
+        </div>
+    </footer>
+    <!--底部结束-->
+</section>
+<!-- 页面外围总父盒子 结束 -->
+
+
+<!-- BEGIN JS -->
+<script src="../lib/js/jquery.js"></script><!-- jQuery -->
+<script src="../lib/js/bootstrap.min.js"></script><!-- bootstrap JS  -->
+<script src="../lib/js/jquery.dcjqaccordion.2.7.js"></script><!-- 手风琴菜单插件 JS -->
+<script src="../lib/js/jquery.scrollTo.min.js"></script><!-- 滚动插件 JS  -->
+<script src="../lib/js/jquery.nicescroll.js"></script><!-- 滚动插件 JS  -->
+<script src="../lib/assets/jquery-multi-select/js/jquery.multi-select.js"></script><!-- BOOTSTRAP 多选插件 JS  -->
+<script src="../lib/assets/jquery-multi-select/js/jquery.quicksearch.js"></script><!-- BOOTSTRAP 多选插件 JS  -->
+<script src="../lib/js/common-scripts.js"></script><!-- BASIC COMMON JS  -->
+<script src="../lib/js/advanced-form-components.js"></script><!-- ADVANCE FORM COMPONENTS PAGE JS  -->
+<script src="../lib/assets/ckeditor/ckeditor.js"></script><!-- CKEDITOR JS  -->
+<!-- END JS -->
+<script src="../lib/assets/advanced-datatable/media/js/jquery.dataTables.js"></script>
+<script src="../lib/assets/data-tables/DT_bootstrap.js"></script>
+<!-- BOOTSTRAP COLORPICKER JS  -->
+<!--  人家的 -->
+
+<script src="../lib/js/jquery.dcjqaccordion.2.7.js"></script><!--  left栏的js -->
+<script src="../lib/js/jquery.nicescroll.js"></script><!-- 美化页面内嵌的滚动条 -->
+<script src="../lib/js/respond.min.js"></script><!-- 解决ie9以下的部分兼容性js -->
+
+<script>
+    $(document).ready(function () {
+        $('#example').dataTable({
+            "aaSorting": [[4, "desc"]],//从第0列开始，以第4列倒序排列
+            "aLengthMenu": [
+                [10, 20, 30, -1],
+                [10, 20, 30, "所有"]
+            ],//查询数据条数
+            "iDisplayLength": 10, //默认5
+            "oLanguage": {
+                "sLengthMenu": "每页显示 _MENU_ 条记录",
+                "sZeroRecords": "抱歉， 没有找到",
+                "sInfo": "从 _START_ 到 _END_ /共 _TOTAL_ 条数据",
+                "sInfoEmpty": "没有数据",
+                "sInfoFiltered": "(从 _MAX_ 条数据中检索)",
+                "oPaginate": {
+                    "sFirst": "首页",
+                    "sPrevious": "前一页",
+                    "sNext": "后一页",
+                    "sLast": "尾页"
+                },
+            }
+        });
+        $(".btn-x").on("click", function () {
+            Modify()
+        })
+        $(".btn-s").on("click", function () {
+            Delete()
+        })
+    });
+    //    修改
+    function Modify() {
+        var gnl = confirm("是否确定要修改?");
+        if (gnl == true) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    //    删除
+    function Delete() {
+        var gnl = confirm("是否确定要删除?");
+        if (gnl == true) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    //    重置
+    function chongzhi() {
+        var gnl = confirm("是否确定要重置?");
+        if (gnl == true) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+</script>
+
+</body>
+</html>
+
+

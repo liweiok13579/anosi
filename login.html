@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>anosi安诺信后台系统</title>
+    <!-- Bootstrap -->
+    <link href="lib/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/L-index.css">
+</head>
+
+<body>
+<div class="box">
+    <!--导航-->
+    <div class="one">
+        <div class="logo">
+            <img src="./img/logo.png" alt="">
+        </div>
+    </div>
+    <!--主体-->
+    <div class="two">
+        <img src="./img/banner_img01.png" alt="" class="img1">
+        <img src="./img/banner_img.png" alt="" class="img2">
+        <img src="./img/banner_img02.png" alt="" class="img3">
+        <!--中间的字体-->
+        <div class="banner-info">
+            <h2>安诺信资产服务优化专家</h2>
+            <p><span>矢志创新</span><span>尊重客户</span><span>奋进求实</span><span>感恩成长</span></p>
+        </div>
+        <!--后台看这里-->
+        <div class="right">
+            <div class="right_con">
+                <span>登录请注意安全</span>
+                <img src="./img/erweima.png" alt="">
+                <form name="frm" action="./homePage/homePage.html" method="get">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">账号</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="账号" value="">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">密码</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="密码"
+                               value="">
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox"> 记住我
+                            <!--后台瞄准这里，错误信息往这里扔-->
+                            <div class="cuowu">账号或密码不符,请重新输入</div>
+                        </label>
+                        <button type="button" class="btn btn-primary tijiao" onclick="Jump();" style="margin-left: -20px;">提交</button>
+                    </div>
+                </form>
+                <a href="#">温馨提示：请保管好自己的密码</a>
+            </div>
+        </div>
+    </div>
+    <!--底侧导航-->
+    <!--foot内容-->
+    <div class="foot ">
+        <!-- <p><a href="###">法律声明</a>  |  <a href="###">隐私</a>  |  <a href="###">网站地图</a></p> -->
+        <span>Copyright 2010 无锡云拓科技有限公司 &nbsp;<a href="http://www.miitbeian.gov.cn/" target="_blank">苏ICP备12039945号-1</a></span><br>
+        <span>无锡云拓科技有限公司和北京安诺信科技股份有限公司是子公司的从属关系</span>
+    </div>
+</div>
+<script src="lib/js/jquery-1.8.3.min.js"></script>
+<script src="./js/L-index.js"></script>
+</body>
+
+</html>

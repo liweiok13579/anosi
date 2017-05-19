@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户查询</title>
+    <!-- Css 不要更换位置排列-->
+    <link href="../lib/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../lib/css/bootstrap-reset.css" rel="stylesheet">    <!--iconfent-->
+    <link href="../lib/assets/advanced-datatable/media/css/demo_table.css" rel="stylesheet"><!-- DATATABLE 样式CSS -->
+    <link href="../lib/css/style.css" rel="stylesheet"><!-- 页面基本 CSS -->
+    <link href="../lib/assets/font-awesome/css/font-awesome.css" rel="stylesheet"><!--字体图标-->
+    <link rel="stylesheet" href="css/Userquery.css">
+    <!--下面这个JS是用来判断是否为ie9以下浏览器，如果是的话执行下列两个js，否就不执行，请勿清空下方备注 ieIE9（这是备注判断语句）-->
+    <!--[if lt IE 9]>
+    <script src="../lib/js/html5shiv.js">
+    </script>
+    <script src="../lib/js/respond.min.js">
+    </script>
+    <![endif]-->
+    <!-- Css 结束-->
+</head>
+<body>
+
+<!-- 页面外围总父盒子 -->
+<section id="container" class="box">
+    <section class="wrapper site-min-height">
+        <!-- BEGIN 查询层 -->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-primary">
+                    <div class="panel-heading" style="font-size:8px;">
+                        查询条件
+                        <span class="tools pull-right">
+                              <a href="javascript:;" class="fa fa-chevron-down">
+                              </a>
+                            </span>
+                    </div>
+                    <div class="panel-body">
+                        <form class="form-inline" role="form">
+                            <div class="form-group">
+                                <label class="control-label">用户姓名</label>
+                                <input type="text" name="" class="form-control" id="username">
+                            </div>
+                            &nbsp;
+                            <div class="form-group">
+                                <label class="control-label">部门名称</label>
+                                <select class="form-control" style="width:200px;">
+                                    <option>请选择部门名称</option>
+                                    <option>开发部</option>
+                                    <option>人事部</option>
+                                    <option>财务部</option>
+                                </select>
+                            </div>
+                            &nbsp;
+                            <button type="button" class="btn btn-success">
+                                <i class="fa fa-search">&nbsp;查询
+                                </i>
+                            </button>
+                            &nbsp;
+                            <button type="button" class="btn btn-primary">
+                                <a href="NewUser.html">
+                                    <i class="fa fa-pencil-square-o">&nbsp;新增
+                                    </i>
+                                </a>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END 查询层 -->
+        <!-- BEGIN 表格展现层 -->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-primary">
+                    <div class="panel-heading" style="font-size:8px;">
+                        查询结果
+                        <span class="tools pull-right">
+                              <a href="javascript:;" class="fa fa-chevron-down">
+                              </a>
+                            </span>
+                    </div>
+                    <div class="panel-body">
+                        <div class="adv-table">
+                            <table class="display table table-bordered table-striped" id="example">
+                                <thead>
+                                <tr>
+                                    <th>Rendering engine</th>
+                                    <th class="hidden-phone">Browser</th>
+                                    <th>Platform(s)</th>
+                                    <th class="hidden-phone">Engine version</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr class="gradeC">
+                                    <td>Misc</td>
+                                    <td class="hidden-phone">PSP browser</td>
+                                    <td>PSP</td>
+                                    <td align="center">
+                                        <button class="btn btn-info btn-xs"><a href="Userdetails.html"><i
+                                                class="fa fa-eye">&nbsp;查看</i></a>
+                                        </button>
+                                        &nbsp;
+                                        <button class="btn btn-warning btn-xs"><a href="Adduser.html"><a
+                                                href="Adduser.html"><i class="fa fa-pencil">&nbsp;修改</i></a></a>
+                                        </button>
+                                        &nbsp;
+                                        <button class="btn btn-danger btn-xs" onclick="Delete()"><i
+                                                class="fa fa-trash-o">&nbsp;删除</i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                </tbody>
+                                <tfoot>
+                                <tr>
+                                    <th>Rendering engine</th>
+                                    <th class="hidden-phone">Browser</th>
+                                    <th>Platform(s)</th>
+                                    <th>Engine version</th>
+                                </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- END 表格展现层 -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--底部-->
+    <footer class="site-footer">
+        <div class="text-center">
+            Copyright 2017 北京安诺信科技股份有限公司 苏ICP备12039945号-1
+            <a href="#" class="go-top">
+                <i class="fa fa-angle-up">
+                </i>
+            </a>
+        </div>
+    </footer>
+    <!--底部结束-->
+</section>
+</body>
+<!-- JS引入 不要换位置 -->
+<script language="javascript" src="../lib/assets/advanced-datatable/media/js/jquery.js"></script>
+<script src="../lib/js/bootstrap.min.js"></script>
+<script src="../lib/js/jquery.dcjqaccordion.2.7.js"></script><!--  left栏的js -->
+<script src="../lib/js/jquery.nicescroll.js"></script><!-- 美化页面内嵌的滚动条 -->
+<script src="../lib/js/respond.min.js"></script><!-- 解决ie9以下的部分兼容性js -->
+<script src="../lib/js/common-scripts.js"></script><!-- left栏的js -->
+<!--data TABLE-->
+<script language="javascript" src="../lib/assets/advanced-datatable/media/js/jquery.dataTables.js"></script>
+<script src="../lib/assets/data-tables/DT_bootstrap.js"></script>
+<!-- JS引入结束 -->
+
+<script>
+    $(document).ready(function () {
+        $('#example').dataTable({
+            "aaSorting": [[4, "desc"]],//从第0列开始，以第4列倒序排列
+            "aLengthMenu": [
+                [10, 20, 30, -1],
+                [10, 20, 30, "所有"]
+            ],//查询数据条数
+            "iDisplayLength": 10, //默认5
+            "oLanguage": {
+                "sLengthMenu": "每页显示 _MENU_ 条记录",
+                "sZeroRecords": "抱歉， 没有找到",
+                "sInfo": "从 _START_ 到 _END_ /共 _TOTAL_ 条数据",
+                "sInfoEmpty": "没有数据",
+                "sInfoFiltered": "(从 _MAX_ 条数据中检索)",
+                "oPaginate": {
+                    "sFirst": "首页",
+                    "sPrevious": "前一页",
+                    "sNext": "后一页",
+                    "sLast": "尾页"
+                },
+            }
+        });
+    });
+    //    删除
+    function Delete(){
+        var gnl=confirm("是否确定要删除?");
+        if (gnl==true){
+            return true;
+        }else{
+            return false;
+        }
+    }
+</script>
+</html>
