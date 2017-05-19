@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Olive Enterprise">
+    <title>
+        ANOSi用户信息管理系统
+    </title>
+    <!-- Css 不要更换位置排列-->
+    <link href="../lib/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../lib/css/bootstrap-reset.css" rel="stylesheet">    <!--iconfent-->
+    <link href="../lib/assets/advanced-datatable/media/css/demo_table.css" rel="stylesheet"><!-- DATATABLE 样式CSS -->
+    <link href="../lib/css/style.css" rel="stylesheet"><!-- 页面基本 CSS -->
+    <link href="../lib/assets/font-awesome/css/font-awesome.css" rel="stylesheet"><!--字体图标-->
+    <!-- 孔凡奇 引入 css -->
+    <link rel="stylesheet" href="css/K-department.css">
+
+    <!--下面这个JS是用来判断是否为ie9以下浏览器，如果是的话执行下列两个js，否就不执行，请勿清空下方备注 ieIE9（这是备注判断语句）-->
+    <!--[if lt IE 9]>
+    <script src="../js/html5shiv.js">
+    </script>
+    <script src="../js/respond.min.js">
+    </script>
+    <![endif]-->
+    <!-- Css 结束-->
+
+</head>
+<body>
+<!-- 页面外围总父盒子 -->
+<section id="container" class="box">
+    <!-- 中间主要内容 -->
+    <section class="wrapper site-min-height">
+        <!-- BEGIN 查询层 -->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-primary">
+                    <div class="panel-heading" style="font-size:8px;">
+                        查询条件
+                        <span class="tools pull-right">
+                          <a href="javascript:;" class="fa fa-chevron-down">
+                          </a>
+                        </span>
+                    </div>
+                    <div class="panel-body">
+                        <form class="form-inline" role="form">
+                            <!-- 部门名称 -->
+                            <div class="form-group meta-data">
+                                <label class="control-label">部门名称</label>
+                                <select class="form-control" name="" id="organization1">
+                                    <option>人事部</option>
+                                    <option>财务部</option>
+                                    <option>行政部</option>
+                                </select>
+                            </div>
+                            <button type="button" class="btn btn-success" id="orgUserQuery">
+                                <i class="fa fa-search">人员调出</i>
+                            </button>
+                            <button type="button" class="btn btn-primary" id="orgUserAdd">
+                                <i class="fa fa-pencil-square-o">人员调入</i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END 查询层 -->
+
+        <!-- BEGIN 表格展现层 -->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-primary panel-K">
+                    <div class="panel-heading" style="font-size:8px;">
+                        查询结果
+                        <span class="tools pull-right">
+                          <a href="javascript:;" class="fa fa-chevron-down">
+                          </a>
+                        </span>
+                    </div>
+                    <div class="panel-body">
+                        <div class="adv-table">
+                            <table class="display table table-bordered table-striped" id="example">
+                                <thead>
+                                <tr>
+                                    <th class="hidden-phone">操作</th>
+                                    <th>人员姓名</th>
+                                    <th class="hidden-phone">所在部门</th>
+                                    <th>所任职务</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr class="gradeX">
+                                    <td>
+                                        <input type="checkbox" name="">
+                                    </td>
+                                    <td class="hidden-phone">王晓东</td>
+                                    <td>人事部</td>
+                                    <td align="center">
+                                        人事专员
+                                    </td>
+                                </tr>
+                                <tr class="gradeX">
+                                    <td>
+                                        <input type="checkbox" name="">
+                                    </td>
+                                    <td class="hidden-phone">王晓东</td>
+                                    <td>人事部</td>
+                                    <td align="center">
+                                        人事专员
+                                    </td>
+                                </tr>
+                                </tbody>
+                                <tfoot>
+                                <tr>
+                                    <th class="hidden-phone">操作</th>
+                                    <th>人员姓名</th>
+                                    <th class="hidden-phone">所在部门</th>
+                                    <th>所任职务</th>
+                                </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- END 表格展现层 -->
+                    <!-- 调换部门 S -->
+                    <div class="form-group meta-data department">
+                        <div class="control-label departmentTxt">选中人员调换至</div>
+                        <select class="form-control" name="" id="organization">
+                            <option>人事部</option>
+                            <option>财务部</option>
+                            <option>行政部</option>
+                        </select>
+                        <button type="button" id="departmentBtn" class="btn  btn-success">
+                            确定
+                        </button>
+                    </div>
+                    <div class="departmentE">
+                        <div class="departmentTxtAdd"></div>
+                        <button type="button" id="departmentBtnE" class="btn  btn-success">
+                            确定
+                        </button>
+                    </div>
+                    <!-- 调换部门 E -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- 中间主要内容 结束  -->
+
+    <!--底部-->
+    <footer class="site-footer">
+        <div class="text-center">
+            Copyright 2017 北京安诺信科技股份有限公司 苏ICP备12039945号-1
+            <a href="#" class="go-top">
+                <i class="fa fa-angle-up">
+                </i>
+            </a>
+        </div>
+    </footer>
+    <!--底部结束-->
+</section>
+<!-- 页面外围总父盒子 结束 -->
+
+<!-- JS引入 不要换位置 -->
+<script language="javascript" src="../lib/assets/advanced-datatable/media/js/jquery.js"></script>
+<script src="../lib/js/bootstrap.min.js"></script>
+<script src="../lib/js/jquery.dcjqaccordion.2.7.js"></script><!--  left栏的js -->
+<script src="../lib/js/jquery.nicescroll.js"></script><!-- 美化页面内嵌的滚动条 -->
+<script src="../lib/js/respond.min.js"></script><!-- 解决ie9以下的部分兼容性js -->
+<script src="../lib/js/common-scripts.js"></script><!-- left栏的js -->
+<!--data TABLE-->
+<script language="javascript" src="../lib/assets/advanced-datatable/media/js/jquery.dataTables.js"></script>
+<script src="../lib/assets/data-tables/DT_bootstrap.js"></script>
+<!-- JS引入结束 -->
+
+<script>
+    $(document).ready(function () {
+        $('#example').dataTable({
+            "aaSorting": [[4, "desc"]],//从第0列开始，以第4列倒序排列
+            "aLengthMenu": [
+                [10, 20, 30, -1],
+                [10, 20, 30, "所有"]
+            ],//查询数据条数
+            "iDisplayLength": 10, //默认5
+            "oLanguage": {
+                "sLengthMenu": "每页显示 _MENU_ 条记录",
+                "sZeroRecords": "抱歉， 没有找到",
+                "sInfo": "从 _START_ 到 _END_ /共 _TOTAL_ 条数据",
+                "sInfoEmpty": "没有数据",
+                "sInfoFiltered": "(从 _MAX_ 条数据中检索)",
+                "oPaginate": {
+                    "sFirst": "首页",
+                    "sPrevious": "前一页",
+                    "sNext": "后一页",
+                    "sLast": "尾页"
+                },
+            }
+        });
+
+        $("#orgUserQuery").on("click", function () {
+            if($("#department").css({display: "none"})){
+                $(".department").css({display: "block"});
+                $(".departmentE").css({display: "none"})
+            }
+        })
+        $("#orgUserAdd").on("click", function () {
+            if($(".department").css({display: "none"})){
+                var valOrg1 = $("#organization1").val();
+                $(".departmentTxtAdd").text("选中人员调换至 : " + valOrg1);
+                $(".departmentE").css({display: "block"});
+                $(".department").css({display: "none"})
+            }
+        })
+        // 确定事件
+        $("#departmentBtn").on("click", function () {
+            var valorg = $("#organization").val();
+            alert("成功将选中人员添加至" + valorg);
+        })
+        // 确定事件
+        $("#departmentBtnE").on("click", function () {
+            var valorg = $("#organization1").val();
+            alert("成功将选中人员添加至" + valorg);
+        })
+    });
+</script>
+</body>
+</html>
+
+

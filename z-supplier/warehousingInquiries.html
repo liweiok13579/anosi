@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Olive Enterprise">
+    <title>
+        ANOSi用户信息管理系统
+    </title>
+    <!-- Css 不要更换位置排列-->
+    <link href="../lib/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../lib/css/bootstrap-reset.css" rel="stylesheet">
+    <link href="../lib/assets/advanced-datatable/media/css/demo_table.css" rel="stylesheet"><!-- DATATABLE 样式CSS -->
+    <link rel="stylesheet" type="text/css" href="../lib/assets/bootstrap-fileupload/bootstrap-fileupload.css">
+    <!-- 图片上传css-->
+    <link href="../lib/assets/font-awesome/css/font-awesome.css" rel="stylesheet"><!--字体图标-->
+    <link href="../lib/css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="../lib/assets/bootstrap-datepicker-master/css/bootstrap-datepicker.min.css">
+    <!--下面这个JS是用来判断是否为ie9以下浏览器，如果是的话执行下列两个js，否就不执行，请勿清空下方备注 ieIE9（这是备注判断语句）-->
+    <!--[if lt IE 9]>
+    <script src="../lib/js/html5shiv.js">
+    </script>
+    <script src="../lib/js/respond.min.js">
+    </script>
+    <![endif]-->
+    <!-- Css 结束-->
+    <style>
+    </style>
+</head>
+<body>
+<!-- 页面外围总父盒子 -->
+<section id="container" class="box">
+
+    <!-- 中间主要内容 -->
+    <section class="wrapper site-min-height">
+        <!-- 查询层 -->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-primary">
+                    <div class="panel-heading" style="font-size:8px;">
+                        查询条件
+                        <span class="tools pull-right">
+                                <a href="javascript:;" class="fa fa-chevron-down"></a>
+                            </span>
+                    </div>
+                    <div class="panel-body">
+                        <form class="form-inline" role="form" _lpchecked="1">
+                            <div class="form-group">
+                                <label class="control-label">开始时间 : </label>
+                                <input type="text" class="form-control datepicker startday" id="supplier">
+                            </div>
+                            &nbsp;
+                            <div class="form-group">
+                                <label class="control-label">结束时间 : </label>
+                                <input type="text" class="form-control datepicker endday" id="parts">
+                            </div>
+                            &nbsp;
+                            <button type="button" class="btn btn-success">
+                                <i class="fa fa-search">查询</i>
+                            </button>
+                            &nbsp;
+                            <button type="button" class="btn btn-primary">
+                                <a href="warehouseAdded.html">
+                                    <i class="fa fa-pencil-square-o">新增入库单</i>
+                                </a>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 展现层 -->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-primary">
+                    <div class="panel-heading" style="font-size:8px;">
+                        查询结果
+                        <span class="tools pull-right">
+                          <a href="javascript:;" class="fa fa-chevron-down">
+                          </a>
+                        </span>
+                    </div>
+                    <div class="panel-body">
+                        <div class="adv-table">
+                            <table class="display table table-bordered table-striped" id="example">
+                                <thead>
+                                <tr>
+                                    <th>物料名称</th>
+                                    <th class="hidden-phone">物料编码</th>
+                                    <th>物料供货商</th>
+                                    <th class="hidden-phone">物料数量</th>
+                                    <th>入库时间</th>
+                                    <th>所入仓库</th>
+                                    <th>入库人</th>
+                                    <th class="hidden-phone">操作</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr class="gradeA">
+                                    <td>办公桌</td>
+                                    <td class="hidden-phone">0111-3366</td>
+                                    <td>供货商-李伟</td>
+                                    <td>10</td>
+                                    <td>2017/05/19</td>
+                                    <td>北京大兴仓库</td>
+                                    <td>戚雪堃</td>
+                                    <td align="center">
+                                        <button class="btn btn-warning btn-xs">
+                                            <a href="warehousingChanges.html">
+                                                <i class="fa fa-pencil">修改</i>
+                                            </a>
+                                        </button>
+                                        &nbsp;
+                                        <button class="btn btn-danger btn-xs">
+                                            <a href="javascript:;"
+                                               onclick="Delete()">
+                                                <i class="fa fa-trash-o">删除</i>
+                                            </a>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr class="gradeA">
+                                    <td>电脑</td>
+                                    <td class="hidden-phone">0111-3388</td>
+                                    <td>供货商-孔凡奇</td>
+                                    <td>8</td>
+                                    <td>2017/05/12</td>
+                                    <td>北京通州仓库</td>
+                                    <td>李伟</td>
+                                    <td align="center">
+                                        <button class="btn btn-warning btn-xs">
+                                            <a href="warehousingChanges.html">
+                                                <i class="fa fa-pencil">修改</i>
+                                            </a>
+                                        </button>
+                                        &nbsp;
+                                        <button class="btn btn-danger btn-xs">
+                                            <a href="javascript:;"
+                                               onclick="Delete()">
+                                                <i class="fa fa-trash-o">删除</i>
+                                            </a>
+                                        </button>
+                                    </td>
+                                </tr>
+                                </tbody>
+                                <tfoot>
+                                <tr>
+                                    <th>物料名称</th>
+                                    <th class="hidden-phone">物料编码</th>
+                                    <th>物料供货商</th>
+                                    <th class="hidden-phone">物料数量</th>
+                                    <th>入库时间</th>
+                                    <th>所入仓库</th>
+                                    <th>入库人</th>
+                                    <th class="hidden-phone">操作</th>
+                                </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- END 表格展现层 -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- 中间主要内容 结束  -->
+
+    <!--底部-->
+    <footer class="site-footer">
+        <div class="text-center">
+            Copyright 2017 北京安诺信科技股份有限公司 苏ICP备12039945号-1
+            <a href="#" class="go-top">
+                <i class="fa fa-angle-up">
+                </i>
+            </a>
+        </div>
+    </footer>
+    <!--底部结束-->
+</section>
+<!-- 页面外围总父盒子 结束 -->
+
+<!-- JS引入 不要换位置 -->
+<script language="javascript" src="../lib/assets/advanced-datatable/media/js/jquery.js"></script>
+<script src="../lib/js/bootstrap.min.js"></script>
+<script src="../lib/js/jquery.dcjqaccordion.2.7.js"></script><!--  left栏的js -->
+<script src="../lib/js/jquery.nicescroll.js"></script><!-- 美化页面内嵌的滚动条 -->
+<script src="../lib/js/respond.min.js"></script><!-- 解决ie9以下的部分兼容性js -->
+<script src="../lib/js/common-scripts.js"></script><!-- left栏的js -->
+<!--data table-->
+<script language="javascript" src="../lib/assets/advanced-datatable/media/js/jquery.dataTables.js"></script>
+<script src="../lib/assets/data-tables/DT_bootstrap.js"></script>
+<!--时间-->
+<script src="../lib/assets/bootstrap-datepicker-master/js/bootstrap-datepicker.min.js"></script>
+<script src="../lib/assets/bootstrap-datepicker-master/locales/bootstrap-datepicker.zh-CN.min.js"></script><!-- JS引入结束 -->
+
+<script src="../lib/js/K-data-form.js"></script><!-- ADVANCE FORM COMPONENTS PAGE JS  -->
+<script>
+    $(function () {
+        $('#example').dataTable({
+            "aaSorting": [[4, "desc"]],//从第0列开始，以第4列倒序排列
+            "aLengthMenu": [
+                [10, 20, 30, -1],
+                [10, 20, 30, "所有"]
+            ],//查询数据条数
+            "iDisplayLength": 10, //默认5
+            "oLanguage": {
+                "sLengthMenu": "每页显示 _MENU_ 条记录",
+                "sZeroRecords": "抱歉， 没有找到",
+                "sInfo": "从 _START_ 到 _END_ /共 _TOTAL_ 条数据",
+                "sInfoEmpty": "没有数据",
+                "sInfoFiltered": "(从 _MAX_ 条数据中检索)",
+                "oPaginate": {
+                    "sFirst": "首页",
+                    "sPrevious": "前一页",
+                    "sNext": "后一页",
+                    "sLast": "尾页"
+                },
+            }
+        });
+    })
+
+    //   删除
+    function Delete() {
+        var gnl = confirm("确定要删除吗?");
+        if (gnl == true) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+</script>
+</body>
+</html>
+
+

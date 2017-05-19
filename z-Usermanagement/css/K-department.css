@@ -1,0 +1,123 @@
+.panel-K {
+    padding:0 0 10px 0;
+}
+
+.department {
+    display: none;
+    width: 30%;
+    height:54px;
+    line-height:50px;
+    margin: 10px auto;
+    padding: 0 5%;
+    min-width: 520px;
+}
+
+.departmentTxt {
+    display: inline-block;
+    padding: 0 10px;
+}
+
+.department select {
+    display: inline-block;
+    width: 25%;
+    vertical-align: inherit;
+    padding:3px 10px;
+}
+
+.department button {
+    vertical-align: top;
+    margin: 10px;
+    vertical-align: baseline;
+}
+
+
+.departmentE {
+    display: none;
+    width: 30%;
+    height:54px;
+    line-height:50px;
+    margin: 10px auto;
+    padding: 0 5%;
+    min-width: 520px;
+}
+
+.departmentTxtAdd {
+    display: inline-block;
+    padding: 0 20px;
+}
+
+
+.departmentE button {
+    vertical-align: top;
+    margin: 10px;
+}
+
+.fl {
+    width: 100%;
+    float: left;
+}
+.fr {
+    width: 100%;
+    float: left;
+}
+/*.mar{*/
+    /*margin-right:20% ;*/
+/*}*/
+.leftbody{
+    box-sizing:border-box;
+    width: 50%;
+    border-right:1px solid #ccc ;
+    float: left;
+}
+.rightbody{
+    width: 50%;
+    float: left;
+}
+.boxyes{
+    width: 246px;
+    margin: auto;
+}
+.yesbon{
+    margin-right: 40px;
+}
+.leftform{
+    margin-left: 11%;
+}
+.ms-container {
+    width: 100% !important;;
+}
+
+
+.leftgroup  input {
+    width: 40% !important;;
+}
+/*tree遮罩*/
+.Mask{
+    position:fixed;
+    width: 100%;
+    height: 100%;
+    background-color:rgba(0,0,0,0.8);
+    filter: alpha(opacity=80);
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+    top:0;
+    left: 0;
+    z-index: 10;
+    display: none;
+}
+.MaskImg{
+    width:100%;
+    height: 100%;
+    position: relative;
+}
+.MaskImg .bohui{
+    position:absolute;
+    top:0;
+    right: 0;
+    bottom: 0;
+    left:0;
+    margin: auto;
+    width: 40%;
+    height: 30%;
+    background: #fff;
+    border-radius: 5px;
+}

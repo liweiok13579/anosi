@@ -1,0 +1,484 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Olive Enterprise">
+    <title>
+        ANOSi用户信息管理系统
+    </title>
+    <!-- Css 不要更换位置排列-->
+    <link href="../lib/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../lib/css/bootstrap-reset.css" rel="stylesheet">    <!--iconfent-->
+    <link href="../lib/assets/advanced-datatable/media/css/demo_table.css" rel="stylesheet"><!-- DATATABLE 样式CSS -->
+    <link href="../lib/css/style.css" rel="stylesheet"><!-- 页面基本 CSS -->
+    <link href="../lib/assets/font-awesome/css/font-awesome.css" rel="stylesheet"><!--字体图标-->
+    <link rel="stylesheet" href="css/Userquery.css">
+    <!--下面这个JS是用来判断是否为ie9以下浏览器，如果是的话执行下列两个js，否就不执行，请勿清空下方备注 ieIE9（这是备注判断语句）-->
+    <!--[if lt IE 9]>
+    <script src="../lib/js/html5shiv.js">
+    </script>
+    <script src="../lib/js/respond.min.js">
+    </script>
+    <![endif]-->
+    <!-- Css 结束-->
+    <style>
+        /* 设置滚动条的样式 */
+        ::-webkit-scrollbar {
+            width: 8px;
+            background: rgb(17, 96, 119);;
+        }
+        /* 滚动槽 */
+        ::-webkit-scrollbar-track {
+            -webkit-box-shadow: inset 0 0 6px #72d0eb;
+            border-radius: 10px;
+        }
+
+        /* 滚动条滑块 */
+        ::-webkit-scrollbar-thumb {
+            border-radius: 10px;
+            background: #72d0eb;
+            -webkit-box-shadow: inset 0 0 6px #72d0eb;
+        }
+        ::-webkit-scrollbar-thumb:window-inactive {
+            background: #72d0eb;
+        }
+    </style>
+</head>
+<body>
+<!-- 页面外围总父盒子 -->
+<section id="container" class="box">
+    <!-- 页面top栏 -->
+    <header class="header white-bg">
+        <!-- 侧边栏切换按钮 -->
+        <div class="sidebar-toggle-box">
+            <div data-placement="right" class="fa fa-bars tooltips">
+            </div>
+        </div>
+        <!-- 侧边栏a链接跳转-->
+        <a href="index.html" class="logo">
+            ANOSi
+            <span>
+            CMS产品
+          </span>
+        </a>
+
+        <!-- 右上角用户设置 -->
+
+        <div class="top-nav ">
+            <ul class="nav pull-right top-menu">
+                <li class="dropdown">
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                        <img alt="" src="../lib/img/avatar1_small.jpg">
+                        <span class="username">
+                  Li Wei
+                </span>
+                        <b class="caret">
+                        </b>
+                    </a>
+                    <ul class="dropdown-menu extended logout">
+                        <li class="log-arrow-up">
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-cog">
+                                </i>
+                                设置
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-bell-o">
+                                </i>
+                                通知
+                            </a>
+                        </li>
+                        <li>
+                            <a href="login.html">
+                                <i class="fa fa-key">
+                                </i>
+                                退出登录
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <!-- 右上角用户设置结束  -->
+        <!-- 小铃铛的nav父元素 更改nav即可更改小铃铛的位置 -->
+
+        <nav class="nav notify-row" id="top_menu" style="float: right;margin-top: 9px">
+
+            <ul class="nav top-menu">
+                <!-- 提醒事项 小铃铛 -->
+                <li id="header_notification_bar" class="dropdown">
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                        <i class="fa fa-bell-o">
+                        </i>
+                        <span class="badge bg-warning">
+                  5
+                </span>
+                    </a>
+                    <ul class="dropdown-menu extended notification">
+                        <li class="notify-arrow notify-arrow-blue">
+                        </li>
+                        <li>
+                            <p class="blue">
+                                您有5个新通知
+                            </p>
+                        </li>
+                        <li>
+                            <a href="#">
+                    <span class="label label-danger">
+                      <i class="fa fa-bolt">
+                      </i>
+                    </span>
+                                没有吃饭。
+                                <span class="small italic">
+                      34 mins
+                    </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                    <span class="label label-warning">
+                      <i class="fa fa-bell">
+                      </i>
+                    </span>
+                                没有睡觉。
+                                <span class="small italic">
+                      1 Hours
+                    </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                    <span class="label label-danger">
+                      <i class="fa fa-bolt">
+                      </i>
+                    </span>
+                                没有逛街。
+                                <span class="small italic">
+                      4 hrs
+                    </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                    <span class="label label-success">
+                      <i class="fa fa-plus">
+                      </i>
+                    </span>
+                                没有打扑克。
+                                <span class="small italic">
+                      Just now
+                    </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                    <span class="label label-primary">
+                      <i class="fa fa-bullhorn">
+                      </i>
+                    </span>
+                                没有刮胡子。
+                                <span class="small italic">
+                      10 mins
+                    </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                查看所有通知
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <!-- 提醒事项 小铃铛结束 -->
+            </ul>
+        </nav>
+        <!-- 小铃铛的nav父元素 更改nav即可更改小铃铛的位置 结束 -->
+    </header>
+    <!-- 页面top栏 结束 -->
+
+    <!-- left勾选栏 -->
+    <aside>
+        <div id="sidebar" class="nav-collapse">
+            <ul class="sidebar-menu" id="nav-accordion">
+                <!-- 回到首页 -->
+                <li>
+                    <a href="index.html">
+                        <i class="fa fa-dashboard"></i>
+                        <span>返回到主界面</span>
+                    </a>
+                </li>
+                <!-- 用户信息管理 -->
+                <li class="sub-menu">
+                    <a href="javascript:;" class="active">
+                        <i class="fa fa-laptop"></i>
+                        <span>用户信息管理</span>
+                        <span class="label label-success span-sidebar">3</span>
+                    </a>
+                    <ul class="sub">
+                        <li id="userQ" class="active">
+                            <a href="javascript:;">
+                                用户查询
+                            </a>
+                        </li>
+                        <li id="userD" class="">
+                            <a href="javascript:;">
+                                用户详情
+                            </a>
+                        </li>
+                        <li id="userA" class="">
+                            <a href="javascript:;">
+                                用户修改
+                            </a>
+                        </li>
+                        <li id="userM" class="">
+                            <a href="javascript:;">
+                                用户新增
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <!-- 组织架构管理 -->
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-book"></i>
+                        <span>组织架构管理</span>
+                        <span class="label label-info span-sidebar">4</span>
+                    </a>
+                    <ul class="sub">
+                        <li id="organQ">
+                            <a href="javascript:;">
+                                组织架构查询
+                            </a>
+                        </li>
+                        <li id="organS">
+                            <a href="javascript:;">
+                                组织架构查看
+                            </a>
+                        </li>
+                        <li id="organN">
+                            <a href="javascript:;">
+                                组织架构新增
+                            </a>
+                        </li>
+                        <li id="organM">
+                            <a href="javascript:;">
+                                组织架构修改
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <!-- 角色管理 -->
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-cogs"></i>
+                        <span>角色管理</span>
+                        <span class="label label-primary span-sidebar">3</span>
+                    </a>
+                    <ul class="sub">
+                        <li id="roleMa">
+                            <a href="javascript:;">
+                                角色管理
+                            </a>
+                        </li>
+                        <li id="roleN">
+                            <a href="javascript:;">
+                                角色新增
+                            </a>
+                        </li>
+                        <li id="roleMo">
+                            <a href="javascript:;">
+                                角色修改
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <!-- 权限管理 -->
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-sitemap"></i>
+                        <span>权限管理</span>
+                        <span class="label label-danger span-sidebar">3</span>
+                    </a>
+                    <ul class="sub">
+                        <li id="permissQ">
+                            <a href="javascript:;">
+                                权限查询
+                            </a>
+                        </li>
+                        <li id="permissA">
+                            <a href="javascript:;">
+                                权限新增
+                            </a>
+                        </li>
+                        <li id="permissM">
+                            <a href="javascript:;">
+                                权限修改
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <!-- 配置管理 -->
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa  fa-gear "></i>
+                        <span>配置管理</span>
+                        <span class="label label-danger span-sidebar">3</span>
+                    </a>
+                    <ul class="sub">
+                        <li id="orgU">
+                            <a href="javascript:;">组织,用户管理</a>
+                        </li>
+                        <li id="roleP">
+                            <a href="javascript:;">角色,用户管理</a>
+                        </li>
+                        <li id="userR">
+                            <a href="javascript:;">角色,权限管理</a>
+                        </li>
+                    </ul>
+                </li>
+                <!-- 元数据管理 -->
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-file-text"></i>
+                        <span>元数据管理</span>
+                        <span class="label label-danger span-sidebar">4</span>
+                    </a>
+                    <ul class="sub">
+                        <li id="dataQ">
+                            <a href="javascript:;">元数据查询</a>
+                        </li>
+                        <li id="dataD">
+                            <a href="javascript:;">元数据详情</a>
+                        </li>
+                        <li id="dataA">
+                            <a href="javascript:;">元数据新增</a>
+                        </li>
+                        <li id="dataM">
+                            <a href="javascript:;">元数据修改</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </aside>
+    <!-- left勾选栏 结束 -->
+
+    <!-- 中间主要内容 -->
+    <section id="main-content" style="height: 950px; overflow: hidden">
+        <iframe width="100%"
+                height="100%"
+                id="iframe-manage"
+                src="userQuery.html">
+        </iframe>
+    </section>
+    <!-- 中间主要内容 结束  -->
+</section>
+
+<!-- 页面外围总父盒子 结束 -->
+
+<!-- JS引入 不要换位置 -->
+<script language="javascript" src="../lib/assets/advanced-datatable/media/js/jquery.js"></script>
+<script src="../lib/js/bootstrap.min.js"></script>
+<script src="../lib/js/jquery.dcjqaccordion.2.7.js"></script><!--  left栏的js -->
+<script src="../lib/js/jquery.nicescroll.js"></script><!-- 美化页面内嵌的滚动条 -->
+<script src="../lib/js/respond.min.js"></script><!-- 解决ie9以下的部分兼容性js -->
+<script src="../lib/js/common-scripts.js"></script><!-- left栏的js -->
+<!--data TABLE-->
+<script language="javascript" src="../lib/assets/advanced-datatable/media/js/jquery.dataTables.js"></script>
+<script src="../lib/assets/data-tables/DT_bootstrap.js"></script>
+<!-- JS引入结束 -->
+<script>
+    $(function () {
+        // 滚动条隐藏
+        // 添加选中的样式
+        $(".sub ").find("li").each(function () {
+            $(this).on("click", function () {
+                $(".sub ").find("li").removeClass("active");
+                $(this).addClass("active");
+            })
+        })
+        // 页面跳转
+
+        // 用户管理 跳转
+        $("#userQ").click(function () {
+            $("#iframe-manage").attr("src", "userQuery.html");
+        });
+        $("#userD").click(function () {
+            $("#iframe-manage").attr("src", "userDetails.html");
+        });
+        $("#userA").click(function () {
+            $("#iframe-manage").attr("src", "addUser.html");
+        });
+        $("#userM").click(function () {
+            $("#iframe-manage").attr("src", "NewUser.html");
+        });
+        // 组织管理 跳转
+        $("#organQ").click(function () {
+            $("#iframe-manage").attr("src", "organQuery.html");
+        });
+        $("#organS").click(function () {
+            $("#iframe-manage").attr("src", "organSee.html");
+        });
+        $("#organN").click(function () {
+            $("#iframe-manage").attr("src", "newOrgan.html");
+        });
+        $("#organM").click(function () {
+            $("#iframe-manage").attr("src", "organModification.html");
+        });
+        // 角色管理 跳转
+        $("#roleMa").click(function () {
+            $("#iframe-manage").attr("src", "rolemanagement.html");
+        });
+        $("#roleN").click(function () {
+            $("#iframe-manage").attr("src", "newRole.html");
+        });
+        $("#roleMo").click(function () {
+            $("#iframe-manage").attr("src", "rolemodification.html");
+        });
+        // 权限管理 跳转
+        $("#permissQ").click(function () {
+            $("#iframe-manage").attr("src", "permissionQuery.html");
+        });
+        $("#permissA").click(function () {
+            $("#iframe-manage").attr("src", "newPermissions.html");
+        });
+        $("#permissM").click(function () {
+            $("#iframe-manage").attr("src", "jurisdictionModify.html");
+        });
+        // 权限管理 跳转
+        $("#orgU").click(function () {
+            $("#iframe-manage").attr("src", "orgUserConfiguration.html");
+        });
+        $("#roleP").click(function () {
+            $("#iframe-manage").attr("src", "rolePermission.html");
+        });
+        $("#userR").click(function () {
+            $("#iframe-manage").attr("src", "userRoles.html");
+        });
+        // 权限管理 跳转
+        $("#dataQ").click(function () {
+            $("#iframe-manage").attr("src", "dataQuery.html");
+        });
+        $("#dataD").click(function () {
+            $("#iframe-manage").attr("src", "dataDetails.html");
+        });
+        $("#dataA").click(function () {
+            $("#iframe-manage").attr("src", "dataNew.html");
+        });
+        $("#dataM").click(function () {
+            $("#iframe-manage").attr("src", "dataModification.html");
+        });
+
+    })
+
+</script>
+</body>
+</html>
+
+

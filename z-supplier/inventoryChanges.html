@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Olive Enterprise">
+    <title>
+        ANOSi用户信息管理系统
+    </title>
+    <!-- Css 不要更换位置排列-->
+    <link href="../lib/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../lib/css/bootstrap-reset.css" rel="stylesheet">    <!--iconfent-->
+    <link href="../lib/assets/advanced-datatable/media/css/demo_table.css" rel="stylesheet"><!-- DATATABLE 样式CSS -->
+    <link href="../lib/css/style.css" rel="stylesheet"><!-- 页面基本 CSS -->
+    <link href="../lib/assets/font-awesome/css/font-awesome.css" rel="stylesheet"><!--字体图标-->
+    <!-- 孔凡奇 引入 css -->
+    <link rel="stylesheet" href="../css/Communal.css">
+    <!--下面这个JS是用来判断是否为ie9以下浏览器，如果是的话执行下列两个js，否就不执行，请勿清空下方备注 ieIE9（这是备注判断语句）-->
+    <!--[if lt IE 9]>
+    <script src="../lib/js/html5shiv.js">
+    </script>
+    <script src="../lib/js/respond.min.js">
+    </script>
+    <![endif]-->
+    <!-- Css 结束-->
+    <style>
+        .data-meta {
+            width: 100px;
+        }
+
+        table td {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<!-- 页面外围总父盒子 -->
+<section id="container" class="box">
+
+    <!-- 中间主要内容 -->
+    <section class="wrapper site-min-height">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-primary">
+                    <div class="panel-heading" style="font-size:8px;">
+                        盘点修改
+                        <span class="tools pull-right">
+                          <a href="javascript:;" class="fa fa-chevron-down">
+                          </a>
+                        </span>
+                    </div>
+                    <div class="panel-body">
+                        <form class="form-inline" role="form">
+                            <table class="table">
+                                <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="form-group">
+                                            <label class="control-label data-meta">物料名称</label>
+                                            <input type="text" name=""
+                                                   class="form-control amName" value="主传动轴">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group">
+                                            <label class="control-label data-meta">物料编码</label>
+                                            <input type="text" name=""
+                                                   class="form-control amCode" value="c-1123">
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="form-group">
+                                            <label class="control-label data-meta">供货商</label>
+                                            <select class="form-control" style="width:184px;">
+                                                <option>请选择物料供货商</option>
+                                                <option>上海元器件公司</option>
+                                                <option>供货商-孔凡奇</option>
+                                                <option>供货商-刘丛阳</option>
+                                            </select>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group">
+                                            <label class="control-label data-meta">物料品牌</label>
+                                            <input type="text" name=""
+                                                   class="form-control amBrand" value="美的">
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="form-group">
+                                            <label class="control-label data-meta">物料种类</label>
+                                            <input type="text" name=""
+                                                   class="form-control amType" value="轴链接">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group">
+                                            <label class="control-label data-meta">物料型号</label>
+                                            <input type="text" name=""
+                                                   class="form-control amModel" value="XC5468">
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="form-group">
+                                            <label class="control-label data-meta">物料数量</label>
+                                            <input type="text" name=""
+                                                   class="form-control amQuantity" value="1">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group">
+                                            <label class="control-label data-meta">物料价格(K)</label>
+                                            <input type="text" name=""
+                                                   class="form-control amPrice" value="8000">
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="form-group">
+                                            <label class="control-label data-meta">所入仓库</label>
+                                            <select class="form-control" style="width:184px;">
+                                                <option>请选择所入仓库</option>
+                                                <option>北一号库</option>
+                                                <option>北京通州仓库</option>
+                                                <option>北京怀柔仓库</option>
+                                            </select>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group">
+                                            <label class="control-label data-meta">物料备注</label>
+                                            <textarea type="text" name=""
+                                                      class="form-control amNotes" value="">
+                                            </textarea>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan=4>
+                                        <button type="button" class="btn btn-round btn-success changesModify">
+                                            <i class="fa fa-undo">
+                                            </i>
+                                            修改
+                                        </button>
+                                        <button type="button" class="btn btn-round btn-danger"
+                                                onclick="Reset()">
+                                            <i class="fa fa-times">
+                                            </i>
+                                            重置
+                                        </button>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- 中间主要内容 结束  -->
+
+    <!--底部-->
+    <footer class="site-footer">
+        <div class="text-center">
+            Copyright 2017 北京安诺信科技股份有限公司 苏ICP备12039945号-1
+            <a href="#" class="go-top">
+                <i class="fa fa-angle-up">
+                </i>
+            </a>
+        </div>
+    </footer>
+    <!--底部结束-->
+</section>
+<!-- 页面外围总父盒子 结束 -->
+
+<!-- JS引入 不要换位置 -->
+<script src="../lib/assets/advanced-datatable/media/js/jquery.js"></script>
+<script src="../lib/js/bootstrap.min.js"></script>
+<script src="../lib/js/jquery.dcjqaccordion.2.7.js"></script><!--  left栏的js -->
+<script src="../lib/js/jquery.nicescroll.js"></script><!-- 美化页面内嵌的滚动条 -->
+<script src="../lib/js/respond.min.js"></script><!-- 解决ie9以下的部分兼容性js -->
+<script src="../lib/js/common-scripts.js"></script><!-- left栏的js -->
+<!--data table-->
+<script language="javascript" src="../lib/assets/advanced-datatable/media/js/jquery.dataTables.js"></script>
+<script src="../lib/assets/data-tables/DT_bootstrap.js"></script>
+<!-- JS引入结束 -->
+
+<script>
+    // DATATABLE JS
+    $(document).ready(function () {
+        $('#example').dataTable({
+            "aaSorting": [[4, "desc"]],//从第0列开始，以第4列倒序排列
+            "aLengthMenu": [
+                [10, 20, 30, -1],
+                [10, 20, 30, "所有"]
+            ],//查询数据条数
+            "iDisplayLength": 10, //默认5
+            "oLanguage": {
+                "sLengthMenu": "每页显示 _MENU_ 条记录",
+                "sZeroRecords": "抱歉， 没有找到",
+                "sInfo": "从 _START_ 到 _END_ /共 _TOTAL_ 条数据",
+                "sInfoEmpty": "没有数据",
+                "sInfoFiltered": "(从 _MAX_ 条数据中检索)",
+                "oPaginate": {
+                    "sFirst": "首页",
+                    "sPrevious": "前一页",
+                    "sNext": "后一页",
+                    "sLast": "尾页"
+                },
+            }
+        });
+
+        $(".changesModify").on('click', function () {
+            // 物料名称
+            var AMNa = $(".amName").val();
+            // 物料编码
+            var AMC = $(".amCode").val();
+            // 物料供货商
+            var AMS = $(".amSuppliers").val();
+            // 物料品牌
+            var AMB = $(".amBrand").val();
+            // 物料种类
+            var AMT = $(".amType").val();
+            // 物料型号
+            var AMM = $(".amModel").val();
+            // 物料数量
+            var AMQ = $(".amQuantity").val();
+            // 物料价格
+            var AMP = $(".amPrice").val();
+            // 物料仓库
+            var AMW = $(".amWarehouse").val();
+            // 物料备注
+            var AMNo = $(".amNotes").val();
+            if (AMNa == "") {
+                alert("物料名称不能为空!")
+            } else if (AMC == "") {
+                alert("物料编码不能为空!")
+            } else if (AMS == "") {
+                alert("物料供货商不能为空!")
+            } else if (AMB == "") {
+                alert("物料品牌不能为空!")
+            } else if (AMT == "") {
+                alert("物料种类不能为空!")
+            } else if (AMM == "") {
+                alert("物料型号不能为空!")
+            } else if (AMQ == "") {
+                alert("物料数量不能为空!")
+            } else if (AMP == "") {
+                alert("物料价格不能为空!")
+            } else if (AMW == "") {
+                alert("物料仓库不能为空!")
+            } else {
+                changesModify();
+            }
+        })
+    });
+
+    //    修改
+    function changesModify() {
+        var gnl = confirm("是否确定要修改?");
+        if (gnl == true) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    //    重置
+    function Reset() {
+        var gnl = confirm("是否确定要重置?");
+        if (gnl == true) {
+            $('input').val('');
+            $('textarea').val('');
+            return true;
+        } else {
+            return false;
+        }
+    }
+</script>
+</body>
+</html>
+
+

@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Olive Enterprise">
+    <title>
+        ANOSi用户信息管理系统
+    </title>
+    <!-- Css 不要更换位置排列-->
+    <link href="../lib/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../lib/css/bootstrap-reset.css" rel="stylesheet">
+    <link href="../lib/assets/advanced-datatable/media/css/demo_table.css" rel="stylesheet"><!-- DATATABLE 样式CSS -->
+    <link rel="stylesheet" type="text/css" href="../lib/assets/bootstrap-fileupload/bootstrap-fileupload.css">
+    <!-- 图片上传css-->
+    <link href="../lib/assets/font-awesome/css/font-awesome.css" rel="stylesheet"><!--字体图标-->
+    <link href="../lib/css/style.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/Adduser.css">
+
+    <link href="../lib/css/style-responsive.css" rel="stylesheet"><!-- THEME BASIC RESPONSIVE  CSS -->
+    <!--下面这个JS是用来判断是否为ie9以下浏览器，如果是的话执行下列两个js，否就不执行，请勿清空下方备注 ieIE9（这是备注判断语句）-->
+    <!--[if lt IE 9]>
+    <script src="../lib/js/html5shiv.js">
+    </script>
+    <script src="../lib/js/respond.min.js">
+    </script>
+    <![endif]-->
+    <!-- Css 结束-->
+</head>
+<body>
+<!-- 页面外围总父盒子 -->
+<section id="container" class="box">
+    <!-- 中间主要内容 -->
+    <section class="wrapper site-min-height">
+        <div class="row">
+            <div class="col-md-12">
+                <section class="panel">
+                    <div class="cover-photo">
+                        <div class="fb-timeline-img">
+                            <img src="../lib/img/fb-img.jpg" alt="">
+                        </div>
+                        <div class="fb-name">
+                            <h2><a href="#">Li Wei</a></h2>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <div class="profile-thumb">
+                            <img src="../lib/img/profile-avatar.jpg" alt="">
+                        </div>
+                        <a href="#" class="fb-user-mail">Li Wei@tripzmate.com</a>
+                    </div>
+                </section>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-primary">
+                    <div class="panel-heading" style="font-size:8px;">
+                        用户详情
+                        <span class="tools pull-right">
+                                <a href="javascript:;" class="fa fa-chevron-down"></a>
+                            </span>
+                    </div>
+                    <div class="panel-body">
+                        <form class="form-inline" role="form">
+                            <table class="table">
+                                <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="form-group">
+                                            <label class="control-label">用户姓名</label>
+                                            <input  type="text" class="form-control Fullname">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group">
+                                            <label class="control-label">所属部门</label>
+                                            <input type="text" name="" class="form-control department">
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="form-group">
+                                            <label class="control-label">系统账号</label>
+                                            <input type="text" name="" class="form-control Account">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group">
+                                            <label class="control-label">系统密码</label>
+                                            <input type="password" class="form-control Password">
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="form-group">
+                                            <label class="control-label">出生日期</label>
+                                            <input type="text" name=""
+                                                   class="form-control form-control-inline input-medium default-date-picker Date">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group">
+                                            <label class="control-label">政治面貌</label>
+                                            <select class="form-control" style="width:184px;">
+                                                <option  selected="selected">请选择政治面貌</option>
+                                                <option>党员</option>
+                                                <option>团员</option>
+                                                <option>群众</option>
+                                            </select>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="form-group">
+                                            <label class="control-label Gender">学历</label>
+                                            <select class="form-control" style="width:184px;">
+                                                <option  selected="selected">请选择学历</option>
+                                                <option>本科</option>
+                                                <option>专科</option>
+                                                <option>高中</option>
+                                            </select>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group">
+                                            <label class="control-label">联系电话</label>
+                                            <input type="text" name="" class="form-control iphone">
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="form-group">
+                                            <label class="control-label Gender">用户类型</label>
+                                            <select class="form-control" style="width:184px;">
+                                                <option  selected="selected">请选择用户类型</option>
+                                                <option>管理员</option>
+                                                <option>人事专员</option>
+                                                <option>资料专员</option>
+                                            </select>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group">
+                                            <label class="control-label">办公地址</label>
+                                            <input type="text" name="" class="form-control address">
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="form-group">
+                                            <label class="control-label Gender">性别</label>
+                                            <label class="radio-inline">
+                                                <input type="radio" name="inlineRadioOptions" id="inlineRadio1"
+                                                       value="option1"> 男
+                                            </label>
+                                            <label class="radio-inline female">
+                                                <input type="radio" name="inlineRadioOptions" id="inlineRadio2"
+                                                       value="option2"> 女
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group last">
+                                            <label class="control-label portrait">
+                                                系统肖像
+                                            </label>
+                                            <div class="portraitimg">
+                                                <div class="fileupload fileupload-new" data-provides="fileupload">
+                                                    <div class="fileupload-new thumbnail">
+                                                        <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&text=no+image"
+                                                             alt="">
+                                                    </div>
+                                                    <div class="fileupload-preview fileupload-exists thumbnail">
+                                                    </div>
+                                                    <div class="Choice">
+                                                                <span class="btn btn-white btn-file">
+                                                                  <span class="fileupload-new">
+                                                                    <i class="fa fa-undo">
+                                                                    </i>
+                                                                    选择图像
+                                                                  </span>
+                                                                  <span class="fileupload-exists">
+                                                                    <i class="fa fa-undo">
+                                                                    </i>
+                                                                    重选
+                                                                  </span>
+                                                                  <input type="file" class="default">
+                                                                </span>
+                                                        <a href="#" class="btn btn-danger fileupload-exists"
+                                                           data-dismiss="fileupload">
+                                                            <i class="fa fa-trash-o">
+                                                            </i>
+                                                            删除
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+                                        <button type="button" class="btn btn-round btn-success Modify">
+                                            <i class="fa fa-check">
+                                            </i>
+                                            新增
+                                        </button>
+                                        <button type="button" class="btn btn-round btn-danger" onclick="Reset()">
+                                            <i class="fa fa-times">
+                                            </i>
+                                            重置
+                                        </button>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- 中间主要内容 结束  -->
+    <!--底部-->
+    <footer class="site-footer">
+        <div class="text-center">
+            Copyright 2017 北京安诺信科技股份有限公司 苏ICP备12039945号-1
+            <a href="#" class="go-top">
+                <i class="fa fa-angle-up">
+                </i>
+            </a>
+        </div>
+    </footer>
+    <!--底部结束-->
+</section>
+
+
+<!-- 页面外围总父盒子 结束 -->
+
+<!-- JS引入 不要换位置 -->
+<script src="../lib/assets/advanced-datatable/media/js/jquery.js"></script>
+<script src="../lib/js/bootstrap.min.js"></script>
+<script src="../lib/js/jquery.dcjqaccordion.2.7.js"></script><!--  left栏的js -->
+<script src="../lib/js/jquery.nicescroll.js"></script><!-- 美化页面内嵌的滚动条 -->
+<script src="../lib/js/respond.min.js"></script><!-- 解决ie9以下的部分兼容性js -->
+<script src="../lib/js/common-scripts.js"></script><!-- left栏的js -->
+<!--图片上传-->
+<script src="../lib/assets/bootstrap-fileupload/bootstrap-fileupload.js"></script><!-- 图片上传 JS  -->
+<!--时间插件-->
+<script src="../lib/assets/bootstrap-datepicker/js/bootstrap-datepicker.js"></script><!-- 时间 JS  -->
+<script src="../lib/js/LWdata.js"></script><!-- 时间 JS   -->
+<!--自己写js-->
+<script src="js/NewUser.js"></script>
+<!-- JS引入结束 -->
+</body>
+</html>
+
+

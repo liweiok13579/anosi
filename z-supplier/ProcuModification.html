@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Olive Enterprise">
+    <title>
+        ANOSi用户信息管理系统
+    </title>
+    <!-- Css 不要更换位置排列-->
+    <link href="../lib/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../lib/css/bootstrap-reset.css" rel="stylesheet">
+    <link href="../lib/assets/advanced-datatable/media/css/demo_table.css" rel="stylesheet"><!-- DATATABLE 样式CSS -->
+    <link rel="stylesheet" type="text/css" href="../lib/assets/bootstrap-fileupload/bootstrap-fileupload.css">
+    <!-- 图片上传css-->
+    <link href="../lib/assets/font-awesome/css/font-awesome.css" rel="stylesheet"><!--字体图标-->
+    <link href="../lib/css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/Newpurchase.css">
+    <link rel="stylesheet" href=>
+    <!--下面这个JS是用来判断是否为ie9以下浏览器，如果是的话执行下列两个js，否就不执行，请勿清空下方备注 ieIE9（这是备注判断语句）-->
+    <!--[if lt IE 9]>
+    <script src="../lib/js/html5shiv.js">
+    </script>
+    <script src="../lib/js/respond.min.js">
+    </script>
+    <![endif]-->
+    <!-- Css 结束-->
+    <style>
+        .control-label {
+            width: 80px;
+            text-align: left;
+        }
+
+        .Modify {
+            margin-right: 15px;
+        }
+    </style>
+</head>
+<body>
+<!-- 页面外围总父盒子 -->
+<section id="container" class="box">
+
+    <!-- 中间主要内容 -->
+        <section class="wrapper site-min-height">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading" style="font-size:8px;">
+                            采购计划修改
+                            <span class="tools pull-right">
+                          <a href="javascript:;" class="fa fa-chevron-down">
+                          </a>
+                        </span>
+                        </div>
+                        <div class="panel-body">
+                            <form class="form-inline" role="form">
+                                <table class="table">
+                                    <tbody>
+                                    <tr>
+                                        <td>
+                                            <div class="form-group">
+                                                <label class="control-label">申请部门</label>
+                                                <input type="text" class="form-control" value="人力资源部">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <label class="control-label">申请人</label>
+                                                <input type="text" class="form-control" value="李伟">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <label class="control-label">业务类型</label>
+                                                <select class="form-control" style="width:184px;">
+                                                    <option>请选择业务类型</option>
+                                                    <option selected="selected">普通采购</option>
+                                                    <option>紧急采购</option>
+                                                </select>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <label class="control-label">申请时间</label>
+                                                <input type="text"
+                                                       class="form-control form-control-inline input-medium default-date-picker Date"
+                                                       value="2017/05/18">
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+
+                                        <td>
+                                            <div class="form-group">
+                                                <label class="control-label">物资名称</label>
+                                                <input type="text" class="form-control" value="螺丝">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <label class="control-label">使用用途</label>
+                                                <input type="text" class="form-control" value="维修">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <label class="control-label">需求数量</label>
+                                                <input type="text" class="form-control" value="1">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <label class="control-label Gender">单位</label>
+                                                <select class="form-control" style="width:184px;">
+                                                    <option>请选择单位</option>
+                                                    <option selected="selected">件</option>
+                                                    <option>个</option>
+                                                </select>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="form-group">
+                                                <label class="control-label Gender">预算(K)</label>
+                                                <input type="text" class="form-control" value="1">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <label class="control-label">供应商</label>
+                                                <select class="form-control" style="width:184px;">
+                                                    <option>请选择供应商</option>
+                                                    <option selected="selected">供应商-李伟</option>
+                                                    <option>供应商-孔凡奇</option>
+                                                    <option>供应商-戚雪堃</option>
+                                                </select>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <label class="control-label Gender">计划到货时间</label>
+                                                <input type="text"
+                                                       class="form-control form-control-inline input-medium default-date-picker Date"
+                                                       value="2017/06/02">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <label class="control-label">收据形态</label>
+                                                <select class="form-control" style="width:184px;">
+                                                    <option>请选择收据形态</option>
+                                                    <option selected="selected">有发票</option>
+                                                    <option>无发票</option>
+                                                    <option>有出货单</option>
+                                                    <option>有合同</option>
+                                                    <option>有收据</option>
+                                                    <option>无收据</option>
+                                                </select>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <label class="control-label">一级审批人</label>
+                                            <select class="form-control" style="width:184px;">
+                                                <option>请选择二级审批人</option>
+                                                <option selected="selected">孔凡奇</option>
+                                                <option>戚雪堃</option>
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <label class="control-label">二级审批人</label>
+                                            <select class="form-control" style="width:184px;">
+                                                <option>请选择二级审批人</option>
+                                                <option selected="selected">毛伟</option>
+                                                <option>卢志刚</option>
+                                            </select>
+                                        </td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="4">
+                                            <button type="button" class="btn btn-round btn-success Modify" onclick="Modify()">
+                                                <i class="fa fa-undo">
+                                                </i>
+                                                修改
+                                            </button>
+                                            <button type="button" class="btn btn-round btn-danger" onclick="Reset()">
+                                                <i class="fa fa-times">
+                                                </i>
+                                                重置
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    <!-- 中间主要内容 结束  -->
+
+    <!--底部-->
+    <footer class="site-footer">
+        <div class="text-center">
+            Copyright 2017 北京安诺信科技股份有限公司 苏ICP备12039945号-1
+            <a href="#" class="go-top">
+                <i class="fa fa-angle-up">
+                </i>
+            </a>
+        </div>
+    </footer>
+    <!--底部结束-->
+</section>
+<!-- 页面外围总父盒子 结束 -->
+
+<!-- JS引入 不要换位置 -->
+<script language="javascript" src="../lib/assets/advanced-datatable/media/js/jquery.js"></script>
+<script src="../lib/js/bootstrap.min.js"></script>
+<script src="../lib/js/jquery.dcjqaccordion.2.7.js"></script><!--  left栏的js -->
+<script src="../lib/js/jquery.nicescroll.js"></script><!-- 美化页面内嵌的滚动条 -->
+<script src="../lib/js/respond.min.js"></script><!-- 解决ie9以下的部分兼容性js -->
+<script src="../lib/js/common-scripts.js"></script><!-- left栏的js -->
+<!--时间插件-->
+<script src="../lib/assets/bootstrap-datepicker/js/bootstrap-datepicker.js"></script><!-- 时间 JS  -->
+<script src="../lib/js/LWdata.js"></script><!-- 时间 JS   -->
+<!--李伟JS-->
+<script src="js/procuModification.js"></script>
+<!-- JS引入结束 -->
+<script>
+    //    $(function () {
+    //        $("input").attr("disabled", "disabled")
+    //        $("select").attr("disabled", "disabled")
+    //        $("input[type='radio']").eq(0).attr("checked", "checked")
+    //    })
+</script>
+</body>
+</html>
+
+

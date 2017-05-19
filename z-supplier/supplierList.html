@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Olive Enterprise">
+    <title>
+        ANOSi用户信息管理系统
+    </title>
+
+    <!-- Css 不要更换位置排列-->
+    <link href="../lib/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../lib/css/bootstrap-reset.css" rel="stylesheet">
+    <link href="../lib/assets/advanced-datatable/media/css/demo_table.css" rel="stylesheet"><!-- DATATABLE 样式CSS -->
+    <link href="../lib/assets/font-awesome/css/font-awesome.css" rel="stylesheet"><!--字体图标-->
+    <link rel="stylesheet" type="text/css" href="../lib/assets/jquery-multi-select/css/multi-select.css">
+    <!-- 多选插件 -->
+    <link href="../lib/css/style-responsive.css" rel="stylesheet"><!-- 主要的style  CSS -->
+    <link href="../lib/css/style.css" rel="stylesheet">
+    <!--下面这个JS是用来判断是否为ie9以下浏览器，如果是的话执行下列两个js，否就不执行，请勿清空下方备注 ieIE9（这是备注判断语句）-->
+    <!--[if lt IE 9]>
+    <script src="../lib/js/html5shiv.js">
+    </script>
+    <script src="../lib/js/respond.min.js">
+    </script>
+    <![endif]-->
+    <!-- Css 结束-->
+    <style>
+        #ms-my_multi_select3 {
+            width: 100%;
+        }
+
+        .last {
+            width: 100%;
+        }
+
+        .nameList {
+            margin-top: 5%;
+            width: 50% !important;
+        }
+    </style>
+</head>
+<body>
+<!-- BEGIN SECTION -->
+
+<section id="container" class="">
+    <!-- START 中间内容 -->
+    <section class="wrapper site-min-height">
+        <!-- START 一列 -->
+        <div class="row">
+            <div class="col-md-12">
+                <section class="panel panel-primary">
+                    <div class="panel-heading" style="font-size:8px;">
+                        黑白名单转换
+                        <span class="tools pull-right">
+                          <a href="javascript:;" class="fa fa-chevron-down">
+                          </a>
+                        </span>
+                    </div>
+                    <div class="panel-body">
+                        <form action="#" class="form-horizontal tasi-form">
+                            <div class="form-group last">
+                                <label class="control-label col-md-6"
+                                       style="text-align: center;
+                                           padding: 20px 0px;
+                                           font-size: 20px;
+                                           display: inline-block;
+                                           width: 50%;
+                                           float: left;">
+                                    <span class="label label-primary">白名单</span>
+                                </label>
+                                <label class="control-label col-md-6"
+                                       style="text-align: center;
+                                           padding: 20px 0px;
+                                           font-size: 20px;
+                                           display: inline-block;
+                                           width: 50%;
+                                           float: left;">
+                                    <span class="label label-primary">黑名单</span>
+                                </label>
+                                <div class="col-md-12">
+                                    <select name="country"
+                                            class="multi-select"
+                                            multiple=""
+                                            id="my_multi_select3">
+                                        <option value="AF">
+                                            上海元器件公司
+                                        </option>
+                                        <option value="AL">
+                                            北京元器件批发
+                                        </option>
+                                        <option value="DZ">
+                                            天津永恒发动机
+                                        </option>
+                                        <option value="AS">
+                                            秦皇岛翡翠岛
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div style="margin: 0 auto;width: 100px;">
+                                <button type="button" class="btn btn-success" id="suppList-btn">
+                                    <i class="fa fa-check">确定</i>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+            </div>
+        </div>
+        <!-- END 一列 -->
+    </section>
+    <!-- END 中间内容 -->
+    <!--底部-->
+    <footer class="site-footer">
+        <div class="text-center">
+            Copyright 2017 北京安诺信科技股份有限公司 苏ICP备12039945号-1
+            <a href="#" class="go-top">
+                <i class="fa fa-angle-up">
+                </i>
+            </a>
+        </div>
+    </footer>
+    <!--底部结束-->
+
+</section>
+<!-- END SECTION -->
+
+
+<!-- BEGIN JS -->
+<script src="../lib/js/jquery.js"></script><!-- jQuery -->
+<script src="../lib/js/bootstrap.min.js"></script><!-- bootstrap JS  -->
+<script src="../lib/js/jquery.dcjqaccordion.2.7.js"></script><!-- 手风琴菜单插件 JS -->
+<script src="../lib/js/jquery.scrollTo.min.js"></script><!-- 滚动插件 JS  -->
+<script src="../lib/js/jquery.nicescroll.js"></script><!-- 滚动插件 JS  -->
+<script src="../lib/assets/jquery-multi-select/js/jquery.multi-select.js"></script><!-- BOOTSTRAP 多选插件 JS  -->
+<script src="../lib/assets/jquery-multi-select/js/jquery.quicksearch.js"></script><!-- BOOTSTRAP 多选插件 JS  -->
+<script src="../lib/js/common-scripts.js"></script><!-- BASIC COMMON JS  -->
+<script src="../lib/js/advanced-form-components.js"></script><!-- ADVANCE FORM COMPONENTS PAGE JS  -->
+<script src="../lib/assets/ckeditor/ckeditor.js"></script><!-- CKEDITOR JS  -->
+<!-- END JS -->
+<script>
+    $(function () {
+        $('#suppList-btn').on('click',function () {
+            alert('修改成功!')
+        })
+    })
+</script>
+</body>
+</html>

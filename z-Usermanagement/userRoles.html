@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Olive Enterprise">
+    <title>
+        ANOSi用户信息管理系统
+    </title>
+    <!-- Css 不要更换位置排列-->
+    <link href="../lib/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../lib/css/bootstrap-reset.css" rel="stylesheet">    <!--iconfent-->
+    <link href="../lib/assets/advanced-datatable/media/css/demo_table.css" rel="stylesheet"><!-- DATATABLE 样式CSS -->
+    <link rel="stylesheet" type="text/css" href="../lib/assets/fuelux/css/tree-style.css"><!-- TREE STYLE CSS -->
+    <!--遮罩-->
+    <link rel="stylesheet" type="text/css" href="../lib/assets/jquery-multi-select/css/multi-select.css">
+    <link href="../lib/css/style.css" rel="stylesheet"><!-- 页面基本 CSS -->
+    <!-- 孔凡奇 引入 css -->
+    <link rel="stylesheet" href="css/K-department.css">
+
+    <!--下面这个JS是用来判断是否为ie9以下浏览器，如果是的话执行下列两个js，否就不执行，请勿清空下方备注 ieIE9（这是备注判断语句）-->
+    <!--[if lt IE 9]>
+    <script src="../js/html5shiv.js">
+    </script>
+    <script src="../js/respond.min.js">
+    </script>
+    <![endif]-->
+    <!-- Css 结束-->
+
+</head>
+<body>
+<!-- 页面外围总父盒子 -->
+<section id="container" class="box">
+
+    <!-- 中间主要内容 -->
+    <section class="wrapper site-min-height">
+
+        <!-- BEGIN 查询层 -->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-primary">
+                    <div class="panel-heading" style="font-size:8px;">
+                        权限列表
+                        <span class="tools pull-right">
+                          <a href="javascript:;" class="fa fa-chevron-down">
+                          </a>
+                        </span>
+                    </div>
+                    <!-- 树形结构图 -->
+                    <!-- START ROW -->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <!-- START PANEL -->
+                            <div class="panel">
+
+                                <div class="panel-body">
+                                    <div id="FlatTree4" class="tree tree-solid-line">
+                                        <div class="tree-folder" style="display:none;">
+                                            <div class="tree-folder-header">
+                                                <input type="checkbox">
+                                                <i class="fa fa-folder"></i>
+                                                <div class="tree-folder-name"></div>
+                                            </div>
+                                            <div class="tree-folder-content"></div>
+                                            <div class="tree-loader" style="display:none"></div>
+                                        </div>
+                                        <div class="tree-item" style="display:none;">
+                                            <input type="checkbox">
+                                            <i class="fa fa-gear"></i>
+                                            <div class="tree-item-name"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- END PANEL -->
+                            <!--按钮-->
+                            <div style="width: 170px;margin: 10px  auto;">
+                                <button class="btn btn-success" style="margin: 0 25px 0 0;" onclick="Addto()">
+                                    <i class="fa fa-check">
+                                        <span class="sp">添加</span>
+                                    </i>
+                                </button>
+                                <button class="btn btn-danger btn-s">
+                                    <i class="fa fa-times">&nbsp;重置</i>
+                                </button>
+                            </div>
+                            <!--按钮结束-->
+                        </div>
+                    </div>
+                    <!-- END ROW -->
+                </div>
+            </div>
+        </div>
+        <!-- END 查询层 -->
+
+        <!-- BEGIN 表格展现层 -->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-primary">
+                    <div class="panel-heading" style="font-size:8px;">
+                        查询结果
+                        <span class="tools pull-right">
+                          <a href="javascript:;" class="fa fa-chevron-down">
+                          </a>
+                        </span>
+                    </div>
+                    <div class="panel-body">
+                        <div class="adv-table">
+                            <table class="display table table-bordered table-striped" id="example">
+                                <thead>
+                                <tr>
+                                    <th>模块名称</th>
+                                    <th class="hidden-phone">子模块名称</th>
+                                    <th>角色名称</th>
+                                    <th class="hidden-phone">操作</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr class="gradeC">
+                                    <td>
+                                        <select name="" id="">
+                                            <option value="1">用户管理</option>
+                                            <option value="1">仓库管理</option>
+                                            <option value="1">组织管理</option>
+                                            <option value="1">角色管理</option>
+                                        </select>
+                                    </td>
+                                    <td class="hidden-phone">
+                                        <select name="" id="">
+                                            <option value="1">父模块所有子模块</option>
+                                            <option value="1">用户查询</option>
+                                            <option value="1">组织架构查询</option>
+                                            <option value="1">角色管理</option>
+                                            <option value="1">权限查询</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <select name="" id="">
+                                            <option value="1">库房管理员</option>
+                                            <option value="1">人事专员</option>
+                                            <option value="1">行政专员</option>
+                                            <option value="1">董事长助理</option>
+                                        </select>
+                                    </td>
+                                    <td align="center">
+                                        <button class="btn btn-warning btn-x">
+                                            <i class="fa fa-pencil">
+                                                <span class="sp">修改</span>
+                                            </i>
+                                        </button>
+                                        <button class="btn btn-danger btn-s">
+                                            <i class="fa fa-trash-o">&nbsp;删除</i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                </tbody>
+                                <tfoot>
+                                <tr>
+                                    <th>模块名称</th>
+                                    <th class="hidden-phone">子模块名称</th>
+                                    <th>角色名称</th>
+                                    <th class="hidden-phone">操作</th>
+                                </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- END 表格展现层 -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- 中间主要内容 结束  -->
+
+    <!--底部-->
+    <footer class="site-footer">
+        <div class="text-center">
+            Copyright 2017 北京安诺信科技股份有限公司 苏ICP备12039945号-1
+            <a href="#" class="go-top">
+                <i class="fa fa-angle-up">
+                </i>
+            </a>
+        </div>
+    </footer>
+    <!--底部结束-->
+</section>
+<!-- 页面外围总父盒子 结束 -->
+<!--遮罩-->
+<div class="Mask">
+    <div class="MaskImg">
+        <div class="bohui">
+            <section class="panel panel-primary">
+                <header class="panel-heading">
+                    <span class="label label-primary">添加角色权限</span>
+                    <span class="tools pull-right">
+                                <a href="javascript:;" class="fa fa-chevron-down"></a>
+                            </span>
+                </header>
+                <div class="panel-body">
+                    <form action="#" class="form-horizontal tasi-form">
+
+                        <div class="form-group last">
+                            <label class="control-label col-md-6"
+                                   style="text-align: center;padding: 20px 20px;font-size: 20px"><span
+                                    class="label label-primary">尚未拥有此权限的角色</span></label>
+                            <label class="control-label col-md-6"
+                                   style="text-align: center;padding: 20px 20px;font-size: 20px"><span
+                                    class="label label-primary">拥有此权限的角色</span></label>
+                            <div class="col-md-12">
+                                <select name="country"
+                                        class="multi-select"
+                                        multiple=""
+                                        id="my_multi_select6">
+                                    <option value="AF">
+                                        库房管理
+                                    </option>
+                                    <option value="AL">
+                                        人事专员
+                                    </option>
+                                    <option value="DZ">
+                                        财务专员
+                                    </option>
+                                    <option value="AS">
+                                        前端开发工程师
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div style="margin: 0 auto;width: 100px;">
+                            <button type="button" class="btn btn-success Reject1" id="suppList-btn">
+                                <i class="fa fa-check">确定</i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+<!-- JS引入 不要换位置 -->
+<script src="../lib/assets/advanced-datatable/media/js/jquery.js"></script>
+<script src="../lib/js/bootstrap.min.js"></script>
+<script src="../lib/js/jquery.dcjqaccordion.2.7.js"></script><!--  left栏的js -->
+<script src="../lib/js/jquery.nicescroll.js"></script><!-- 美化页面内嵌的滚动条 -->
+<script src="../lib/js/respond.min.js"></script><!-- 解决ie9以下的部分兼容性js -->
+<script src="../lib/js/common-scripts.js"></script><!-- left栏的js -->
+<!--zz-->
+<script src="../lib/assets/jquery-multi-select/js/jquery.multi-select.js"></script><!-- BOOTSTRAP 多选插件 JS  -->
+<script src="../lib/assets/jquery-multi-select/js/jquery.quicksearch.js"></script><!-- BOOTSTRAP 多选插件 JS  -->
+<script src="../lib/js/advanced-form-components.js"></script><!-- ADVANCE FORM COMPONENTS PAGE JS  -->
+<!--data TABLE-->
+<script src="../lib/assets/advanced-datatable/media/js/jquery.dataTables.js"></script>
+<script src="../lib/assets/data-tables/DT_bootstrap.js"></script>
+<!-- 树形结构 -->
+<script src="../lib/assets/fuelux/js/tree.min.js"></script>
+<script src="../lib/js/tree.js"></script>
+
+<!-- JS引入结束 -->
+<script>
+    $(document).ready(function () {
+
+        TreeView.init();
+        $('#example').dataTable({
+            "aaSorting": [[4, "desc"]],//从第0列开始，以第4列倒序排列
+            "aLengthMenu": [
+                [10, 20, 30, -1],
+                [10, 20, 30, "所有"]
+            ],//查询数据条数
+            "iDisplayLength": 10, //默认5
+            "oLanguage": {
+                "sLengthMenu": "每页显示 _MENU_ 条记录",
+                "sZeroRecords": "抱歉， 没有找到",
+                "sInfo": "从 _START_ 到 _END_ /共 _TOTAL_ 条数据",
+                "sInfoEmpty": "没有数据",
+                "sInfoFiltered": "(从 _MAX_ 条数据中检索)",
+                "oPaginate": {
+                    "sFirst": "首页",
+                    "sPrevious": "前一页",
+                    "sNext": "后一页",
+                    "sLast": "尾页"
+                },
+            }
+        });
+        $(".btn-x").on("click", function () {
+            Modify()
+        })
+        $(".btn-s").on("click", function () {
+            Delete()
+        })
+    });
+    //    修改
+    function Modify() {
+        var gnl = confirm("是否确定要修改?");
+        if (gnl == true) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    //    删除
+    function Delete() {
+        var gnl = confirm("是否确定要重置?");
+        if (gnl == true) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    function tow() {
+//      删除
+        $(".Mask").css("display", "block")
+        $(".Reject1").on("click", function () {
+            var gnl = confirm("是否确定要删除此角色权限?");
+            if (gnl == true) {
+                $(".Mask").css("display", "none")
+                return true;
+            } else {
+                $(".Mask").css("display", "none")
+                return false;
+            }
+        })
+    }
+    function Addto() {
+//        添加
+        $(".Mask").css("display", "block")
+        $(".Reject1").on("click", function () {
+            var gnl = confirm("是否确定要修改此角色权限?");
+            if (gnl == true) {
+                $(".Mask").css("display", "none")
+                return true;
+            } else {
+                $(".Mask").css("display", "none")
+                return false;
+            }
+        })
+    }
+</script>
+</body>
+</html>
+
+

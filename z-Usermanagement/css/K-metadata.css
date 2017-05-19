@@ -1,0 +1,7 @@
+table, table th {
+    text-align: center !important;
+}
+/* top 居中显示 */
+.meta-data {
+    padding: 0  30px;
+}
