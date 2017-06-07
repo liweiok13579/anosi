@@ -118,32 +118,70 @@
                                                 class="fa fa-eye">&nbsp;通过</i>
                                         </button>
                                         &nbsp;
-                                        <button class="btn btn-danger btn-xs Reject"><i
-                                                class="fa fa-trash-o">&nbsp;驳回</i>
+                                        <button class="btn btn-danger btn-xs">
+                                            <a data-toggle="modal"
+                                               href="#myModal">
+                                                <i class="fa fa-times">
+                                                    驳回
+                                                </i>
+                                            </a>
                                         </button>
                                     </td>
                                 </tr>
                                 </tbody>
-                                <tfoot>
-                                <tr>
-                                    <th>物料名称</th>
-                                    <th class="hidden-phone">物料种类</th>
-                                    <th class="hidden-phone">物料数量</th>
-                                    <th class="hidden-phone">出库时间</th>
-                                    <th class="hidden-phone">所出仓库</th>
-                                    <th class="hidden-phone">出库人</th>
-                                    <th class="hidden-phone">初级审批人</th>
-                                    <th class="hidden-phone">初级审批</th>
-                                    <th class="hidden-phone">二级审批人</th>
-                                    <th class="hidden-phone">二级审批</th>
-                                </tr>
-                                </tfoot>
                             </table>
                         </div>
                     </div>
                     <!-- END 表格展现层 -->
                 </div>
             </div>
+        </div>
+        <div class="panel-body">
+            <form action="#" class="form-horizontal tasi-form">
+                <div class="modal fade" id="myModal">
+                    <div class="modal-dialog">
+                        <div class="modal-content panel-primary">
+                            <div class="panel-heading">
+                                <button type="button"
+                                        class="close"
+                                        data-dismiss="modal"
+                                        aria-hidden="true">
+                                </button>
+                                <h4 class="modal-title">
+                                    驳回原因填写
+                                </h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <label class="control-label col-md-2">
+                                        原因:
+                                    </label>
+                                    <textarea name="" id="" cols="40"
+                                              rows="10" style="font-size: 20px">
+
+                                    </textarea>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button data-dismiss="modal"
+                                        class="btn btn-default btn-success determine"
+                                        type="button">
+                                    <i class="fa fa-check">
+                                        确定
+                                    </i>
+                                </button>
+                                <button data-dismiss="modal"
+                                        class="btn btn-default btn-danger"
+                                        type="button">
+                                    <i class="fa fa-times">
+                                        关闭
+                                    </i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
         </div>
     </section>
     <!-- END WRAPPER  -->
@@ -161,33 +199,6 @@
     </footer>
     <!--底部结束-->
 </section>
-<div class="Mask">
-    <div class="MaskImg">
-        <div class="bohui">
-            <div class="panel panel-primary">
-                <div class="panel-heading" style="font-size:8px;">
-                    驳回理由
-                </div>
-                <div class="panel-body">
-                    <textarea class="form-control" rows="10" placeholder="请输入驳回原因"></textarea>
-                    <button type="button" class="btn btn-round btn-success Reject2"
-                            style="float: right;margin-top: 20px">
-                        <i class="fa fa-check">&nbsp;取消
-                        </i>
-                    </button>
-                    <button type="button" class="btn btn-round btn-danger Reject1"
-                            style="float: right;margin-top: 20px">
-                        <i class="fa fa-undo">&nbsp;驳回
-                        </i>
-                    </button>
-                </div>
-            </div>
-            <!--<label class="control-label">驳回理由</label>-->
-
-        </div>
-
-    </div>
-</div>
 <!-- 页面外围总父盒子 结束 -->
 
 <!-- JS引入 不要换位置 -->

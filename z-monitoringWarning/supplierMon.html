@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Olive Enterprise">
+    <title>
+        ANOSi用户信息管理系统
+    </title>
+    <!-- Css 不要更换位置排列-->
+    <link href="../lib/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../lib/css/bootstrap-reset.css" rel="stylesheet">
+    <link href="../lib/assets/advanced-datatable/media/css/demo_table.css" rel="stylesheet"><!-- DATATABLE 样式CSS -->
+    <link rel="stylesheet" type="text/css" href="../lib/assets/bootstrap-fileupload/bootstrap-fileupload.css">
+    <!-- 图片上传css-->
+    <link href="../lib/assets/font-awesome/css/font-awesome.css" rel="stylesheet"><!--字体图标-->
+    <!-- 时间 -->
+    <link rel="stylesheet" href="../lib/assets/bootstrap-datepicker-master/css/bootstrap-datepicker.min.css">
+    <link href="../lib/css/style.css" rel="stylesheet">
+    <!--下面这个JS是用来判断是否为ie9以下浏览器，如果是的话执行下列两个js，否就不执行，请勿清空下方备注 ieIE9（这是备注判断语句）-->
+    <!--[if lt IE 9]>
+    <script src="../lib/js/html5shiv.js">
+    </script>
+    <script src="../lib/js/respond.min.js">
+    </script>
+    <![endif]-->
+    <!-- Css 结束-->
+    <style>
+        .piecharts {
+            display: inline-block;
+            width: 20%;
+            height: 300px;
+            margin: 0 50px 0 0px
+        }
+
+        @media screen and (max-width: 1100px) {
+            .piecharts {
+                display: inline-block;
+                width: 41%;
+                height: 300px;
+                margin: 0 70px 0 0px
+            }
+        }
+    </style>
+</head>
+<body>
+<!-- 页面外围总父盒子 -->
+<section id="container" class="box">
+
+    <!-- 中间主要内容 -->
+    <section class="wrapper site-min-height">
+        <!-- 图表展示 -->
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-primary">
+
+                    <div class="panel-heading" style="font-size:8px;">
+                        供货商监控图表
+                        <span class="tools pull-right">
+                          <a href="javascript:;" class="fa fa-chevron-down">
+                          </a>
+                        </span>
+                    </div>
+                    <div class="panel-body">
+
+                        <div id="bigTimely" class="piecharts"></div>
+
+                        <div id="timely" class="piecharts"></div>
+
+                        <div id="deliverGoods" class="piecharts"></div>
+
+                        <div id="repair" class="piecharts"></div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 展现层 -->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-primary">
+                    <div class="panel-heading" style="font-size:8px;">
+                        供货商监控列表
+                        <span class="tools pull-right">
+                          <a href="javascript:;" class="fa fa-chevron-down">
+                          </a>
+                        </span>
+                    </div>
+                    <div class="panel-body">
+                        <div style="float: right;margin: 10px 0;padding-right: 60px">
+                            <i class="fa fa-square"
+                               style="color: sandybrown;font-size:30px;vertical-align: middle;padding: 0 10px 0 10px;"></i>
+                            <span>
+                                表示程度为: 预警
+                            </span>
+                            <i class="fa fa-square"
+                               style="color: red;font-size:30px;vertical-align: middle;padding: 0 10px 0 10px;"></i>
+                            <span>
+                                表示程度为: 警告
+                            </span>
+                        </div>
+                        <div class="adv-table">
+                            <table class="display table table-bordered table-striped" id="example">
+                                <thead>
+                                <tr>
+                                    <th class="hidden-phone">严重程度</th>
+                                    <th>供应商名称</th>
+                                    <th class="hidden-phone">合作类型</th>
+                                    <th>合作开始时间</th>
+                                    <th class="hidden-phone">合作状态</th>
+                                    <th>计划到货时间</th>
+                                    <th class="hidden-phone">实际到货时间</th>
+                                    <th>发货及时状态</th>
+                                    <th class="hidden-phone">发货质量</th>
+                                    <th>保期状态</th>
+                                    <th class="hidden-phone">维修预计到货时间</th>
+                                    <th>维修实际到货时间</th>
+                                    <th class="hidden-phone">售后维修到货状态</th>
+                                    <th>维修质量</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr class="gradeA">
+                                    <td>
+                                        <i class="fa fa-square"
+                                           style="color: red;font-size:20px">
+                                        </i>
+                                    </td>
+                                    <td>北京元器件公司</td>
+                                    <td>交易型</td>
+                                    <td>2015/02/01</td>
+                                    <td>白名单</td>
+                                    <td>2017/02/02</td>
+                                    <td>2017/02/04</td>
+                                    <td>不及时</td>
+                                    <td>差</td>
+                                    <td>完好</td>
+                                    <td>2017/02/01</td>
+                                    <td>2017/02/06</td>
+                                    <td>不及时</td>
+                                    <td>差</td>
+                                </tr>
+                                <tr class="gradeX">
+                                    <td>
+                                        <i class="fa fa-square"
+                                           style="color: sandybrown;font-size:20px">
+                                        </i>
+                                    </td>
+                                    <td>上海机车零件加厂家</td>
+                                    <td>大额型</td>
+                                    <td>2015/02/10</td>
+                                    <td>白名单</td>
+                                    <td>2017/02/02</td>
+                                    <td>2017/02/01</td>
+                                    <td>及时</td>
+                                    <td>差</td>
+                                    <td>完好</td>
+                                    <td>2017/02/01</td>
+                                    <td>2017/02/06</td>
+                                    <td>及时</td>
+                                    <td>优</td>
+
+                                </tr>
+                                <tr class="gradeA">
+                                    <td>
+                                        <i class="fa fa-square"
+                                           style="color: #fff;font-size:20px">
+                                        </i>
+                                    </td>
+                                    <td>无锡风机制造商</td>
+                                    <td>战略型</td>
+                                    <td>201/02/20</td>
+                                    <td>白名单</td>
+                                    <td>2017/02/02</td>
+                                    <td>2017/02/04</td>
+                                    <td>及时</td>
+                                    <td>优</td>
+                                    <td>破损</td>
+                                    <td>2017/02/01</td>
+                                    <td>2017/02/06</td>
+                                    <td>及时</td>
+                                    <td>优</td>
+                                </tr>
+                                <tr class="gradeX">
+                                    <td>
+                                        <i class="fa fa-square"
+                                           style="color: sandybrown;font-size:20px">
+                                        </i>
+                                    </td>
+                                    <td>天津整流器有限公司</td>
+                                    <td>大额型</td>
+                                    <td>2015/03/01</td>
+                                    <td>白名单</td>
+                                    <td>2017/02/02</td>
+                                    <td>2017/02/04</td>
+                                    <td>及时</td>
+                                    <td>优</td>
+                                    <td>完好</td>
+                                    <td>2017/02/01</td>
+                                    <td>2017/02/06</td>
+                                    <td>不及时</td>
+                                    <td>优</td>
+                                </tr>
+                                <tr class="gradeA">
+                                    <td>
+                                        <i class="fa fa-square"
+                                           style="color: red;font-size:20px">
+                                        </i>
+                                    </td>
+                                    <td>南京元器件公司</td>
+                                    <td>交易型</td>
+                                    <td>2014/05/01</td>
+                                    <td>黑名单</td>
+                                    <td>暂无</td>
+                                    <td>暂无</td>
+                                    <td>暂无</td>
+                                    <td>暂无</td>
+                                    <td>暂无</td>
+                                    <td>暂无</td>
+                                    <td>暂无</td>
+                                    <td>暂无</td>
+                                    <td>暂无</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- END 表格展现层 -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- 中间主要内容 结束  -->
+    <!--底部-->
+    <footer class="site-footer">
+        <div class="text-center">
+            Copyright 2017 北京安诺信科技股份有限公司 苏ICP备12039945号-1
+            <a href="#" class="go-top">
+                <i class="fa fa-angle-up">
+                </i>
+            </a>
+        </div>
+    </footer>
+    <!--底部结束-->
+</section>
+<!-- 页面外围总父盒子 结束 -->
+
+<!-- JS引入 不要换位置 -->
+<script language="javascript" src="../lib/assets/advanced-datatable/media/js/jquery.js"></script>
+<script src="../lib/js/bootstrap.min.js"></script>
+<script src="../lib/js/jquery.dcjqaccordion.2.7.js"></script><!--  left栏的js -->
+<script src="../lib/js/jquery.nicescroll.js"></script><!-- 美化页面内嵌的滚动条 -->
+<script src="../lib/js/respond.min.js"></script><!-- 解决ie9以下的部分兼容性js -->
+<script src="../lib/js/common-scripts.js"></script><!-- left栏的js -->
+<!--data table-->
+<script language="javascript" src="../lib/assets/advanced-datatable/media/js/jquery.dataTables.js"></script>
+<script src="../lib/assets/data-tables/DT_bootstrap.js"></script>
+
+<!-- 时间插件 -->
+<script src="../lib/js/jquery.nicescroll.js"></script><!-- NICESCROLL JS  -->
+<script src="../lib/assets/bootstrap-datepicker-master/js/bootstrap-datepicker.min.js"></script>
+<script src="../lib/assets/bootstrap-datepicker-master/locales/bootstrap-datepicker.zh-CN.min.js"></script>
+<script src="../lib/assets/Echarts/echarts.js"></script><!-- 图标js  -->
+
+<!-- END JS -->
+
+<script>
+    $(function () {
+        $('#example').dataTable({
+            "aaSorting": [[2, "desc"]],//从第0列开始，以第4列倒序排列
+            "aLengthMenu": [
+                [10, 20, 30, -1],
+                [10, 20, 30, "所有"]
+            ],//查询数据条数
+            "iDisplayLength": 10, //默认5
+            "oLanguage": {
+                "sLengthMenu": "每页显示 _MENU_ 条记录",
+                "sZeroRecords": "抱歉， 没有找到",
+                "sInfo": "从 _START_ 到 _END_ /共 _TOTAL_ 条数据",
+                "sInfoEmpty": "没有数据",
+                "sInfoFiltered": "(从 _MAX_ 条数据中检索)",
+                "oPaginate": {
+                    "sFirst": "首页",
+                    "sPrevious": "前一页",
+                    "sNext": "后一页",
+                    "sLast": "尾页"
+                },
+            },
+        });
+
+
+        /*供货商饼图 id = bigTimely*/
+
+        // 饼图0  基于准备好的dom，初始化echarts实例
+        var myChart0 = echarts.init(document.getElementById('bigTimely'));
+
+        var option = {
+            title: {
+                text: '供应商图表',
+                x: 'center'
+            },
+            tooltip: {
+                trigger: 'item',
+            },
+            legend: {
+                orient: 'vertical',
+                left: 'left',
+                data: ['优', '良', '差', '']
+            },
+            series: [
+                {
+                    name: '数据来源',
+                    type: 'pie',
+                    radius: '55%',
+                    center: ['50%', '60%'],
+                    data: [
+                        {value: 25, name: '优'},
+                        {value: 50, name: '良'},
+                        {value: 25, name: '差'},
+                    ],
+                    itemStyle: {
+                        emphasis: {
+                            shadowBlur: 10,
+                            shadowOffsetX: 0,
+                            shadowColor: 'rgba(0, 0, 0, 0.5)'
+                        }
+                    }
+                }
+            ]
+        };
+        // 使用刚指定的配置项和数据显示图表。
+        myChart0.setOption(option);
+
+
+        /*发货及时状态 id = timely*/
+
+        // 饼图1  基于准备好的dom，初始化echarts实例
+        var myChart1 = echarts.init(document.getElementById('timely'));
+
+        var option = {
+            title: {
+                text: '发货及时状态',
+                x: 'center'
+            },
+            tooltip: {
+                trigger: 'item',
+            },
+            legend: {
+                orient: 'vertical',
+                left: 'left',
+                data: ['及时', '不及时']
+            },
+            series: [
+                {
+                    name: '数据来源',
+                    type: 'pie',
+                    radius: '55%',
+                    center: ['50%', '60%'],
+                    data: [
+                        {value: 75, name: '及时'},
+                        {value: 25, name: '不及时'},
+                    ],
+                    itemStyle: {
+                        emphasis: {
+                            shadowBlur: 10,
+                            shadowOffsetX: 0,
+                            shadowColor: 'rgba(0, 0, 0, 0.5)'
+                        }
+                    }
+                }
+            ]
+        };
+        // 使用刚指定的配置项和数据显示图表。
+        myChart1.setOption(option);
+
+
+        /*发货质量 id = deliverGoods*/
+
+        // 饼图2  基于准备好的dom，初始化echarts实例
+        var myChart2 = echarts.init(document.getElementById('deliverGoods'));
+
+        var option = {
+            title: {
+                text: '发货质量',
+                x: 'center'
+            },
+            tooltip: {
+                trigger: 'item',
+            },
+            legend: {
+                orient: 'vertical',
+                left: 'left',
+                data: ['优', '差',]
+            },
+            series: [
+                {
+                    name: '数据来源',
+                    type: 'pie',
+                    radius: '55%',
+                    center: ['50%', '60%'],
+                    data: [
+                        {value: 50, name: '优'},
+                        {value: 50, name: '差'},
+                    ],
+                    itemStyle: {
+                        emphasis: {
+                            shadowBlur: 10,
+                            shadowOffsetX: 0,
+                            shadowColor: 'rgba(0, 0, 0, 0.5)'
+                        }
+                    }
+                }
+            ]
+        };
+        // 使用刚指定的配置项和数据显示图表。
+        myChart2.setOption(option);
+
+
+        /* 维修质量 id = repair*/
+
+        // 饼图3 基于准备好的dom，初始化echarts实例
+        var myChart3 = echarts.init(document.getElementById('repair'));
+
+        var option = {
+            title: {
+                text: '维修质量',
+                x: 'center'
+            },
+            tooltip: {
+                trigger: 'item',
+            },
+            legend: {
+                orient: 'vertical',
+                left: 'left',
+                data: ['优', '差']
+            },
+            series: [
+                {
+                    name: '数据来源',
+                    type: 'pie',
+                    radius: '55%',
+                    center: ['50%', '60%'],
+                    data: [
+                        {value: 75, name: '优'},
+                        {value: 25, name: '差'},
+                    ],
+                    itemStyle: {
+                        emphasis: {
+                            shadowBlur: 10,
+                            shadowOffsetX: 0,
+                            shadowColor: 'rgba(0, 0, 0, 0.5)'
+                        }
+                    }
+                }
+            ]
+        };
+        // 使用刚指定的配置项和数据显示图表。
+        myChart3.setOption(option);
+    })
+</script>
+</body>
+</html>
+
+

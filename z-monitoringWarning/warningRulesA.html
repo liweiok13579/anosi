@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Olive Enterprise">
+    <title>
+        ANOSi用户信息管理系统
+    </title>
+    <!-- Css 不要更换位置排列-->
+    <link href="../lib/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../lib/css/bootstrap-reset.css" rel="stylesheet">
+    <link href="../lib/assets/advanced-datatable/media/css/demo_table.css" rel="stylesheet"><!-- datatable 样式CSS -->
+    <link rel="stylesheet" type="text/css" href="../lib/assets/bootstrap-fileupload/bootstrap-fileupload.css">
+    <!-- 图片上传css-->
+    <link href="../lib/assets/font-awesome/css/font-awesome.css" rel="stylesheet"><!--字体图标-->
+    <link href="../lib/css/style.css" rel="stylesheet">
+    <!--下面这个JS是用来判断是否为ie9以下浏览器，如果是的话执行下列两个js，否就不执行，请勿清空下方备注 ieIE9（这是备注判断语句）-->
+    <!--[if lt IE 9]>
+    <script src="../lib/js/html5shiv.js">
+    </script>
+    <script src="../lib/js/respond.min.js">
+    </script>
+    <![endif]-->
+    <!-- Css 结束-->
+    <style>
+        .control-label {
+            width: 80px;
+            text-align: left;
+        }
+
+        .Modify {
+            margin-right: 15px;
+        }
+
+        input[type="radio"] {
+            vertical-align: middle;
+        }
+
+        i {
+            vertical-align: middle;
+        }
+
+        .from-g-l {
+            display: block !important;
+            padding: 10px 0;
+        }
+
+        select {
+            width: 184px !important;
+        }
+    </style>
+</head>
+<body>
+<!-- 页面外围总父盒子 -->
+<section id="container" class="box">
+
+    <!-- 中间主要内容 -->
+    <section class="wrapper site-min-height">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-primary">
+                    <div class="panel-heading" style="font-size:8px;">
+                        售后维修预警规则详情
+                        <span class="tools pull-right">
+                          <a href="javascript:;" class="fa fa-chevron-down">
+                          </a>
+                        </span>
+                    </div>
+                    <div class="panel-body">
+                        <div style="float: right;margin: 10px 0;padding-right: 60px">
+                            <i class="fa fa-square"
+                               style="color: sandybrown;font-size:30px;vertical-align: middle;padding: 0 10px 0 10px;"></i>
+                            <span>
+                                表示程度为: 预警
+                            </span>
+                            <i class="fa fa-square"
+                               style="color: red;font-size:30px;vertical-align: middle;padding: 0 10px 0 10px;"></i>
+                            <span>
+                                表示程度为:警告
+                            </span>
+                        </div>
+                        <form class="form-inline" role="form">
+                            <table class="table">
+                                <tbody>
+                                <tr>
+                                    <td>
+                                        <!-- 业务类别 -->
+                                        <div class="form-group from-g-l">
+                                            <label class="control-label">业务类别 : </label>
+                                            <select name="" id="category" class="form-control">
+                                                <option value="0">请选择业务类别</option>
+                                                <option value="1">低库存监控</option>
+                                                <option value="2">生产检修计划监控</option>
+                                                <option value="3">采购计划监控</option>
+                                                <option value="4">售后维修监控</option>
+                                                <option value="5">售后质量监控</option>
+                                                <option value="6">供应商监控</option>
+                                            </select>
+                                        </div>
+                                        <!-- 被提醒角色 -->
+                                        <div class="form-group from-g-l">
+                                            <label class="control-label">被提醒角色 : </label>
+                                            <select name="" id="role" class="form-control">
+                                                <option value="0">请被提醒角色</option>
+                                                <option value="1">仓库管理员</option>
+                                                <option value="2">仓库经理</option>
+                                                <option value="3">生产车间主任</option>
+                                                <option value="4">生产部经理</option>
+                                                <option value="5">售后经理</option>
+                                                <option value="6">采购经理</option>
+                                                <option value="7">采购人</option>
+                                            </select>
+                                        </div>
+                                        <!-- 提醒周期 -->
+                                        <div class="form-group from-g-l">
+                                            <label class="control-label">提醒周期 : </label>
+                                            <select name="" id="cycle" class="form-control">
+                                                <option value="0">请选择提醒周期</option>
+                                                <option value="1">每一小时</option>
+                                                <option value="3">每三小时</option>
+                                                <option value="6">每六小时</option>
+                                                <option value="9">每九小时</option>
+                                                <option value="24">每天</option>
+                                            </select>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <!-- 规则描述 -->
+                                        <div class="form-group from-g-l">
+                                            <label class="control-label">规则描述 : </label>
+                                            <input type="text" name="" class="form-control describe" value="">
+                                        </div>
+                                        <!-- 提醒方式 -->
+                                        <div class="form-group from-g-l">
+                                            <label class="control-label">提醒方式 : </label>
+                                            <select name="" id="mode" class="form-control">
+                                                <option value="0">请选择提醒方式</option>
+                                                <option value="1">邮件提醒</option>
+                                                <option value="2">电话提醒</option>
+                                                <option value="3">短信提醒</option>
+                                            </select>
+                                        </div>
+                                        <!-- 严重程度 -->
+                                        <div class="form-group from-g-l from-rad">
+                                            <label class="control-label">严重程度 : </label>
+                                            <div class="form-control" style="width: 184px;">
+                                                <span style="padding: 0 20px 0 0">
+                                                    <input type="radio" name="ha1">
+                                                    <i class="fa fa-square"
+                                                       style="color: sandybrown;font-size:20px"></i>
+                                                </span>
+                                                <span>
+                                                    <input type="radio" name="ha1">
+                                                    <i class="fa fa-square"
+                                                       style="color: red;font-size:20px"></i>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <!-- 规则说明 -->
+                                        <div class="form-group from-g-l" style="padding: 10px;">
+                                            <label class="control-label">规则说明 : </label>
+                                            <textarea name="" id="RuDescri" cols="50" rows="5"></textarea>
+                                        </div>
+                                        <!-- 代码规则说明 -->
+                                        <div class="form-group from-g-l" style="padding: 10px;">
+                                            <label class="control-label">代码规则 : </label>
+                                            <textarea name="" id="codeRule" cols="50" rows="5"></textarea>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan=4>
+                                        <button type="button" class="btn btn-round btn-success Addwarning">
+                                            <i class="fa fa-check">
+                                            </i>
+                                            新增
+                                        </button>
+                                        <button type="button" class="btn btn-round btn-danger" onclick="Resets()">
+                                            <i class="fa fa-times">
+                                            </i>
+                                            重置
+                                        </button>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- 中间主要内容 结束  -->
+
+    <!--底部-->
+    <footer class="site-footer">
+        <div class="text-center">
+            Copyright 2017 北京安诺信科技股份有限公司 苏ICP备12039945号-1
+            <a href="#" class="go-top">
+                <i class="fa fa-angle-up">
+                </i>
+            </a>
+        </div>
+    </footer>
+    <!--底部结束-->
+</section>
+<!-- 页面外围总父盒子 结束 -->
+
+<!-- JS引入 不要换位置 -->
+<script language="javascript" src="../lib/js/jquery-1.8.3.min.js"></script>
+<script src="../lib/js/bootstrap.min.js"></script>
+<script src="../lib/js/jquery.dcjqaccordion.2.7.js"></script><!--  left栏的js -->
+<script src="../lib/js/jquery.nicescroll.js"></script><!-- 美化页面内嵌的滚动条 -->
+<script src="../lib/js/respond.min.js"></script><!-- 解决ie9以下的部分兼容性js -->
+<script src="../lib/js/common-scripts.js"></script><!-- left栏的js -->
+<!-- JS引入结束 -->
+<script>
+    $(function () {
+        $(".Addwarning").on('click', function () {
+            // 业务类别
+            var categoryVa = $("#category").val();
+            // 被提醒角色
+            var roleVa = $("#role").val();
+            // 提醒周期
+            var cycleVa = $("#cycle").val();
+            // 提醒方式
+            var modeVa = $('#mode').val();
+            // 规则描述
+            var describeVa = $('.describe').val();
+            // 严重程度
+            var fromRad = $('input:radio[name="ha1"]:checked').val();
+            // 规则说明
+            var RuDescriVa = $("#RuDescri").val();
+            // 代码说明
+            var codeRuleVa = $("#codeRule").val();
+            if (categoryVa == 0) {
+                alert('请您选择业务类别!');
+            } else if (describeVa == '') {
+                alert('请填写规则描述')
+            } else if (roleVa == 0) {
+                alert("请选择被提醒角色!")
+            } else if (modeVa == 0) {
+                alert('请选择提醒方式')
+            } else if (cycleVa == 0) {
+                alert('请选择提醒周期')
+            } else if (fromRad == null) {
+                alert("请选择严重程度")
+            } else if (RuDescriVa == '') {
+                alert('请输入规则描述!')
+            } else if (codeRuleVa == '') {
+                alert('请输入代码规则!')
+            } else {
+                AddNewMaterial()
+            }
+        })
+
+
+    })
+    //    新增
+    function AddNewMaterial() {
+        var gnl = confirm("确定新增吗?");
+        if (gnl == true) {
+            alert('新增成功!');
+            return true;
+        } else {
+            alert('新增失败!');
+            return false;
+        }
+    };
+    //    重置
+    function Resets() {
+        var gnl = confirm("是否确定要重置?");
+        if (gnl == true) {
+            $("select").val("");
+            $("input").val("");
+            $("textarea").val('');
+            return true;
+        } else {
+            return false;
+        }
+    }
+</script>
+</body>
+</html>
+
+

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Olive Enterprise">
+    <title>
+        ANOSi用户信息管理系统
+    </title>
+    <link href="../lib/css/bootstrap.min.css" rel="stylesheet"><!-- BOOTSTRAP CSS -->
+    <link href="../lib/css/style.css" rel="stylesheet"><!-- THEME BASIC CSS -->
+    <link href="../lib/assets/font-awesome/css/font-awesome.css" rel="stylesheet"><!--字体图标-->
+    <link rel="stylesheet" href="css/accessMon.css">
+    <!--下面这个JS是用来判断是否为ie9以下浏览器，如果是的话执行下列两个js，否就不执行，请勿清空下方备注 ieIE9（这是备注判断语句）-->
+    <!--[if lt IE 9]>
+    <script src="../lib/js/html5shiv.js">
+    </script>
+    <script src="../lib/js/respond.min.js">
+    </script>
+    <![endif]-->
+    <!-- Css 结束-->
+</head>
+<body>
+<!-- 页面外围总父盒子 -->
+<section id="container" class="box">
+    <!-- 中间主要内容 -->
+    <section class="wrapper site-min-height">
+        <div class="row state-overview">
+            <div class="col-lg-3 col-sm-6">
+                <section class="panel">
+                    <div class="symbol">
+                        <i class="fa  fa-align-right blue">
+                        </i>
+                    </div>
+                    <div class="value">
+                        <h1 class="count">
+                            0
+                        </h1>
+                        <p>
+                            今日访问量
+                        </p>
+                    </div>
+                </section>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <section class="panel">
+                    <div class="symbol">
+                        <i class="fa  fa-align-left red">
+                        </i>
+                    </div>
+                    <div class="value">
+                        <h1 class=" count2">
+                            0
+                        </h1>
+                        <p>
+                            昨日访问量
+                        </p>
+                    </div>
+                </section>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <section class="panel">
+                    <div class="symbol">
+                        <i class="fa fa-align-justify yellow">
+                        </i>
+                    </div>
+                    <div class="value">
+                        <h1 class=" count3">
+                            0
+                        </h1>
+                        <p>
+                            7日内访问量
+                        </p>
+                    </div>
+                </section>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <section class="panel">
+                    <div class="symbol">
+                        <i class="fa fa-align-center purple">
+                        </i>
+                    </div>
+                    <div class="value">
+                        <h1 class=" count4">
+                            0
+                        </h1>
+                        <p>
+                            30日内访问量
+                        </p>
+                    </div>
+                </section>
+            </div>
+        </div>
+        <div id="main"></div>
+        <div id="main2"></div>
+    </section>
+    <!-- 中间主要内容 结束  -->
+    <!--底部-->
+    <footer class="site-footer">
+        <div class="text-center">
+            Copyright 2017 北京安诺信科技股份有限公司 苏ICP备12039945号-1
+            <a href="#" class="go-top">
+                <i class="fa fa-angle-up">
+                </i>
+            </a>
+        </div>
+    </footer>
+    <!--底部结束-->
+</section>
+
+
+<!-- 页面外围总父盒子 结束 -->
+
+<!-- JS引入 不要换位置 -->
+<script src="../lib/js/jquery-1.8.3.min.js"></script><!-- BASIC JQUERY 1.8.3 LIB. JS -->
+<script src="js/accessMon.js"></script>
+<script src="../lib/js/count.js"></script><!-- COUNT JS -->
+<script src="js/echarts.js"></script>
+<!-- JS引入结束 -->
+</body>
+</html>
+
+

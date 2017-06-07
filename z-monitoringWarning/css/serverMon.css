@@ -1,0 +1,89 @@
+.form-group {
+    width: 250px !important;
+    margin-top: 25px;
+}
+
+.control-label {
+    width: 30% !important;
+    text-align: right;
+    padding-right: 10px;
+}
+
+td {
+    text-align: center;
+    border: none !important;
+}
+
+.Modular {
+    height: 150px;
+    border-radius: 5px;
+}
+
+.blue {
+    width: 20px;
+    height: 20px;
+    border-radius: 5px;
+    background: #72d0eb;
+    float: left;
+    cursor: pointer;
+}
+
+.sandybrown {
+    width: 20px;
+    height: 20px;
+    border-radius: 5px;
+    background: sandybrown;
+    float: left;
+    cursor: pointer;
+}
+
+.red {
+    width: 20px;
+    height: 20px;
+    border-radius: 5px;
+    background: red;
+    float: left;
+    cursor: pointer;
+}
+
+td li {
+    display: inline-block;
+    float: left;
+    margin: 0 5px 0 5px;
+    line-height: 20px;
+}
+
+.box_right {
+    float: right;
+}
+
+.icon {
+    display: table;
+    color: #72d0eb;
+    width: 100%;
+    float: left;
+    height: 150px;
+    position: relative;
+}
+
+.cpu {
+    width: 50px;
+    float: left;
+    height: 50px;
+    position: absolute;
+    bottom:0;
+    right:0;
+}
+
+.face {
+    float: left;
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    font-weight: 700;
+    color: #000;
+    font-size: 14px;
+    position: absolute;
+    bottom: 0;
+    left:0;
+}
