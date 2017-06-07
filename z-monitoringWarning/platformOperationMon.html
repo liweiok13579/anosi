@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Olive Enterprise">
+    <title>
+        ANOSi用户信息管理系统
+    </title>
+    <!-- Css 不要更换位置排列-->
+    <link href="../lib/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../lib/css/bootstrap-reset.css" rel="stylesheet">
+    <link href="../lib/css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/serverMon.css">
+    <link rel="stylesheet" href="../lib/iconfent/iconfont.css">
+    <!--下面这个JS是用来判断是否为ie9以下浏览器，如果是的话执行下列两个js，否就不执行，请勿清空下方备注 ieIE9（这是备注判断语句）-->
+    <!--[if lt IE 9]>
+    <script src="../lib/js/html5shiv.js">
+    </script>
+    <script src="../lib/js/respond.min.js">
+    </script>
+    <![endif]-->
+    <!-- Css 结束-->
+    <style>
+        .right {
+            text-align: right;
+        }
+
+        .icon {
+            font-size: 85px;
+        }
+    </style>
+</head>
+<body>
+<!-- 页面外围总父盒子 -->
+<section id="container" class="box">
+
+    <!-- 中间主要内容 -->
+    <section class="wrapper site-min-height">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-primary">
+                    <div class="panel-body">
+                        <form class="form-inline" role="form">
+                            <table class="table">
+                                <tbody>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td class="right_box">
+                                        <div class="box_right">
+                                            <div class="blue"></div>
+                                            <li>正常</li>
+                                            <div class="sandybrown"></div>
+                                            <li>预警</li>
+                                            <div class="red"></div>
+                                            <li>警告</li>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <a data-toggle="modal"
+                                           href="#myModal">
+                                            <div class="form-group Modular">
+                                                <div class="iconfont icon-pingtai icon">
+                                                    <div class="face">用户信息管理平台</div>
+                                                </div>
+
+                                            </div>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a data-toggle="modal"
+                                           href="#myModal">
+                                            <div class="form-group Modular">
+                                                <div class="iconfont icon-pingtai icon">
+                                                    <div class="face">组织架构管理平台</div>
+                                                </div>
+
+                                            </div>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a data-toggle="modal"
+                                           href="#myModal">
+                                            <div class="form-group Modular">
+                                                <div class="iconfont icon-pingtai icon">
+                                                    <div class="face">角色管理平台</div>
+                                                </div>
+
+                                            </div>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <a data-toggle="modal"
+                                           href="#myModal">
+                                            <div class="form-group Modular">
+                                                <div class="iconfont icon-pingtai icon">
+                                                    <div class="face">权限管理平台</div>
+                                                </div>
+
+                                            </div>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a data-toggle="modal"
+                                           href="#myModal">
+                                            <div class="form-group Modular">
+                                                <div class="iconfont icon-pingtai icon">
+                                                    <div class="face">配置管理平台</div>
+                                                </div>
+
+                                            </div>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a data-toggle="modal"
+                                           href="#myModal">
+                                            <div class="form-group Modular">
+                                                <div class="iconfont icon-pingtai icon" style="color: sandybrown">
+                                                    <div class="face" style="color: sandybrown">元数据管理平台</div>
+                                                </div>
+
+                                            </div>
+                                        </a>
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <a data-toggle="modal"
+                                           href="#myModal">
+                                            <div class="form-group Modular">
+                                                <div class="iconfont icon-pingtai icon">
+                                                    <div class="face">供应商平台</div>
+                                                </div>
+
+                                            </div>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a data-toggle="modal"
+                                           href="#myModal">
+                                            <div class="form-group Modular">
+                                                <div class="iconfont icon-pingtai icon" style="color: red">
+                                                    <div class="face" style="color: red">仓储管理系统平台</div>
+                                                </div>
+
+                                            </div>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a data-toggle="modal"
+                                           href="#myModal">
+                                            <div class="form-group Modular">
+                                                <div class="iconfont icon-pingtai icon">
+                                                    <div class="face">APP管理平台</div>
+                                                </div>
+
+                                            </div>
+                                        </a>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel-body">
+            <form action="#" class="form-horizontal tasi-form">
+                <div class="modal fade" id="myModal">
+                    <div class="modal-dialog">
+                        <div class="modal-content panel-primary">
+
+                            <div class="modal-footer">
+                                <div id="main10" style="width:560px;height: 300px"></div>
+                                <button data-dismiss="modal"
+                                        class="btn btn-default btn-danger"
+                                        type="button">
+                                    <i class="fa fa-times">
+                                        关闭
+                                    </i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+    <!-- 中间主要内容 结束  -->
+
+    <!--底部-->
+    <footer class="site-footer">
+        <div class="text-center">
+            Copyright 2017 北京安诺信科技股份有限公司 苏ICP备12039945号-1
+            <a href="#" class="go-top">
+                <i class="fa fa-angle-up">
+                </i>
+            </a>
+        </div>
+    </footer>
+    <!--底部结束-->
+</section>
+<!-- 页面外围总父盒子 结束 -->
+
+<!-- JS引入 不要换位置 -->
+<script language="javascript" src="../lib/assets/advanced-datatable/media/js/jquery.js"></script>
+<script src="../lib/js/bootstrap.min.js"></script>
+<script src="../lib/iconfent/iconfont.js"></script>
+<script src="js/echarts.js"></script>
+<script src="js/platformOperationMon.js"></script>
+<!--自己写js-->
+<!-- JS引入结束 -->
+</body>
+</html>
+
+

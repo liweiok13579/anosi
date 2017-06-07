@@ -100,8 +100,8 @@
                                 </div>
                             </div>
                             <div style="margin: 0 auto;width: 100px;">
-                                <button type="button" class="btn btn-success" id="suppList-btn">
-                                    <i class="fa fa-check">确定</i>
+                                <button type="button" class="btn btn-round btn-success supplier-modify" id="suppList-btn">
+                                    <i class="fa fa-check">&nbsp;&nbsp;确定</i>
                                 </button>
                             </div>
                         </form>
@@ -143,9 +143,18 @@
 <script>
     $(function () {
         $('#suppList-btn').on('click',function () {
-            alert('修改成功!')
+            modify();
         })
     })
+    //   修改
+    function modify() {
+        var gnl = confirm("确定要修改吗?");
+        if (gnl == true) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 </script>
 </body>
 </html>

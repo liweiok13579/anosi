@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Olive Enterprise">
+    <title>
+        ANOSi用户信息管理系统
+    </title>
+    <!-- Css 不要更换位置排列-->
+    <link href="../lib/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../lib/css/bootstrap-reset.css" rel="stylesheet">
+    <link href="../lib/assets/advanced-datatable/media/css/demo_table.css" rel="stylesheet"><!-- DATATABLE 样式CSS -->
+    <link rel="stylesheet" type="text/css" href="../lib/assets/bootstrap-fileupload/bootstrap-fileupload.css">
+    <!-- 图片上传css-->
+    <link href="../lib/assets/font-awesome/css/font-awesome.css" rel="stylesheet"><!--字体图标-->
+    <!-- 时间 -->
+    <link rel="stylesheet" href="../lib/assets/bootstrap-datepicker-master/css/bootstrap-datepicker.min.css">
+    <link href="../lib/css/style.css" rel="stylesheet">
+    <!--下面这个JS是用来判断是否为ie9以下浏览器，如果是的话执行下列两个js，否就不执行，请勿清空下方备注 ieIE9（这是备注判断语句）-->
+    <!--[if lt IE 9]>
+    <script src="../lib/js/html5shiv.js"></script>
+    <script src="../lib/js/respond.min.js"></script>
+    <![endif]-->
+    <!-- Css 结束-->
+    <style>
+        .piechartSa {
+            display: inline-block;
+            width: 32%;
+            height: 400px
+        }
+        @media screen and (max-width: 1000px) {
+            .piechartSa {
+                display: inline-block;
+                width: 49%;
+                height: 400px;
+                margin: 0 2px 0 0;
+            }
+        }
+    </style>
+</head>
+<body>
+<!-- 页面外围总父盒子 -->
+<section id="container" class="box">
+
+    <!-- 中间主要内容 -->
+    <section class="wrapper site-min-height">
+        <!-- 图表展示 -->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-primary">
+
+                    <div class="panel-heading" style="font-size:8px;">
+                        售后质量监控图表
+                        <span class="tools pull-right">
+                          <a href="javascript:;" class="fa fa-chevron-down">
+                          </a>
+                        </span>
+                    </div>
+                    <div class="panel-body piechartSas">
+                        <div id="TypePieChart" class="piechartSa"></div>
+                        <div id="NamePieChart" class="piechartSa"></div>
+                        <div id="StagePieChart" class="piechartSa"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 展现层 -->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-primary">
+                    <div class="panel-heading" style="font-size:8px;">
+                        售后质量监控列表
+                        <span class="tools pull-right">
+                          <a href="javascript:;" class="fa fa-chevron-down">
+                          </a>
+                        </span>
+                    </div>
+
+                    <div class="panel-body">
+                        <div style="float: right;margin: 10px 0;padding-right: 60px">
+                            <i class="fa fa-square"
+                               style="color: sandybrown;font-size:30px;vertical-align: middle;padding: 0 10px 0 10px;"></i>
+                            <span>
+                                表示程度为: 预警
+                            </span>
+                            <i class="fa fa-square"
+                               style="color: red;font-size:30px;vertical-align: middle;padding: 0 10px 0 10px;"></i>
+                            <span>
+                                表示程度为:警告
+                            </span>
+                        </div>
+                        <div class="adv-table">
+                            <table class="display table table-bordered table-striped" id="hidden-table-info">
+                                <thead>
+                                <tr>
+                                    <th class="hidden-phone">严重程度</th>
+                                    <th>物料类型</th>
+                                    <th class="hidden-phone">物料型号</th>
+                                    <th>物料名称</th>
+                                    <th class="hidden-phone">收货时间</th>
+                                    <th>保质期(天)</th>
+                                    <th class="hidden-phone">保期状态</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr class="gradeA">
+                                    <td>
+                                        <i class="fa fa-square"
+                                           style="color: sandybrown;font-size:20px">
+                                        </i>
+                                    </td>
+                                    <td>传动轴件</td>
+                                    <td>CD-1244</td>
+                                    <td>主传动轴</td>
+                                    <td>2017/01/10</td>
+                                    <td>15</td>
+                                    <td>完好</td>
+                                </tr>
+                                <tr class="gradeX">
+                                    <td>
+                                        <i class="fa fa-square"
+                                           style="color: #fff;font-size:20px">
+                                        </i>
+                                    </td>
+                                    <td>轴链接件</td>
+                                    <td>ZL-1255</td>
+                                    <td>主副传动轴链接件</td>
+                                    <td>2017/02/05</td>
+                                    <td>15</td>
+                                    <td>损坏</td>
+                                </tr>
+                                <tr class="gradeA">
+                                    <td>
+                                        <i class="fa fa-square"
+                                           style="color: red;font-size:20px">
+                                        </i>
+                                    </td>
+                                    <td>风机配件</td>
+                                    <td>FJ-1345</td>
+                                    <td>主变流风机</td>
+                                    <td>2017/03/11</td>
+                                    <td>15</td>
+                                    <td>完好</td>
+                                </tr>
+                                <tr class="gradeX">
+                                    <td>
+                                        <i class="fa fa-square"
+                                           style="color: #fff;font-size:20px">
+                                        </i>
+                                    </td>
+                                    <td>镇流器</td>
+                                    <td>ZL-1145</td>
+                                    <td>低压镇流器</td>
+                                    <td>2017/04/28</td>
+                                    <td>15</td>
+                                    <td>损坏</td>
+                                </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- END 表格展现层 -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- 中间主要内容 结束  -->
+
+    <!--底部-->
+    <footer class="site-footer">
+        <div class="text-center">
+            Copyright 2017 北京安诺信科技股份有限公司 苏ICP备12039945号-1
+            <a href="#" class="go-top">
+                <i class="fa fa-angle-up">
+                </i>
+            </a>
+        </div>
+    </footer>
+    <!--底部结束-->
+</section>
+<!-- 页面外围总父盒子 结束 -->
+
+<!-- JS引入 不要换位置 -->
+<script language="javascript" src="../lib/assets/advanced-datatable/media/js/jquery.js"></script>
+<script src="../lib/js/bootstrap.min.js"></script>
+<script src="../lib/js/jquery.dcjqaccordion.2.7.js"></script><!--  left栏的js -->
+<script src="../lib/js/jquery.nicescroll.js"></script><!-- 美化页面内嵌的滚动条 -->
+<script src="../lib/js/respond.min.js"></script><!-- 解决ie9以下的部分兼容性js -->
+<script src="../lib/js/common-scripts.js"></script><!-- left栏的js -->
+<!--data table-->
+<script language="javascript" src="../lib/assets/advanced-datatable/media/js/jquery.dataTables.js"></script>
+<script src="../lib/assets/data-tables/DT_bootstrap.js"></script>
+
+<script src="../lib/assets/Echarts/echarts.js"></script><!-- 图标js  -->
+<!-- END JS -->
+
+<script>
+    $(function () {
+        /* datatable 点击展示详情页面 */
+        /* 格式化功能行的代码 */
+        function fnFormatDetails(oTable, nTr) {
+            var aData = oTable.fnGetData(nTr);
+            var sOut = '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">';
+            sOut += '<tr><td style="padding-left: 50px">售后质量详情 : ' + aData[5] + '</td>' +
+                '<td style="text-align: left">' + '</td></tr>';
+            sOut += '</table>';
+
+            return sOut;
+        }
+
+        $(document).ready(function () {
+            /*
+             * Insert a 'details' column to the table
+             */
+            var nCloneTh = document.createElement('th');
+            var nCloneTd = document.createElement('td');
+            nCloneTd.innerHTML = '<img src="../lib/assets/advanced-datatable/examples/examples_support/details_open.png">';
+            nCloneTd.className = "center";
+
+            $('#hidden-table-info thead tr').each(function () {
+                this.insertBefore(nCloneTh, this.childNodes[0]);
+            });
+
+            $('#hidden-table-info tbody tr').each(function () {
+                this.insertBefore(nCloneTd.cloneNode(true), this.childNodes[0]);
+            });
+
+            /*
+             * Initialse DataTables, with no sorting on the 'details' column
+             */
+            var oTable = $('#hidden-table-info').dataTable({
+                "oLanguage": {
+                    "sLengthMenu": "每页显示 _MENU_ 条记录",
+                    "sZeroRecords": "抱歉， 没有找到",
+                    "sInfo": "从 _START_ 到 _END_ /共 _TOTAL_ 条数据",
+                    "sInfoEmpty": "没有数据",
+                    "sInfoFiltered": "(从 _MAX_ 条数据中检索)",
+                    "sSearch": "搜索:",
+                    "oPaginate": {
+                        "sFirst": "首页",
+                        "sPrevious": "前一页",
+                        "sNext": "后一页",
+                        "sLast": "尾页"
+                    },
+                },
+                "aoColumnDefs": [
+                    {"bSortable": false, "aTargets": [0]}
+                ],
+                "aaSorting": [[1, 'asc']]
+            });
+
+            /* 为打开和关闭详细信息添加事件监听器
+             * 注意显示的行的指标是开放的不受控制的DataTables，
+             * 在这里做操作
+             */
+            $('#hidden-table-info tbody td img').live('click', function () {
+                var nTr = $(this).parents('tr')[0];
+                if (oTable.fnIsOpen(nTr)) {
+                    /* 打开 */
+                    this.src = "../lib/assets/advanced-datatable/examples/examples_support/details_open.png";
+                    oTable.fnClose(nTr);
+                }
+                else {
+                    /* 关闭 */
+                    this.src = "../lib/assets/advanced-datatable/examples/examples_support/details_close.png";
+                    oTable.fnOpen(nTr, fnFormatDetails(oTable, nTr), 'details');
+                }
+            });
+        });
+
+
+        // 物料类型
+
+
+        // 饼图1  基于准备好的dom，初始化echarts实例
+        var myChart1 = echarts.init(document.getElementById('TypePieChart'));
+
+        var option = {
+            title: {
+                text: '物料类型',
+                x: 'center'
+            },
+            tooltip: {
+                trigger: 'item',
+            },
+            legend: {
+                orient: 'vertical',
+                left: 'left',
+                data: ['传动轴件', '轴链接件', '风机配件', '镇流器']
+            },
+            series: [
+                {
+                    name: '数据来源',
+                    type: 'pie',
+                    radius: '55%',
+                    center: ['50%', '60%'],
+                    data: [
+                        {value: 330, name: '传动轴件'},
+                        {value: 310, name: '轴链接件'},
+                        {value: 230, name: '风机配件'},
+                        {value: 130, name: '镇流器'},
+                    ],
+                    itemStyle: {
+                        emphasis: {
+                            shadowBlur: 10,
+                            shadowOffsetX: 0,
+                            shadowColor: 'rgba(0, 0, 0, 0.5)'
+                        }
+                    }
+                }
+            ]
+        };
+        // 使用刚指定的配置项和数据显示图表。
+        myChart1.setOption(option);
+
+
+        // 物料名称
+
+
+        // 饼图2  基于准备好的dom，初始化echarts实例
+        var myChart2 = echarts.init(document.getElementById('NamePieChart'));
+
+        var option = {
+            title: {
+                text: '物料名称',
+                x: 'center'
+            },
+            tooltip: {
+                trigger: 'item',
+            },
+            legend: {
+                orient: 'vertical',
+                left: 'left',
+                data: ['主传动轴', '主副传动轴链接件', '主变流风机', '低压镇流器']
+            },
+            series: [
+                {
+                    name: '数据来源',
+                    type: 'pie',
+                    radius: '55%',
+                    center: ['50%', '60%'],
+                    data: [
+                        {value: 45, name: '主传动轴'},
+                        {value: 50, name: '主副传动轴链接件'},
+                        {value: 50, name: '主变流风机'},
+                        {value: 50, name: '低压镇流器'},
+                    ],
+                    itemStyle: {
+                        emphasis: {
+                            shadowBlur: 10,
+                            shadowOffsetX: 0,
+                            shadowColor: 'rgba(0, 0, 0, 0.5)'
+                        }
+                    }
+                }
+            ]
+        };
+        // 使用刚指定的配置项和数据显示图表。
+        myChart2.setOption(option);
+
+        // 完好程度
+
+
+        // 饼图3 基于准备好的dom，初始化echarts实例
+        var myChart3 = echarts.init(document.getElementById('StagePieChart'));
+
+        var option = {
+            title: {
+                text: '保期状态',
+                x: 'center'
+            },
+            tooltip: {
+                trigger: 'item',
+            },
+            legend: {
+                orient: 'vertical',
+                left: 'left',
+                data: ['完好', '破损']
+            },
+            series: [
+                {
+                    name: '数据来源',
+                    type: 'pie',
+                    radius: '55%',
+                    center: ['50%', '60%'],
+                    data: [
+                        {value: 45, name: '完好'},
+                        {value: 50, name: '破损'},
+                    ],
+                    itemStyle: {
+                        emphasis: {
+                            shadowBlur: 10,
+                            shadowOffsetX: 0,
+                            shadowColor: 'rgba(0, 0, 0, 0.5)'
+                        }
+                    }
+                }
+            ]
+        };
+        // 使用刚指定的配置项和数据显示图表。
+        myChart3.setOption(option);
+    })
+</script>
+</body>
+</html>

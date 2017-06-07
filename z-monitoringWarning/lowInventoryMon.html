@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Olive Enterprise">
+    <title>
+        ANOSi用户信息管理系统
+    </title>
+    <!-- Css 不要更换位置排列-->
+    <link href="../lib/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../lib/css/bootstrap-reset.css" rel="stylesheet">
+    <link href="../lib/assets/advanced-datatable/media/css/demo_table.css" rel="stylesheet"><!-- DATATABLE 样式CSS -->
+    <link rel="stylesheet" type="text/css" href="../lib/assets/bootstrap-fileupload/bootstrap-fileupload.css">
+    <!-- 图片上传css-->
+    <link href="../lib/assets/font-awesome/css/font-awesome.css" rel="stylesheet"><!--字体图标-->
+    <!-- 时间 -->
+    <link rel="stylesheet" href="../lib/assets/bootstrap-datepicker-master/css/bootstrap-datepicker.min.css">
+    <link href="../lib/css/style.css" rel="stylesheet">
+    <!--下面这个JS是用来判断是否为ie9以下浏览器，如果是的话执行下列两个js，否就不执行，请勿清空下方备注 ieIE9（这是备注判断语句）-->
+    <!--[if lt IE 9]>
+    <script src="../lib/js/html5shiv.js">
+    </script>
+    <script src="../lib/js/respond.min.js">
+    </script>
+    <![endif]-->
+    <!-- Css 结束-->
+    <style>
+    </style>
+</head>
+<body>
+<!-- 页面外围总父盒子 -->
+<section id="container" class="box">
+
+    <!-- 中间主要内容 -->
+    <section class="wrapper site-min-height">
+        <!-- 图表展示 -->
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-primary">
+
+                    <div class="panel-heading" style="font-size:8px;">
+                        低库存监控图表
+                        <span class="tools pull-right">
+                          <a href="javascript:;" class="fa fa-chevron-down">
+                          </a>
+                        </span>
+                    </div>
+                    <div class="panel-body">
+                        <div id="LowInventoryChart" style="height: 400px"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 展现层 -->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-primary">
+                    <div class="panel-heading" style="font-size:8px;">
+                        低库存监控监控列表
+                        <span class="tools pull-right">
+                          <a href="javascript:;" class="fa fa-chevron-down">
+                          </a>
+                        </span>
+                    </div>
+                    <div class="panel-body">
+                        <div style="float: right;margin: 10px 0;padding-right: 60px">
+                            <i class="fa fa-square"
+                               style="color: sandybrown;font-size:30px;vertical-align: middle;padding: 0 10px 0 10px;"></i>
+                            <span>
+                                表示程度为: 预警
+                            </span>
+                            <i class="fa fa-square"
+                               style="color: red;font-size:30px;vertical-align: middle;padding: 0 10px 0 10px;"></i>
+                            <span>
+                                表示程度为: 警告
+                            </span>
+                        </div>
+                        <div class="adv-table">
+                            <table class="display table table-bordered table-striped" id="example">
+                                <thead>
+                                <tr>
+                                    <th>警告程度</th>
+                                    <th class="hidden-phone">物料种类</th>
+                                    <th>物料型号</th>
+                                    <th class="hidden-phone">所在仓库</th>
+                                    <th>剩余库存(件)</th>
+                                    <th class="hidden-phone">最低库存(件)</th>
+                                    <th>差值</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr class="gradeA">
+                                    <td>
+                                        <i class="fa fa-square"
+                                           style="color: red;font-size:20px">
+                                        </i>
+                                    </td>
+                                    <td>副传动轴</td>
+                                    <td>FC-1125</td>
+                                    <td>南一号库</td>
+                                    <td>5</td>
+                                    <td>10</td>
+                                    <td>-5</td>
+                                </tr>
+                                <tr class="gradeX">
+                                    <td>
+                                        <i class="fa fa-square"
+                                           style="color: red;font-size:20px">
+                                        </i>
+                                    </td>
+                                    <td>主传动轴</td>
+                                    <td>ZC-1231</td>
+                                    <td>北一号库</td>
+                                    <td>2</td>
+                                    <td>5</td>
+                                    <td>-3</td>
+                                </tr>
+                                <tr class="gradeA">
+                                    <td>
+                                        <i class="fa fa-square"
+                                           style="color: #ffffff;font-size:20px">
+                                        </i>
+                                    </td>
+                                    <td>主副轴连接件</td>
+                                    <td>ZFL-1152</td>
+                                    <td>东一号库</td>
+                                    <td>10</td>
+                                    <td>5</td>
+                                    <td>5</td>
+                                </tr>
+                                <tr class="gradeX">
+                                    <td>
+                                        <i class="fa fa-square"
+                                           style="color: sandybrown;font-size:20px">
+                                        </i>
+                                    </td>
+                                    <td>变流风机</td>
+                                    <td>BF-1523</td>
+                                    <td>北一号库</td>
+                                    <td>6</td>
+                                    <td>5</td>
+                                    <td>1</td>
+                                </tr>
+                                <tr class="gradeA">
+                                    <td>
+                                        <i class="fa fa-square"
+                                           style="color: sandybrown;font-size:20px">
+                                        </i>
+                                    </td>
+                                    <td>烟火传感器</td>
+                                    <td>YH-3256</td>
+                                    <td>北一号库</td>
+                                    <td>4</td>
+                                    <td>5</td>
+                                    <td>-1</td>
+                                </tr>
+                                </tbody>
+
+                            </table>
+                        </div>
+                    </div>
+                    <!-- END 表格展现层 -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- 中间主要内容 结束  -->
+    <!--底部-->
+    <footer class="site-footer">
+        <div class="text-center">
+            Copyright 2017 北京安诺信科技股份有限公司 苏ICP备12039945号-1
+            <a href="#" class="go-top">
+                <i class="fa fa-angle-up">
+                </i>
+            </a>
+        </div>
+    </footer>
+    <!--底部结束-->
+</section>
+<!-- 页面外围总父盒子 结束 -->
+
+<!-- JS引入 不要换位置 -->
+<script language="javascript" src="../lib/assets/advanced-datatable/media/js/jquery.js"></script>
+<script src="../lib/js/bootstrap.min.js"></script>
+<script src="../lib/js/jquery.dcjqaccordion.2.7.js"></script><!--  left栏的js -->
+<script src="../lib/js/jquery.nicescroll.js"></script><!-- 美化页面内嵌的滚动条 -->
+<script src="../lib/js/respond.min.js"></script><!-- 解决ie9以下的部分兼容性js -->
+<script src="../lib/js/common-scripts.js"></script><!-- left栏的js -->
+<!--data table-->
+<script language="javascript" src="../lib/assets/advanced-datatable/media/js/jquery.dataTables.js"></script>
+<script src="../lib/assets/data-tables/DT_bootstrap.js"></script>
+
+<!-- 时间插件 -->
+<script src="../lib/js/jquery.nicescroll.js"></script><!-- NICESCROLL JS  -->
+<script src="../lib/assets/bootstrap-datepicker-master/js/bootstrap-datepicker.min.js"></script>
+<script src="../lib/assets/bootstrap-datepicker-master/locales/bootstrap-datepicker.zh-CN.min.js"></script>
+<script src="../lib/assets/Echarts/echarts.js"></script><!-- 图标js  -->
+
+<!-- END JS -->
+
+<script>
+    $(function () {
+        $('#example').dataTable({
+            "aaSorting": [[2, "desc"]],//从第0列开始，以第4列倒序排列
+            "aLengthMenu": [
+                [10, 20, 30, -1],
+                [10, 20, 30, "所有"]
+            ],//查询数据条数
+            "iDisplayLength": 10, //默认5
+            "oLanguage": {
+                "sLengthMenu": "每页显示 _MENU_ 条记录",
+                "sZeroRecords": "抱歉， 没有找到",
+                "sInfo": "从 _START_ 到 _END_ /共 _TOTAL_ 条数据",
+                "sInfoEmpty": "没有数据",
+                "sInfoFiltered": "(从 _MAX_ 条数据中检索)",
+                "oPaginate": {
+                    "sFirst": "首页",
+                    "sPrevious": "前一页",
+                    "sNext": "后一页",
+                    "sLast": "尾页"
+                },
+            },
+        });
+        // 柱状图 js
+        var dom = document.getElementById("LowInventoryChart");
+        var myChart = echarts.init(dom);
+        var app = {};
+        option = null;
+        option = {
+            backgroundColor: '#eee',
+            legend: {
+                data: ['差值',],
+                align: 'left',
+            },
+            brush: {
+                toolbox: ['rect', 'polygon',],
+                xAxisIndex: 0
+            },
+            title: {
+                text: '低库存监控图表',
+                textStyle: {
+                    color: '#797979',
+                    fontStyle: 'normal',
+                    fontWeight: '300',
+                    fontFamily: 'Open Sans , sans-serif',
+                    fontSize: 13,
+                },
+            },
+            tooltip: {},
+            xAxis: {
+                name: '零库存',
+                data: ["副传动轴", "主传动轴", "主副轴连接件", "变流风机", "烟火传感器"],
+                scale: true,
+            },
+            yAxis: {
+                name: '数量(件)'
+            },
+            series: [
+                {
+                    name: '差值',
+                    type: 'bar',
+                    data: [-5, -3, 5, 1, -1],
+                    barWidth: 30,//柱图宽度
+
+                }
+            ],
+            itemStyle: {
+                normal: {
+                    color: 'lightskyblue'
+                }
+            }
+            // 根据数值改变颜色
+            /*itemStyle: {
+             normal: {
+             color: function (params) {
+             var index_color = params.value;
+             if (index_color > 4) {
+             return 'yellowgreen';
+             } else if (index_color < 4 && index_color > 0) {
+             return 'sandybrown';
+             } else if(index_color < 0){
+             return 'red';
+             }
+             }
+             }
+             },*/
+        };
+        if (option && typeof option === "object") {
+            myChart.setOption(option, true);
+        }
+    })
+</script>
+</body>
+</html>
+
+
